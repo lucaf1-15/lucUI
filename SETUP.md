@@ -31,7 +31,7 @@ git add .
 git commit -m "Initial release: lucUI CSS Framework v1.0.0"
 
 # Add remote (replace YOUR_USERNAME)
-git remote add origin https://github.com/YOUR_USERNAME/lucui.git
+git remote add origin https://github.com/lucaf1-15/lucui.git
 
 # Push to GitHub
 git push -u origin main
