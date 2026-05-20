@@ -9,9 +9,12 @@
     "lucCORE/",
     "lucCOMPONENTS/",
     "lucUTILITIES/",
+    "example.html",
     "README.md",
     "LICENSE",
-    "CONTRIBUTING.md"
+    "CONTRIBUTING.md",
+    "CHANGELOG.md",
+    "SETUP.md"
   ],
   "keywords": [
     "css",
