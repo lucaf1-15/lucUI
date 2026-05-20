@@ -1,0 +1,40 @@
+{
+  "name": "lucui-css-framework",
+  "version": "1.0.0",
+  "description": "Premium glass morphism CSS framework by luca.ecosystem",
+  "main": "lucUI.css",
+  "files": [
+    "lucUI.css",
+    "lucUI.min.css",
+    "lucCORE/",
+    "lucCOMPONENTS/",
+    "lucUTILITIES/",
+    "README.md",
+    "LICENSE",
+    "CONTRIBUTING.md"
+  ],
+  "keywords": [
+    "css",
+    "framework",
+    "glass-morphism",
+    "design-system",
+    "ui",
+    "lucui",
+    "luca-ecosystem",
+    "transparency",
+    "glass"
+  ],
+  "author": "luca.ecosystem",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/luca-ecosystem/lucui"
+  },
+  "bugs": {
+    "url": "https://github.com/luca-ecosystem/lucui/issues"
+  },
+  "homepage": "https://luca.ecosystem",
+  "scripts": {
+    "build": "echo 'No build step required - lucUI is dependency-free plain CSS'"
+  }
+}

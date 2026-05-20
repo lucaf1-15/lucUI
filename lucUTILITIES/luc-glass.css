@@ -1,0 +1,151 @@
+/* ============================================================
+   lucUI — Glass Morphism Utilities
+   ============================================================ */
+
+/* Base Glass Utility */
+.luc-glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(24px) saturate(180%) brightness(1.05);
+    -webkit-backdrop-filter: blur(24px) saturate(180%) brightness(1.05);
+    border: 1px solid var(--glass-edge);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md), inset 0 1px 0 var(--glass-shine);
+}
+
+/* Specular Edge */
+.luc-glass::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg,
+        rgba(255,255,255,0.55) 0%,
+        rgba(255,255,255,0.20) 40%,
+        rgba(255,255,255,0.05) 70%,
+        transparent 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Glass Variants */
+
+/* Light Glass */
+.luc-glass-light {
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(16px) saturate(150%);
+    -webkit-backdrop-filter: blur(16px) saturate(150%);
+    border: 1px solid rgba(255,255,255,0.15);
+}
+
+/* Dark Glass */
+.luc-glass-dark {
+    background: rgba(8,18,32,0.6);
+    backdrop-filter: blur(32px) saturate(200%);
+    -webkit-backdrop-filter: blur(32px) saturate(200%);
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* Navy Glass */
+.luc-glass-navy {
+    background: rgba(29,45,68,0.5);
+    backdrop-filter: blur(20px) saturate(160%);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    border: 1px solid rgba(174,157,93,0.12);
+}
+
+/* Gold Glass */
+.luc-glass-gold {
+    background: rgba(174,157,93,0.08);
+    backdrop-filter: blur(20px) saturate(160%);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    border: 1px solid rgba(174,157,93,0.2);
+}
+
+/* Glass Transparency (Enhanced) */
+.luc-glass-transparency {
+    background: linear-gradient(145deg, rgba(36, 59, 85, 0.55) 0%, rgba(29, 45, 68, 0.35) 100%);
+    border: 1px solid rgba(174, 157, 93, 0.12);
+    border-radius: 32px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(30px) saturate(160%);
+    -webkit-backdrop-filter: blur(30px) saturate(160%);
+}
+
+/* Glass Blur Intensity */
+.luc-blur-sm {
+    backdrop-filter: blur(8px) saturate(140%);
+    -webkit-backdrop-filter: blur(8px) saturate(140%);
+}
+
+.luc-blur-md {
+    backdrop-filter: blur(16px) saturate(160%);
+    -webkit-backdrop-filter: blur(16px) saturate(160%);
+}
+
+.luc-blur-lg {
+    backdrop-filter: blur(32px) saturate(180%);
+    -webkit-backdrop-filter: blur(32px) saturate(180%);
+}
+
+.luc-blur-xl {
+    backdrop-filter: blur(48px) saturate(200%);
+    -webkit-backdrop-filter: blur(48px) saturate(200%);
+}
+
+/* Glass Border Radius */
+.luc-glass-rounded-sm {
+    border-radius: var(--radius-sm);
+}
+
+.luc-glass-rounded-md {
+    border-radius: var(--radius-md);
+}
+
+.luc-glass-rounded-lg {
+    border-radius: var(--radius-lg);
+}
+
+.luc-glass-rounded-xl {
+    border-radius: var(--radius-xl);
+}
+
+.luc-glass-rounded-full {
+    border-radius: var(--radius-full);
+}
+
+/* Glass Hover Effects */
+.luc-glass-hover:hover {
+    background: var(--glass-hover);
+    border-color: rgba(174,157,93,0.30);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg), inset 0 1px 0 rgba(255,255,255,0.10);
+}
+
+/* Glass Shine Effect */
+.luc-glass-shine {
+    position: relative;
+    overflow: hidden;
+}
+
+.luc-glass-shine::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transform: skewX(-25deg);
+    transition: all 0.6s ease;
+}
+
+.luc-glass-shine:hover::after {
+    left: 150%;
+}
+
+/* Glass Noise Texture */
+.luc-glass-noise {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+}

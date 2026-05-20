@@ -1,0 +1,71 @@
+/* ============================================================
+   lucUI — Base Styles
+   ============================================================ */
+
+/* Body Background - Matching luca.ecosystem gradient */
+body {
+    background: radial-gradient(ellipse 120% 60% at 50% 0%, #243b55 0%, #1D2D44 45%, #111e2e 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+/* Container */
+.luc-container {
+    width: 90%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 var(--space-4);
+}
+
+/* Section */
+.luc-section {
+    padding: var(--space-16) 0;
+}
+
+/* Grid System */
+.luc-grid {
+    display: grid;
+    gap: var(--space-6);
+}
+
+.luc-grid-cols-1 { grid-template-columns: repeat(1, 1fr); }
+.luc-grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+.luc-grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+.luc-grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+.luc-grid-cols-auto { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+
+/* Flexbox Utilities */
+.luc-flex { display: flex; }
+.luc-flex-col { flex-direction: column; }
+.luc-flex-row { flex-direction: row; }
+.luc-items-center { align-items: center; }
+.luc-items-start { align-items: flex-start; }
+.luc-items-end { align-items: flex-end; }
+.luc-justify-center { justify-content: center; }
+.luc-justify-between { justify-content: space-between; }
+.luc-justify-start { justify-content: flex-start; }
+.luc-justify-end { justify-content: flex-end; }
+.luc-gap-2 { gap: var(--space-2); }
+.luc-gap-4 { gap: var(--space-4); }
+.luc-gap-6 { gap: var(--space-6); }
+.luc-gap-8 { gap: var(--space-8); }
+
+/* Responsive Utilities */
+@media (max-width: 1024px) {
+    .luc-grid-cols-4,
+    .luc-grid-cols-3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .luc-grid-cols-2,
+    .luc-grid-cols-3,
+    .luc-grid-cols-4 {
+        grid-template-columns: 1fr;
+    }
+    
+    .luc-container {
+        padding: 0 var(--space-3);
+    }
+}

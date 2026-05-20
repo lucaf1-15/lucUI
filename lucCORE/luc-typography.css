@@ -1,0 +1,83 @@
+/* ============================================================
+   lucUI — Typography System
+   ============================================================ */
+
+/* Brand Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=Raleway:wght@400;500;600&family=Montserrat:ital,wght@1,300;1,400&display=swap');
+
+/* Typography Base */
+body {
+    font-family: var(--font-body);
+    font-weight: var(--weight-body);
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+/* Display Typography (Playfair Display Black) */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: var(--weight-display);
+    color: var(--studio-gold);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+h1 { font-size: var(--text-5xl); }
+h2 { font-size: var(--text-4xl); }
+h3 { font-size: var(--text-3xl); }
+h4 { font-size: var(--text-2xl); }
+h5 { font-size: var(--text-xl); }
+h6 { font-size: var(--text-lg); }
+
+/* Body Typography (Raleway Medium) */
+p {
+    font-size: var(--text-base);
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+/* Italic Typography (Montserrat Light Italic) */
+.luc-italic {
+    font-family: var(--font-italic);
+    font-weight: var(--weight-italic);
+    font-style: italic;
+}
+
+/* Text Utilities */
+.luc-text-xs { font-size: var(--text-xs); }
+.luc-text-sm { font-size: var(--text-sm); }
+.luc-text-base { font-size: var(--text-base); }
+.luc-text-lg { font-size: var(--text-lg); }
+.luc-text-xl { font-size: var(--text-xl); }
+.luc-text-2xl { font-size: var(--text-2xl); }
+.luc-text-3xl { font-size: var(--text-3xl); }
+.luc-text-4xl { font-size: var(--text-4xl); }
+.luc-text-5xl { font-size: var(--text-5xl); }
+
+/* Text Colors */
+.luc-text-navy { color: var(--luca-navy); }
+.luc-text-gold { color: var(--studio-gold); }
+.luc-text-azure { color: var(--designer-azure); }
+.luc-text-tangerine { color: var(--luca-tangerine); }
+.luc-text-viridian { color: var(--bold-viridian); }
+.luc-text-muted { color: var(--text-muted); }
+
+/* Font Weights */
+.luc-font-display { font-family: var(--font-display); font-weight: var(--weight-display); }
+.luc-font-body { font-family: var(--font-body); font-weight: var(--weight-body); }
+.luc-font-italic { font-family: var(--font-italic); font-weight: var(--weight-italic); font-style: italic; }
+
+/* Text Alignment */
+.luc-text-left { text-align: left; }
+.luc-text-center { text-align: center; }
+.luc-text-right { text-align: right; }
+
+/* Text Transform */
+.luc-uppercase { text-transform: uppercase; letter-spacing: 0.1em; }
+.luc-lowercase { text-transform: lowercase; }
+.luc-capitalize { text-transform: capitalize; }
+
+/* Line Height */
+.luc-leading-tight { line-height: 1.2; }
+.luc-leading-normal { line-height: 1.6; }
+.luc-leading-loose { line-height: 2; }

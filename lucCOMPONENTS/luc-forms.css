@@ -1,0 +1,183 @@
+/* ============================================================
+   lucUI — Form Components
+   ============================================================ */
+
+/* Base Form Styles */
+.luc-form-group {
+    margin-bottom: var(--space-4);
+}
+
+.luc-label {
+    display: block;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--text-light);
+    margin-bottom: var(--space-2);
+    font-family: var(--font-body);
+}
+
+.luc-input,
+.luc-textarea,
+.luc-select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+    font-family: var(--font-body);
+    color: var(--text-light);
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px) saturate(170%);
+    -webkit-backdrop-filter: blur(20px) saturate(170%);
+    border: 1px solid var(--glass-edge);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm), inset 0 1px 0 var(--glass-shine);
+    transition: all var(--transition-base) var(--ease-snappy);
+}
+
+.luc-input:focus,
+.luc-textarea:focus,
+.luc-select:focus {
+    outline: none;
+    border-color: var(--studio-gold);
+    box-shadow: 0 0 0 3px rgba(174,157,93,0.2), var(--shadow-md);
+    background: var(--glass-hover);
+}
+
+.luc-input::placeholder,
+.luc-textarea::placeholder {
+    color: var(--text-muted);
+}
+
+.luc-textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.luc-select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23AE9D5D' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1rem;
+    padding-right: 2.5rem;
+}
+
+/* Checkbox */
+.luc-checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.luc-checkbox {
+    width: 1.25rem;
+    height: 1.25rem;
+    appearance: none;
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px) saturate(170%);
+    -webkit-backdrop-filter: blur(20px) saturate(170%);
+    border: 1px solid var(--glass-edge);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all var(--transition-base) var(--ease-snappy);
+    position: relative;
+}
+
+.luc-checkbox:checked {
+    background: var(--studio-gold);
+    border-color: var(--studio-gold);
+}
+
+.luc-checkbox:checked::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 0.875rem;
+    font-weight: bold;
+}
+
+.luc-checkbox:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(174,157,93,0.2);
+}
+
+/* Radio Button */
+.luc-radio-group {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.luc-radio {
+    width: 1.25rem;
+    height: 1.25rem;
+    appearance: none;
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px) saturate(170%);
+    -webkit-backdrop-filter: blur(20px) saturate(170%);
+    border: 1px solid var(--glass-edge);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all var(--transition-base) var(--ease-snappy);
+    position: relative;
+}
+
+.luc-radio:checked {
+    background: var(--studio-gold);
+    border-color: var(--studio-gold);
+}
+
+.luc-radio:checked::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0.5rem;
+    height: 0.5rem;
+    background: #fff;
+    border-radius: 50%;
+}
+
+.luc-radio:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(174,157,93,0.2);
+}
+
+/* Form States */
+.luc-input:disabled,
+.luc-textarea:disabled,
+.luc-select:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.luc-input.error,
+.luc-textarea.error,
+.luc-select.error {
+    border-color: #ff5f56;
+}
+
+.luc-input.success,
+.luc-textarea.success,
+.luc-select.success {
+    border-color: #27c93f;
+}
+
+/* Helper Text */
+.luc-helper-text {
+    font-size: var(--text-xs);
+    color: var(--text-muted);
+    margin-top: var(--space-1);
+}
+
+.luc-helper-text.error {
+    color: #ff5f56;
+}
+
+.luc-helper-text.success {
+    color: #27c93f;
+}

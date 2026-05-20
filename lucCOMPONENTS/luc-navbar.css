@@ -1,0 +1,160 @@
+/* ============================================================
+   lucUI — Navbar Component
+   ============================================================ */
+
+/* Base Navbar */
+.luc-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(8,18,32,0.32);
+    backdrop-filter: blur(32px) saturate(220%) brightness(1.15);
+    -webkit-backdrop-filter: blur(32px) saturate(220%) brightness(1.15);
+    border-bottom: 1px solid rgba(174, 157, 93, 0.2);
+    box-shadow: var(--shadow-md),
+                inset 1px 0 0 rgba(255,255,255,0.08),
+                inset 0 1px 0 rgba(255,255,255,0.10);
+    z-index: var(--z-fixed);
+    height: 90px;
+    display: flex;
+    align-items: center;
+    transition: padding var(--transition-base) var(--ease-snappy), 
+                background var(--transition-base) var(--ease-snappy), 
+                box-shadow var(--transition-base) var(--ease-snappy);
+}
+
+.luc-navbar.scrolled {
+    padding-top: 0.65rem;
+    padding-bottom: 0.65rem;
+    background: rgba(6,14,26,0.55);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Navbar Container */
+.luc-navbar-container {
+    width: 90%;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Brand Logo */
+.luc-navbar-brand {
+    height: 80px;
+    width: auto;
+    filter: drop-shadow(0 4px 10px rgba(174, 157, 93, 0.2));
+    transition: filter var(--transition-base) var(--ease-smooth);
+}
+
+.luc-navbar-brand:hover {
+    filter: drop-shadow(0 6px 15px rgba(174, 157, 93, 0.3));
+}
+
+/* Navbar Links */
+.luc-navbar-links {
+    display: flex;
+    gap: var(--space-2);
+}
+
+.luc-navbar-link {
+    color: rgba(224, 230, 237, 0.85);
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: none;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.3rem 0.6rem;
+    border-radius: 50px;
+    border: 1px solid rgba(255,255,255,0.13);
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+    transition: all var(--transition-base) var(--ease-snappy);
+    font-family: var(--font-body);
+}
+
+.luc-navbar-link:hover {
+    background: rgba(174,157,93,0.10);
+    border-color: rgba(174,157,93,0.38);
+    color: #fff;
+    box-shadow: 0 0 16px rgba(174,157,93,0.28), inset 0 1px 0 rgba(255,255,255,0.10);
+    transform: translateY(-1px);
+}
+
+.luc-navbar-link:active {
+    transform: translateY(1px);
+    background: rgba(174,157,93,0.08);
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.15);
+}
+
+.luc-navbar-link:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0,187,255,0.55), var(--shadow-md);
+    border-radius: var(--radius-full);
+}
+
+/* Navbar Accent */
+.luc-navbar-accent {
+    color: var(--studio-gold);
+    font-size: 0.7rem;
+    font-family: var(--font-display);
+    opacity: 0.8;
+}
+
+/* Mobile Menu Toggle */
+.luc-navbar-toggle {
+    display: none;
+    background: rgba(255,255,255,0.07);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 50%;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: all var(--transition-base) var(--ease-snappy);
+}
+
+.luc-navbar-toggle:hover {
+    background: rgba(174,157,93,0.18);
+    border-color: rgba(174,157,93,0.45);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .luc-navbar-links {
+        background: rgba(8,16,28,0.88);
+        backdrop-filter: blur(32px) saturate(200%);
+        -webkit-backdrop-filter: blur(32px) saturate(200%);
+        border-bottom: 1px solid var(--glass-edge);
+        border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        padding: var(--space-4);
+        gap: var(--space-3);
+        transform: translateY(-10px);
+        opacity: 0;
+        visibility: hidden;
+        transition: all var(--transition-base) var(--ease-snappy);
+    }
+    
+    .luc-navbar-links.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .luc-navbar-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

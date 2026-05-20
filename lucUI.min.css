@@ -1,0 +1,4 @@
+/* ============================================================
+   lucUI — Design System Framework (Minified)
+   ============================================================ */
+@import url('lucCORE/luc-variables.css');@import url('lucCORE/luc-reset.css');@import url('lucCORE/luc-typography.css');@import url('lucCORE/luc-base.css');@import url('lucCOMPONENTS/luc-buttons.css');@import url('lucCOMPONENTS/luc-cards.css');@import url('lucCOMPONENTS/luc-navbar.css');@import url('lucCOMPONENTS/luc-forms.css');@import url('lucCOMPONENTS/luc-modals.css');@import url('lucCOMPONENTS/luc-alerts.css');@import url('lucCOMPONENTS/luc-badges.css');@import url('lucUTILITIES/luc-glass.css');@import url('lucUTILITIES/luc-animations.css');@import url('lucUTILITIES/luc-spacing.css');@import url('lucUTILITIES/luc-layout.css');

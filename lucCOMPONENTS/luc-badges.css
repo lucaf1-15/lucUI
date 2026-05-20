@@ -1,0 +1,155 @@
+/* ============================================================
+   lucUI — Badge Components
+   ============================================================ */
+
+/* Base Badge */
+.luc-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.75rem;
+    font-size: var(--text-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: var(--radius-full);
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-edge);
+    color: var(--text-light);
+    transition: all var(--transition-base) var(--ease-snappy);
+}
+
+/* Badge Variants */
+
+/* Gold Badge */
+.luc-badge-gold {
+    background: rgba(174,157,93,0.12);
+    border-color: rgba(174,157,93,0.30);
+    color: var(--studio-gold);
+}
+
+.luc-badge-gold:hover {
+    background: rgba(174,157,93,0.18);
+    border-color: rgba(174,157,93,0.50);
+    transform: translateY(-1px);
+}
+
+/* Azure Badge (luca.designss) */
+.luc-badge-azure {
+    background: rgba(0,187,255,0.12);
+    border-color: rgba(0,187,255,0.30);
+    color: var(--designer-azure);
+}
+
+.luc-badge-azure:hover {
+    background: rgba(0,187,255,0.18);
+    border-color: rgba(0,187,255,0.50);
+    transform: translateY(-1px);
+}
+
+/* Tangerine Badge (luca.softss) */
+.luc-badge-tangerine {
+    background: rgba(255,140,0,0.12);
+    border-color: rgba(255,140,0,0.30);
+    color: var(--luca-tangerine);
+}
+
+.luc-badge-tangerine:hover {
+    background: rgba(255,140,0,0.18);
+    border-color: rgba(255,140,0,0.50);
+    transform: translateY(-1px);
+}
+
+/* Viridian Badge (lucAI & luca.toolss) */
+.luc-badge-viridian {
+    background: rgba(0,255,0,0.12);
+    border-color: rgba(0,255,0,0.30);
+    color: var(--bold-viridian);
+}
+
+.luc-badge-viridian:hover {
+    background: rgba(0,255,0,0.18);
+    border-color: rgba(0,255,0,0.50);
+    transform: translateY(-1px);
+}
+
+/* Navy Badge */
+.luc-badge-navy {
+    background: rgba(29,45,68,0.8);
+    border-color: rgba(29,45,68,1);
+    color: #fff;
+}
+
+.luc-badge-navy:hover {
+    background: rgba(29,45,68,1);
+    transform: translateY(-1px);
+}
+
+/* Badge Sizes */
+.luc-badge-sm {
+    padding: 0.125rem 0.5rem;
+    font-size: 0.625rem;
+}
+
+.luc-badge-lg {
+    padding: 0.375rem 1rem;
+    font-size: var(--text-sm);
+}
+
+/* Badge with Dot */
+.luc-badge-dot {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.luc-badge-dot::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+}
+
+/* Pill Badge */
+.luc-badge-pill {
+    border-radius: var(--radius-full);
+}
+
+/* Square Badge */
+.luc-badge-square {
+    border-radius: var(--radius-sm);
+}
+
+/* Badge States */
+.luc-badge-outline {
+    background: transparent;
+    border: 1px solid currentColor;
+}
+
+.luc-badge-solid {
+    background: currentColor;
+    color: #fff;
+    border: none;
+}
+
+.luc-badge-solid.luc-badge-gold {
+    background: var(--studio-gold);
+}
+
+.luc-badge-solid.luc-badge-azure {
+    background: var(--designer-azure);
+}
+
+.luc-badge-solid.luc-badge-tangerine {
+    background: var(--luca-tangerine);
+}
+
+.luc-badge-solid.luc-badge-viridian {
+    background: var(--bold-viridian);
+}
+
+.luc-badge-solid.luc-badge-navy {
+    background: var(--luca-navy);
+}

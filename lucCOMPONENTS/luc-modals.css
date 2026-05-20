@@ -1,0 +1,151 @@
+/* ============================================================
+   lucUI — Modal Components
+   ============================================================ */
+
+/* Modal Backdrop */
+.luc-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.70);
+    backdrop-filter: blur(40px) saturate(180%);
+    -webkit-backdrop-filter: blur(40px) saturate(180%);
+    z-index: var(--z-modal-backdrop);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-4);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--transition-base) var(--ease-smooth),
+                visibility var(--transition-base) var(--ease-smooth);
+}
+
+.luc-modal-backdrop.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Modal */
+.luc-modal {
+    background: var(--glass-modal);
+    backdrop-filter: blur(48px) saturate(200%) brightness(1.08);
+    -webkit-backdrop-filter: blur(48px) saturate(200%) brightness(1.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 28px;
+    box-shadow: var(--shadow-xl), inset 0 1px 0 rgba(255,255,255,0.10);
+    position: relative;
+    overflow: hidden;
+    max-width: 600px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    transform: scale(0.95) translateY(20px);
+    transition: transform var(--transition-base) var(--ease-spring);
+}
+
+.luc-modal-backdrop.active .luc-modal {
+    transform: scale(1) translateY(0);
+}
+
+/* Specular Edge */
+.luc-modal::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.40) 30%, rgba(255,255,255,0.20) 70%, transparent);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Modal Header */
+.luc-modal-header {
+    padding: var(--space-6);
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.luc-modal-title {
+    font-size: var(--text-2xl);
+    color: #fff;
+    margin: 0;
+}
+
+/* Modal Close Button */
+.luc-modal-close {
+    background: rgba(255,255,255,0.07);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--transition-base) var(--ease-snappy);
+    color: var(--text-light);
+}
+
+.luc-modal-close:hover {
+    background: rgba(174,157,93,0.18);
+    border-color: rgba(174,157,93,0.45);
+    transform: rotate(90deg);
+    box-shadow: var(--shadow-md);
+}
+
+.luc-modal-close:active {
+    transform: rotate(90deg);
+    filter: brightness(0.90);
+}
+
+/* Modal Body */
+.luc-modal-body {
+    padding: var(--space-6);
+    position: relative;
+    z-index: 2;
+}
+
+/* Modal Footer */
+.luc-modal-footer {
+    padding: var(--space-6);
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--space-3);
+    position: relative;
+    z-index: 2;
+}
+
+/* Modal Sizes */
+.luc-modal-sm {
+    max-width: 400px;
+}
+
+.luc-modal-lg {
+    max-width: 800px;
+}
+
+.luc-modal-xl {
+    max-width: 1200px;
+}
+
+/* Modal Animation Variants */
+.luc-modal-backdrop.fade .luc-modal {
+    transform: scale(0.95) translateY(20px);
+}
+
+.luc-modal-backdrop.slide .luc-modal {
+    transform: translateY(-100%);
+}
+
+.luc-modal-backdrop.slide.active .luc-modal {
+    transform: translateY(0);
+}

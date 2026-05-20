@@ -1,0 +1,91 @@
+/* ============================================================
+   lucUI — Design System Variables
+   ============================================================ */
+
+:root {
+    /* Brand Colors */
+    --luca-navy: #1d2d44;        /* Backgrounds */
+    --studio-gold: #ae9d5d;      /* Secondary */
+    --designer-azure: #00bbff;   /* luca.designss accent */
+    --luca-tangerine: #ff8c00;   /* luca.softss accent */
+    --bold-viridian: #00ff00;    /* lucAI & luca.toolss accent */
+    
+    /* Extended Color Palette */
+    --card-bg: #243b55;
+    --text-light: #E0E6ED;
+    --text-muted: rgba(224, 230, 237, 0.7);
+    --border-color: rgba(174, 157, 93, 0.2);
+    
+    /* Brand Fonts */
+    --font-display: 'Playfair Display', serif;
+    --font-body: 'Raleway', sans-serif;
+    --font-italic: 'Montserrat', sans-serif;
+    
+    /* Font Weights */
+    --weight-display: 900;       /* Black */
+    --weight-body: 500;          /* Medium */
+    --weight-italic: 300;        /* Light Italic */
+    
+    /* Typography Scale */
+    --text-xs: 0.75rem;
+    --text-sm: 0.875rem;
+    --text-base: 1rem;
+    --text-lg: 1.125rem;
+    --text-xl: 1.25rem;
+    --text-2xl: 1.5rem;
+    --text-3xl: 1.875rem;
+    --text-4xl: 2.25rem;
+    --text-5xl: 3rem;
+    
+    /* Border Radius */
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-xl: 32px;
+    --radius-full: 9999px;
+    
+    /* Spacing Scale */
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-5: 1.25rem;
+    --space-6: 1.5rem;
+    --space-8: 2rem;
+    --space-10: 2.5rem;
+    --space-12: 3rem;
+    --space-16: 4rem;
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.25);
+    --shadow-md: 0 4px 16px rgba(0,0,0,0.30), 0 1px 4px rgba(0,0,0,0.20);
+    --shadow-lg: 0 8px 32px rgba(0,0,0,0.35), 0 3px 10px rgba(0,0,0,0.22), 0 1px 3px rgba(0,0,0,0.15);
+    --shadow-xl: 0 20px 60px rgba(0,0,0,0.45), 0 8px 24px rgba(0,0,0,0.28), 0 2px 6px rgba(0,0,0,0.18);
+    
+    /* Glass Effects */
+    --glass-bg: rgba(255,255,255,0.055);
+    --glass-hover: rgba(255,255,255,0.09);
+    --glass-nav: rgba(8,18,32,0.50);
+    --glass-modal: rgba(12,22,38,0.72);
+    --glass-edge: rgba(255,255,255,0.10);
+    --glass-shine: rgba(255,255,255,0.06);
+    
+    /* Animation Easing */
+    --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --ease-snappy: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Transitions */
+    --transition-fast: 0.2s;
+    --transition-base: 0.3s;
+    --transition-slow: 0.4s;
+    
+    /* Z-Index Scale */
+    --z-dropdown: 1000;
+    --z-sticky: 1020;
+    --z-fixed: 1030;
+    --z-modal-backdrop: 1040;
+    --z-modal: 1050;
+    --z-popover: 1060;
+    --z-tooltip: 1070;
+}

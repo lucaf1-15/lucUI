@@ -1,0 +1,188 @@
+/* ============================================================
+   lucUI — Alert Components
+   ============================================================ */
+
+/* Base Alert */
+.luc-alert {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px) saturate(170%);
+    -webkit-backdrop-filter: blur(20px) saturate(170%);
+    border: 1px solid var(--glass-edge);
+    border-radius: var(--radius-md);
+    padding: var(--space-4);
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    box-shadow: var(--shadow-sm), inset 0 1px 0 var(--glass-shine);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Specular Edge */
+.luc-alert::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg,
+        rgba(255,255,255,0.55) 0%,
+        rgba(255,255,255,0.20) 40%,
+        rgba(255,255,255,0.05) 70%,
+        transparent 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.luc-alert > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* Alert Icon */
+.luc-alert-icon {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Alert Content */
+.luc-alert-content {
+    flex: 1;
+}
+
+.luc-alert-title {
+    font-size: var(--text-base);
+    font-weight: 600;
+    color: var(--text-light);
+    margin-bottom: var(--space-1);
+}
+
+.luc-alert-message {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin: 0;
+}
+
+/* Alert Close Button */
+.luc-alert-close {
+    flex-shrink: 0;
+    background: rgba(255,255,255,0.07);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--transition-base) var(--ease-snappy);
+    color: var(--text-muted);
+}
+
+.luc-alert-close:hover {
+    background: rgba(255,255,255,0.12);
+    color: var(--text-light);
+}
+
+/* Alert Variants */
+
+/* Info (Azure) */
+.luc-alert-info {
+    border-color: rgba(0,187,255,0.3);
+    background: rgba(0,187,255,0.05);
+}
+
+.luc-alert-info .luc-alert-icon {
+    color: var(--designer-azure);
+}
+
+.luc-alert-info .luc-alert-title {
+    color: var(--designer-azure);
+}
+
+/* Success (Viridian) */
+.luc-alert-success {
+    border-color: rgba(0,255,0,0.3);
+    background: rgba(0,255,0,0.05);
+}
+
+.luc-alert-success .luc-alert-icon {
+    color: var(--bold-viridian);
+}
+
+.luc-alert-success .luc-alert-title {
+    color: var(--bold-viridian);
+}
+
+/* Warning (Tangerine) */
+.luc-alert-warning {
+    border-color: rgba(255,140,0,0.3);
+    background: rgba(255,140,0,0.05);
+}
+
+.luc-alert-warning .luc-alert-icon {
+    color: var(--luca-tangerine);
+}
+
+.luc-alert-warning .luc-alert-title {
+    color: var(--luca-tangerine);
+}
+
+/* Error (Red) */
+.luc-alert-error {
+    border-color: rgba(255,95,86,0.3);
+    background: rgba(255,95,86,0.05);
+}
+
+.luc-alert-error .luc-alert-icon {
+    color: #ff5f56;
+}
+
+.luc-alert-error .luc-alert-title {
+    color: #ff5f56;
+}
+
+/* Gold (Studio Gold) */
+.luc-alert-gold {
+    border-color: rgba(174,157,93,0.3);
+    background: rgba(174,157,93,0.05);
+}
+
+.luc-alert-gold .luc-alert-icon {
+    color: var(--studio-gold);
+}
+
+.luc-alert-gold .luc-alert-title {
+    color: var(--studio-gold);
+}
+
+/* Alert Sizes */
+.luc-alert-sm {
+    padding: var(--space-3);
+}
+
+.luc-alert-sm .luc-alert-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.luc-alert-lg {
+    padding: var(--space-5);
+}
+
+.luc-alert-lg .luc-alert-icon {
+    width: 28px;
+    height: 28px;
+}
+
+/* Dismissible Alert */
+.luc-alert-dismissible {
+    padding-right: var(--space-12);
+}

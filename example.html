@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lucUI CSS Framework - Example</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=Raleway:wght@400;500;600&family=Montserrat:ital,wght@1,300;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="lucUI.css">
+    <style>
+        .example-section {
+            padding: 4rem 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="luc-navbar">
+        <div class="luc-navbar-container">
+            <div class="luc-navbar-brand">
+                <span class="luc-text-gold luc-font-display">lucUI</span>
+            </div>
+            <div class="luc-navbar-links">
+                <a href="#" class="luc-navbar-link">Home</a>
+                <a href="#" class="luc-navbar-link">Components</a>
+                <a href="#" class="luc-navbar-link">Docs</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="luc-container example-section">
+        <h1 class="luc-text-5xl luc-text-gold luc-text-center">lucUI CSS Framework</h1>
+        <p class="luc-text-lg luc-text-muted luc-text-center luc-mt-4">Premium glass morphism design system by luca.ecosystem</p>
+        <div class="luc-flex luc-justify-center luc-gap-4 luc-mt-6">
+            <button class="luc-btn luc-btn-primary">Get Started</button>
+            <button class="luc-btn luc-btn-transparency">Learn More</button>
+        </div>
+    </div>
+
+    <!-- Buttons Section -->
+    <div class="luc-container example-section">
+        <h2 class="luc-text-3xl luc-text-gold">Buttons</h2>
+        <div class="luc-grid luc-grid-cols-auto luc-gap-4 luc-mt-4">
+            <button class="luc-btn luc-btn-transparency">Transparency</button>
+            <button class="luc-btn luc-btn-primary">Primary (Gold)</button>
+            <button class="luc-btn luc-btn-azure">Azure</button>
+            <button class="luc-btn luc-btn-tangerine">Tangerine</button>
+            <button class="luc-btn luc-btn-viridian">Viridian</button>
+        </div>
+    </div>
+
+    <!-- Cards Section -->
+    <div class="luc-container example-section">
+        <h2 class="luc-text-3xl luc-text-gold">Cards</h2>
+        <div class="luc-grid luc-grid-cols-3 luc-gap-6 luc-mt-4">
+            <div class="luc-card">
+                <div class="luc-card-header">
+                    <h3 class="luc-card-title">Glass Card</h3>
+                </div>
+                <div class="luc-card-body">
+                    <p class="luc-text-muted">Beautiful glass morphism effect with backdrop blur and specular highlights.</p>
+                </div>
+            </div>
+            <div class="luc-card-transparency">
+                <div class="luc-glow-spot center"></div>
+                <h3 class="luc-text-xl luc-text-gold">Transparency Card</h3>
+                <p class="luc-text-muted luc-mt-2">Enhanced transparency with glow spot effect and premium styling.</p>
+            </div>
+            <div class="luc-card">
+                <div class="luc-card-header">
+                    <h3 class="luc-card-title">Interactive Card</h3>
+                </div>
+                <div class="luc-card-body">
+                    <p class="luc-text-muted">Hover effects with smooth animations and shadow transitions.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Alerts Section -->
+    <div class="luc-container example-section">
+        <h2 class="luc-text-3xl luc-text-gold">Alerts</h2>
+        <div class="luc-flex luc-flex-col luc-gap-4 luc-mt-4">
+            <div class="luc-alert luc-alert-info">
+                <div class="luc-alert-icon">ℹ</div>
+                <div class="luc-alert-content">
+                    <div class="luc-alert-title">Information</div>
+                    <p class="luc-alert-message">This is an info alert with Designer's Azure accent.</p>
+                </div>
+            </div>
+            <div class="luc-alert luc-alert-success">
+                <div class="luc-alert-icon">✓</div>
+                <div class="luc-alert-content">
+                    <div class="luc-alert-title">Success</div>
+                    <p class="luc-alert-message">Operation completed successfully with Bold Viridian accent.</p>
+                </div>
+            </div>
+            <div class="luc-alert luc-alert-warning">
+                <div class="luc-alert-icon">⚠</div>
+                <div class="luc-alert-content">
+                    <div class="luc-alert-title">Warning</div>
+                    <p class="luc-alert-message">Please review this warning with Luca Tangerine accent.</p>
+                </div>
+            </div>
+            <div class="luc-alert luc-alert-error">
+                <div class="luc-alert-icon">✕</div>
+                <div class="luc-alert-content">
+                    <div class="luc-alert-title">Error</div>
+                    <p class="luc-alert-message">Something went wrong with error styling.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Badges Section -->
+    <div class="luc-container example-section">
+        <h2 class="luc-text-3xl luc-text-gold">Badges</h2>
+        <div class="luc-flex luc-gap-3 luc-mt-4">
+            <span class="luc-badge luc-badge-gold">Gold</span>
+            <span class="luc-badge luc-badge-azure">Azure</span>
+            <span class="luc-badge luc-badge-tangerine">Tangerine</span>
+            <span class="luc-badge luc-badge-viridian">Viridian</span>
+            <span class="luc-badge luc-badge-navy">Navy</span>
+        </div>
+    </div>
+
+    <!-- Forms Section -->
+    <div class="luc-container example-section">
+        <h2 class="luc-text-3xl luc-text-gold">Forms</h2>
+        <div class="luc-card luc-mt-4">
+            <div class="luc-form-group">
+                <label class="luc-label">Email Address</label>
+                <input type="email" class="luc-input" placeholder="you@example.com">
+            </div>
+            <div class="luc-form-group">
+                <label class="luc-label">Message</label>
+                <textarea class="luc-textarea" placeholder="Your message..."></textarea>
+            </div>
+            <div class="luc-checkbox-group">
+                <input type="checkbox" class="luc-checkbox" id="agree">
+                <label for="agree" class="luc-text-sm">I agree to the terms</label>
+            </div>
+            <div class="luc-mt-4">
+                <button class="luc-btn luc-btn-primary">Submit</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="luc-container example-section">
+        <p class="luc-text-center luc-text-muted">
+            <span class="luc-italic">Built with collaboration between luca.designss and luca.softss</span>
+        </p>
+    </div>
+
+</body>
+</html>

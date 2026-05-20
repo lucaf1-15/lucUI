@@ -1,0 +1,146 @@
+/* ============================================================
+   lucUI — Button Components
+   ============================================================ */
+
+/* Base Button Styles */
+.luc-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem 2rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    transition: all var(--transition-base) var(--ease-smooth);
+    position: relative;
+    overflow: hidden;
+    text-transform: none;
+    letter-spacing: 0.01em;
+    font-family: var(--font-body);
+}
+
+/* Focus Styles */
+.luc-btn:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0,187,255,0.55), var(--shadow-md);
+    border-radius: var(--radius-full);
+}
+
+/* Transparency Button */
+.luc-btn-transparency {
+    border: 1px solid rgba(174, 157, 93, 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--studio-gold);
+}
+
+.luc-btn-transparency::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transform: skewX(-25deg);
+    transition: all 0.6s ease;
+}
+
+.luc-btn-transparency:hover::before {
+    left: 150%;
+}
+
+.luc-btn-transparency:hover {
+    background: rgba(174, 157, 93, 0.1);
+    box-shadow: 0 10px 30px rgba(174, 157, 93, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Primary Button (Gold) */
+.luc-btn-primary {
+    background: linear-gradient(155deg, #cbb96e 0%, #AE9D5D 45%, #8e7e42 100%);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: #fff;
+    box-shadow: var(--shadow-md), inset 0 1px 0 rgba(255,255,255,0.28), inset 0 -1px 0 rgba(0,0,0,0.15);
+}
+
+.luc-btn-primary::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(255,255,255,0.14) 0%, transparent 55%);
+    border-radius: inherit;
+    pointer-events: none;
+}
+
+.luc-btn-primary:hover {
+    background: linear-gradient(155deg, #22d6ff 0%, #00BBFF 45%, #0099cc 100%);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg), 0 0 28px rgba(0,187,255,0.35), inset 0 1px 0 rgba(255,255,255,0.25);
+}
+
+.luc-btn-primary:active {
+    transform: translateY(2px);
+    box-shadow: var(--shadow-sm), inset 0 3px 8px rgba(0,0,0,0.30);
+    filter: brightness(0.92);
+}
+
+/* Azure Button (luca.designss) */
+.luc-btn-azure {
+    background: linear-gradient(155deg, #22d6ff 0%, #00BBFF 45%, #0099cc 100%);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: #fff;
+    box-shadow: var(--shadow-md), inset 0 1px 0 rgba(255,255,255,0.28), inset 0 -1px 0 rgba(0,0,0,0.15);
+}
+
+.luc-btn-azure:hover {
+    background: linear-gradient(155deg, #cbb96e 0%, #AE9D5D 45%, #8e7e42 100%);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg), 0 0 28px rgba(174,157,93,0.35), inset 0 1px 0 rgba(255,255,255,0.25);
+}
+
+/* Tangerine Button (luca.softss) */
+.luc-btn-tangerine {
+    background: linear-gradient(155deg, #ffaa33 0%, #ff8c00 45%, #cc7000 100%);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: #fff;
+    box-shadow: var(--shadow-md), inset 0 1px 0 rgba(255,255,255,0.28), inset 0 -1px 0 rgba(0,0,0,0.15);
+}
+
+.luc-btn-tangerine:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg), 0 0 28px rgba(255,140,0,0.35), inset 0 1px 0 rgba(255,255,255,0.25);
+}
+
+/* Viridian Button (lucAI & luca.toolss) */
+.luc-btn-viridian {
+    background: linear-gradient(155deg, #33ff33 0%, #00ff00 45%, #00cc00 100%);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: #1d2d44;
+    box-shadow: var(--shadow-md), inset 0 1px 0 rgba(255,255,255,0.28), inset 0 -1px 0 rgba(0,0,0,0.15);
+}
+
+.luc-btn-viridian:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg), 0 0 28px rgba(0,255,0,0.35), inset 0 1px 0 rgba(255,255,255,0.25);
+}
+
+/* Button Sizes */
+.luc-btn-sm {
+    padding: 0.5rem 1.5rem;
+    font-size: 0.8rem;
+}
+
+.luc-btn-lg {
+    padding: 1rem 2.5rem;
+    font-size: 1rem;
+}
+
+/* Button States */
+.luc-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}

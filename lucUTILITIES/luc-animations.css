@@ -1,0 +1,214 @@
+/* ============================================================
+   lucUI — Animation Utilities
+   ============================================================ */
+
+/* Reveal Animation */
+.luc-reveal {
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+    transition: opacity 0.55s var(--ease-snappy), transform 0.55s var(--ease-spring);
+}
+
+.luc-reveal.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Reveal Variants */
+.luc-reveal-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.55s var(--ease-snappy), transform 0.55s var(--ease-spring);
+}
+
+.luc-reveal-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.luc-reveal-down {
+    opacity: 0;
+    transform: translateY(-30px);
+    transition: opacity 0.55s var(--ease-snappy), transform 0.55s var(--ease-spring);
+}
+
+.luc-reveal-down.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.luc-reveal-left {
+    opacity: 0;
+    transform: translateX(30px);
+    transition: opacity 0.55s var(--ease-snappy), transform 0.55s var(--ease-spring);
+}
+
+.luc-reveal-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.luc-reveal-right {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: opacity 0.55s var(--ease-snappy), transform 0.55s var(--ease-spring);
+}
+
+.luc-reveal-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.luc-reveal-scale {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.55s var(--ease-snappy), transform 0.55s var(--ease-spring);
+}
+
+.luc-reveal-scale.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Fade Animation */
+.luc-fade-in {
+    opacity: 0;
+    transition: opacity var(--transition-base) var(--ease-smooth);
+}
+
+.luc-fade-in.visible {
+    opacity: 1;
+}
+
+.luc-fade-out {
+    opacity: 1;
+    transition: opacity var(--transition-base) var(--ease-smooth);
+}
+
+.luc-fade-out.visible {
+    opacity: 0;
+}
+
+/* Slide Animation */
+.luc-slide-up {
+    transform: translateY(100%);
+    transition: transform var(--transition-slow) var(--ease-spring);
+}
+
+.luc-slide-up.visible {
+    transform: translateY(0);
+}
+
+.luc-slide-down {
+    transform: translateY(-100%);
+    transition: transform var(--transition-slow) var(--ease-spring);
+}
+
+.luc-slide-down.visible {
+    transform: translateY(0);
+}
+
+/* Hover Animations */
+.luc-hover-lift {
+    transition: transform var(--transition-base) var(--ease-spring);
+}
+
+.luc-hover-lift:hover {
+    transform: translateY(-8px);
+}
+
+.luc-hover-scale {
+    transition: transform var(--transition-base) var(--ease-spring);
+}
+
+.luc-hover-scale:hover {
+    transform: scale(1.05);
+}
+
+.luc-hover-glow {
+    transition: box-shadow var(--transition-base) var(--ease-smooth);
+}
+
+.luc-hover-glow:hover {
+    box-shadow: 0 0 30px rgba(174,157,93,0.3);
+}
+
+/* Pulse Animation */
+@keyframes luc-pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.luc-pulse {
+    animation: luc-pulse 2s ease-in-out infinite;
+}
+
+/* Spin Animation */
+@keyframes luc-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.luc-spin {
+    animation: luc-spin 1s linear infinite;
+}
+
+/* Bounce Animation */
+@keyframes luc-bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.luc-bounce {
+    animation: luc-bounce 1s ease-in-out infinite;
+}
+
+/* Shake Animation */
+@keyframes luc-shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-5px);
+    }
+    75% {
+        transform: translateX(5px);
+    }
+}
+
+.luc-shake {
+    animation: luc-shake 0.5s ease-in-out;
+}
+
+/* Animation Delays */
+.luc-delay-100 { animation-delay: 100ms; }
+.luc-delay-200 { animation-delay: 200ms; }
+.luc-delay-300 { animation-delay: 300ms; }
+.luc-delay-400 { animation-delay: 400ms; }
+.luc-delay-500 { animation-delay: 500ms; }
+
+/* Animation Durations */
+.luc-duration-fast { animation-duration: 0.2s; }
+.luc-duration-base { animation-duration: 0.3s; }
+.luc-duration-slow { animation-duration: 0.4s; }
+.luc-duration-slower { animation-duration: 0.6s; }
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.2s !important;
+    }
+}
