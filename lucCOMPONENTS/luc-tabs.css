@@ -1,0 +1,170 @@
+/* ============================================================
+   lucUI — Tabs Component
+   ============================================================ */
+
+/* Tab Container */
+.luc-tabs {
+    width: 100%;
+}
+
+/* Tab List */
+.luc-tab-list {
+    display: flex;
+    gap: var(--space-1);
+    border-bottom: 1px solid var(--glass-edge);
+    padding-bottom: 0;
+    margin-bottom: var(--space-6);
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.luc-tab-list::-webkit-scrollbar {
+    display: none;
+}
+
+/* Tab Button */
+.luc-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.6rem 1.1rem;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    font-family: var(--font-body);
+    color: var(--text-muted);
+    border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+    border: 1px solid transparent;
+    border-bottom: none;
+    cursor: pointer;
+    transition: color var(--transition-fast) var(--ease-snappy),
+                background var(--transition-fast) var(--ease-snappy),
+                border-color var(--transition-fast) var(--ease-snappy);
+    background: transparent;
+    white-space: nowrap;
+    position: relative;
+    bottom: -1px;
+}
+
+.luc-tab:hover {
+    color: var(--text-light);
+    background: rgba(255,255,255,0.04);
+}
+
+.luc-tab:focus-visible {
+    outline: none;
+    box-shadow: inset 0 0 0 2px rgba(0,187,255,0.45);
+    border-radius: var(--radius-sm);
+}
+
+/* Active Tab */
+.luc-tab.active,
+.luc-tab[aria-selected="true"] {
+    color: var(--studio-gold);
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-color: var(--glass-edge);
+    border-bottom-color: transparent;
+}
+
+.luc-tab.active::after,
+.luc-tab[aria-selected="true"]::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--studio-gold), rgba(174,157,93,0.4));
+    border-radius: 2px 2px 0 0;
+}
+
+/* Tab Panel */
+.luc-tab-panel {
+    display: none;
+}
+
+.luc-tab-panel.active,
+.luc-tab-panel[aria-hidden="false"] {
+    display: block;
+    animation: luc-tab-fadein 0.25s var(--ease-smooth);
+}
+
+@keyframes luc-tab-fadein {
+    from {
+        opacity: 0;
+        transform: translateY(4px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Pill Tab Variant */
+.luc-tab-list-pill {
+    border-bottom: none;
+    background: rgba(255,255,255,0.04);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-edge);
+    border-radius: var(--radius-full);
+    padding: var(--space-1);
+    display: inline-flex;
+    gap: 0;
+    margin-bottom: var(--space-6);
+}
+
+.luc-tab-list-pill .luc-tab {
+    border-radius: var(--radius-full);
+    border: none;
+    bottom: 0;
+    padding: 0.45rem 1.1rem;
+}
+
+.luc-tab-list-pill .luc-tab.active,
+.luc-tab-list-pill .luc-tab[aria-selected="true"] {
+    background: rgba(174,157,93,0.15);
+    border: 1px solid rgba(174,157,93,0.30);
+    border-radius: var(--radius-full);
+}
+
+.luc-tab-list-pill .luc-tab.active::after,
+.luc-tab-list-pill .luc-tab[aria-selected="true"]::after {
+    display: none;
+}
+
+/* Underline Tab Variant */
+.luc-tab-list-underline {
+    border-bottom: 1px solid var(--glass-edge);
+    gap: var(--space-4);
+    padding-left: 0;
+}
+
+.luc-tab-list-underline .luc-tab {
+    border: none;
+    border-radius: 0;
+    padding: 0.6rem 0;
+    background: transparent;
+}
+
+.luc-tab-list-underline .luc-tab.active,
+.luc-tab-list-underline .luc-tab[aria-selected="true"] {
+    background: transparent;
+    border: none;
+    backdrop-filter: none;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .luc-tab {
+        padding: 0.5rem 0.75rem;
+        font-size: var(--text-xs);
+    }
+
+    .luc-tab-list-pill {
+        width: 100%;
+        justify-content: center;
+    }
+}

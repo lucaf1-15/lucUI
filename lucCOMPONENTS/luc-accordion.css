@@ -1,0 +1,152 @@
+/* ============================================================
+   lucUI — Accordion Component (CSS-only via details/summary)
+   ============================================================ */
+
+/* Accordion Wrapper */
+.luc-accordion {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+/* Accordion Item — shares glass surface with .luc-card */
+.luc-accordion-item {
+    background: var(--glass-bg);
+    backdrop-filter: blur(24px) saturate(180%) brightness(1.05);
+    -webkit-backdrop-filter: blur(24px) saturate(180%) brightness(1.05);
+    border: 1px solid var(--glass-edge);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm), inset 0 1px 0 var(--glass-shine);
+    overflow: hidden;
+    transition: border-color var(--transition-base) var(--ease-snappy),
+                box-shadow var(--transition-base) var(--ease-snappy);
+}
+
+.luc-accordion-item[open] {
+    border-color: rgba(174,157,93,0.28);
+    box-shadow: var(--shadow-md), inset 0 1px 0 rgba(255,255,255,0.08);
+}
+
+/* Accordion Summary / Trigger */
+.luc-accordion-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    padding: var(--space-4) var(--space-5);
+    font-size: var(--text-base);
+    font-weight: 600;
+    font-family: var(--font-body);
+    color: var(--text-light);
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+    transition: color var(--transition-fast) var(--ease-snappy),
+                background var(--transition-fast) var(--ease-snappy);
+    position: relative;
+}
+
+/* Remove default disclosure triangle */
+.luc-accordion-trigger::-webkit-details-marker {
+    display: none;
+}
+
+.luc-accordion-trigger::marker {
+    display: none;
+}
+
+.luc-accordion-trigger:hover {
+    color: #fff;
+    background: rgba(255,255,255,0.03);
+}
+
+.luc-accordion-trigger:focus-visible {
+    outline: none;
+    box-shadow: inset 0 0 0 2px rgba(0,187,255,0.45);
+}
+
+.luc-accordion-item[open] .luc-accordion-trigger {
+    color: var(--studio-gold);
+    border-bottom: 1px solid var(--glass-edge);
+}
+
+/* Chevron Icon */
+.luc-accordion-trigger::after {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(45deg) translateY(-2px);
+    flex-shrink: 0;
+    transition: transform var(--transition-base) var(--ease-snappy);
+    opacity: 0.7;
+}
+
+.luc-accordion-item[open] .luc-accordion-trigger::after {
+    transform: rotate(-135deg) translateY(-2px);
+}
+
+/* Accordion Body */
+.luc-accordion-body {
+    padding: var(--space-5);
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    line-height: 1.7;
+    animation: luc-accordion-open 0.25s var(--ease-snappy);
+}
+
+@keyframes luc-accordion-open {
+    from {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Flush Variant (no gaps, connected items) */
+.luc-accordion-flush {
+    gap: 0;
+}
+
+.luc-accordion-flush .luc-accordion-item {
+    border-radius: 0;
+    border-bottom: none;
+}
+
+.luc-accordion-flush .luc-accordion-item:first-child {
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+}
+
+.luc-accordion-flush .luc-accordion-item:last-child {
+    border-radius: 0 0 var(--radius-md) var(--radius-md);
+    border-bottom: 1px solid var(--glass-edge);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .luc-accordion-body {
+        animation: none;
+    }
+
+    .luc-accordion-trigger::after {
+        transition: none;
+    }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .luc-accordion-trigger {
+        padding: var(--space-3) var(--space-4);
+        font-size: var(--text-sm);
+    }
+
+    .luc-accordion-body {
+        padding: var(--space-4);
+    }
+}

@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="lucUI.css">
     <style>
         .example-section {
-            padding: 4rem 0;
+            padding: 6rem 0;
         }
     </style>
 </head>
@@ -36,46 +36,6 @@
         <div class="luc-flex luc-justify-center luc-gap-4 luc-mt-6">
             <button class="luc-btn luc-btn-primary">Get Started</button>
             <button class="luc-btn luc-btn-transparency">Learn More</button>
-        </div>
-    </div>
-
-    <!-- Buttons Section -->
-    <div class="luc-container example-section">
-        <h2 class="luc-text-3xl luc-text-gold">Buttons</h2>
-        <div class="luc-grid luc-grid-cols-auto luc-gap-4 luc-mt-4">
-            <button class="luc-btn luc-btn-transparency">Transparency</button>
-            <button class="luc-btn luc-btn-primary">Primary (Gold)</button>
-            <button class="luc-btn luc-btn-azure">Azure</button>
-            <button class="luc-btn luc-btn-tangerine">Tangerine</button>
-            <button class="luc-btn luc-btn-viridian">Viridian</button>
-        </div>
-    </div>
-
-    <!-- Cards Section -->
-    <div class="luc-container example-section">
-        <h2 class="luc-text-3xl luc-text-gold">Cards</h2>
-        <div class="luc-grid luc-grid-cols-3 luc-gap-6 luc-mt-4">
-            <div class="luc-card">
-                <div class="luc-card-header">
-                    <h3 class="luc-card-title">Glass Card</h3>
-                </div>
-                <div class="luc-card-body">
-                    <p class="luc-text-muted">Beautiful glass morphism effect with backdrop blur and specular highlights.</p>
-                </div>
-            </div>
-            <div class="luc-card-transparency">
-                <div class="luc-glow-spot center"></div>
-                <h3 class="luc-text-xl luc-text-gold">Transparency Card</h3>
-                <p class="luc-text-muted luc-mt-2">Enhanced transparency with glow spot effect and premium styling.</p>
-            </div>
-            <div class="luc-card">
-                <div class="luc-card-header">
-                    <h3 class="luc-card-title">Interactive Card</h3>
-                </div>
-                <div class="luc-card-body">
-                    <p class="luc-text-muted">Hover effects with smooth animations and shadow transitions.</p>
-                </div>
-            </div>
         </div>
     </div>
 
@@ -148,12 +108,363 @@
         </div>
     </div>
 
+    <!-- Buttons -->
+    <div class="luc-container example-section" id="components">
+        <h2 class="luc-text-3xl luc-text-gold">Buttons</h2>
+        <p class="luc-text-muted luc-mt-2">Five brand-colour variants plus size modifiers.</p>
+        <div class="luc-flex luc-flex-wrap luc-gap-4 luc-mt-6">
+            <button class="luc-btn luc-btn-transparency">Transparency</button>
+            <button class="luc-btn luc-btn-primary">Primary (Gold)</button>
+            <button class="luc-btn luc-btn-azure">Azure</button>
+            <button class="luc-btn luc-btn-tangerine">Tangerine</button>
+            <button class="luc-btn luc-btn-viridian">Viridian</button>
+        </div>
+        <div class="luc-flex luc-flex-wrap luc-gap-4 luc-mt-4">
+            <button class="luc-btn luc-btn-primary luc-btn-sm">Small</button>
+            <button class="luc-btn luc-btn-primary">Default</button>
+            <button class="luc-btn luc-btn-primary luc-btn-lg">Large</button>
+            <button class="luc-btn luc-btn-primary" disabled>Disabled</button>
+        </div>
+    </div>
+
+    <!-- Cards -->
+    <div class="luc-container example-section">
+        <h2 class="luc-text-3xl luc-text-gold">Cards</h2>
+        <div class="luc-grid luc-grid-cols-3 luc-gap-6 luc-mt-6">
+            <div class="luc-card">
+                <div class="luc-card-header">
+                    <h3 class="luc-card-title">Glass Card</h3>
+                    <p class="luc-card-subtitle">Default variant</p>
+                </div>
+                <div class="luc-card-body">
+                    <p class="luc-text-muted">Backdrop blur with specular highlights and hover lift.</p>
+                </div>
+                <div class="luc-card-footer">
+                    <button class="luc-btn luc-btn-transparency luc-btn-sm">Action</button>
+                </div>
+            </div>
+            <div class="luc-card-transparency">
+                <div class="luc-glow-spot center"></div>
+                <h3 class="luc-text-xl luc-text-gold">Transparency Card</h3>
+                <p class="luc-text-muted luc-mt-2">Enhanced transparency with glow spot and premium shadow.</p>
+            </div>
+            <div class="luc-card luc-card-sm">
+                <div class="luc-card-header">
+                    <h3 class="luc-card-title">Small Card</h3>
+                </div>
+                <div class="luc-card-body">
+                    <p class="luc-text-muted">Compact padding, tighter radius.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="luc-container example-section">
+        <h2 class="luc-text-3xl luc-text-gold">Tabs</h2>
+
+        <!-- Default border tabs -->
+        <div class="luc-tabs luc-mt-6">
+            <div class="luc-tab-list" role="tablist">
+                <button class="luc-tab active" role="tab" aria-selected="true" aria-controls="tab-panel-1" id="tab-1">Overview</button>
+                <button class="luc-tab" role="tab" aria-selected="false" aria-controls="tab-panel-2" id="tab-2">Features</button>
+                <button class="luc-tab" role="tab" aria-selected="false" aria-controls="tab-panel-3" id="tab-3">Code</button>
+            </div>
+            <div class="luc-tab-panel active" id="tab-panel-1" role="tabpanel" aria-labelledby="tab-1">
+                <div class="luc-card">
+                    <p class="luc-text-muted">This is the <strong style="color:var(--text-light)">Overview</strong> tab panel. Tabs support three visual styles: default border, pill, and underline.</p>
+                </div>
+            </div>
+            <div class="luc-tab-panel" id="tab-panel-2" role="tabpanel" aria-labelledby="tab-2">
+                <div class="luc-card">
+                    <p class="luc-text-muted">This is the <strong style="color:var(--text-light)">Features</strong> tab panel. Add <code style="color:var(--studio-gold)">active</code> class to show a panel.</p>
+                </div>
+            </div>
+            <div class="luc-tab-panel" id="tab-panel-3" role="tabpanel" aria-labelledby="tab-3">
+                <div class="luc-card">
+                    <p class="luc-text-muted">This is the <strong style="color:var(--text-light)">Code</strong> tab panel.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pill tabs -->
+        <div class="luc-mt-6">
+            <div class="luc-tab-list luc-tab-list-pill" role="tablist">
+                <button class="luc-tab active" role="tab" aria-selected="true">Design</button>
+                <button class="luc-tab" role="tab" aria-selected="false">Develop</button>
+                <button class="luc-tab" role="tab" aria-selected="false">Deploy</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Accordion -->
+    <div class="luc-container example-section">
+        <h2 class="luc-text-3xl luc-text-gold">Accordion</h2>
+        <p class="luc-text-muted luc-mt-2">CSS-only using native <code style="color:var(--studio-gold)">&lt;details&gt;</code> — no JavaScript required.</p>
+        <div class="luc-accordion luc-mt-6">
+            <details class="luc-accordion-item">
+                <summary class="luc-accordion-trigger">What is glass morphism?</summary>
+                <div class="luc-accordion-body">Glass morphism is a design trend using frosted-glass effects — translucent surfaces, backdrop blur, and subtle borders that create depth and layering without heavy drop shadows.</div>
+            </details>
+            <details class="luc-accordion-item" open>
+                <summary class="luc-accordion-trigger">Does lucUI require a build step?</summary>
+                <div class="luc-accordion-body">No. lucUI is plain CSS with CSS variables. Drop a single <code style="color:var(--studio-gold)">&lt;link&gt;</code> tag into your HTML and you're done. No Sass, no PostCSS, no bundler needed.</div>
+            </details>
+            <details class="luc-accordion-item">
+                <summary class="luc-accordion-trigger">How do I enable light mode?</summary>
+                <div class="luc-accordion-body">Add <code style="color:var(--studio-gold)">data-theme="light"</code> to your <code style="color:var(--studio-gold)">&lt;html&gt;</code> or <code style="color:var(--studio-gold)">&lt;body&gt;</code> element. lucUI also respects the OS <code style="color:var(--studio-gold)">prefers-color-scheme</code> media query automatically.</div>
+            </details>
+        </div>
+    </div>
+
+    <!-- Progress Bars -->
+    <div class="luc-container example-section">
+        <h2 class="luc-text-3xl luc-text-gold">Progress Bars</h2>
+        <div class="luc-card luc-mt-6" style="display:flex;flex-direction:column;gap:1.5rem;">
+            <div class="luc-progress-group">
+                <div class="luc-progress-label">
+                    <span class="luc-progress-label-text">Studio Gold</span>
+                    <span class="luc-progress-label-value">72%</span>
+                </div>
+                <div class="luc-progress"><div class="luc-progress-bar" style="width:72%"></div></div>
+            </div>
+            <div class="luc-progress-group">
+                <div class="luc-progress-label">
+                    <span class="luc-progress-label-text">Designer's Azure</span>
+                    <span class="luc-progress-label-value">55%</span>
+                </div>
+                <div class="luc-progress luc-progress-azure"><div class="luc-progress-bar" style="width:55%"></div></div>
+            </div>
+            <div class="luc-progress-group">
+                <div class="luc-progress-label">
+                    <span class="luc-progress-label-text">Luca Tangerine</span>
+                    <span class="luc-progress-label-value">40%</span>
+                </div>
+                <div class="luc-progress luc-progress-tangerine"><div class="luc-progress-bar" style="width:40%"></div></div>
+            </div>
+            <div class="luc-progress-group">
+                <div class="luc-progress-label">
+                    <span class="luc-progress-label-text">Bold Viridian</span>
+                    <span class="luc-progress-label-value">88%</span>
+                </div>
+                <div class="luc-progress luc-progress-viridian"><div class="luc-progress-bar" style="width:88%"></div></div>
+            </div>
+            <div class="luc-progress-group">
+                <div class="luc-progress-label">
+                    <span class="luc-progress-label-text">Indeterminate (loading)</span>
+                </div>
+                <div class="luc-progress luc-progress-indeterminate"><div class="luc-progress-bar" style="width:40%"></div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tooltips -->
+    <div class="luc-container example-section">
+        <h2 class="luc-text-3xl luc-text-gold">Tooltips</h2>
+        <p class="luc-text-muted luc-mt-2">CSS-only. Add <code style="color:var(--studio-gold)">data-tooltip="…"</code> to any <code style="color:var(--studio-gold)">.luc-tooltip</code> element.</p>
+        <div class="luc-flex luc-flex-wrap luc-gap-6 luc-mt-6" style="align-items:center;">
+            <span class="luc-tooltip" data-tooltip="Default tooltip (top)">
+                <button class="luc-btn luc-btn-transparency">Hover me (top)</button>
+            </span>
+            <span class="luc-tooltip luc-tooltip-bottom" data-tooltip="Tooltip on the bottom">
+                <button class="luc-btn luc-btn-transparency">Bottom</button>
+            </span>
+            <span class="luc-tooltip luc-tooltip-right" data-tooltip="Tooltip on the right">
+                <button class="luc-btn luc-btn-transparency">Right</button>
+            </span>
+            <span class="luc-tooltip luc-tooltip-gold" data-tooltip="Gold variant">
+                <button class="luc-btn luc-btn-primary">Gold</button>
+            </span>
+            <span class="luc-tooltip luc-tooltip-azure" data-tooltip="Azure variant">
+                <button class="luc-btn luc-btn-azure">Azure</button>
+            </span>
+        </div>
+    </div>
+
+    <!-- Dropdowns -->
+    <div class="luc-container example-section">
+        <h2 class="luc-text-3xl luc-text-gold">Dropdowns</h2>
+        <p class="luc-text-muted luc-mt-2">Toggle the <code style="color:var(--studio-gold)">open</code> class on <code style="color:var(--studio-gold)">.luc-dropdown</code> to show the menu.</p>
+        <div class="luc-flex luc-flex-wrap luc-gap-6 luc-mt-6">
+            <div class="luc-dropdown open">
+                <button class="luc-btn luc-btn-transparency luc-dropdown-toggle">Options</button>
+                <div class="luc-dropdown-menu">
+                    <div class="luc-dropdown-header">Account</div>
+                    <a href="#" class="luc-dropdown-item">Profile</a>
+                    <a href="#" class="luc-dropdown-item">Settings</a>
+                    <div class="luc-dropdown-divider"></div>
+                    <a href="#" class="luc-dropdown-item luc-dropdown-item-danger">Sign out</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Breadcrumbs -->
+    <div class="luc-container example-section">
+        <h2 class="luc-text-3xl luc-text-gold">Breadcrumbs</h2>
+        <div class="luc-flex luc-flex-col luc-gap-4 luc-mt-6">
+            <!-- Default -->
+            <nav class="luc-breadcrumb" aria-label="Breadcrumb">
+                <ol class="luc-breadcrumb-list">
+                    <li class="luc-breadcrumb-item"><a href="#" class="luc-breadcrumb-link">Home</a></li>
+                    <li class="luc-breadcrumb-item"><a href="#" class="luc-breadcrumb-link">Components</a></li>
+                    <li class="luc-breadcrumb-item active"><a href="#" class="luc-breadcrumb-link" aria-current="page">Breadcrumbs</a></li>
+                </ol>
+            </nav>
+            <!-- Glass variant -->
+            <nav class="luc-breadcrumb luc-breadcrumb-glass" aria-label="Breadcrumb glass">
+                <ol class="luc-breadcrumb-list">
+                    <li class="luc-breadcrumb-item"><a href="#" class="luc-breadcrumb-link">lucUI</a></li>
+                    <li class="luc-breadcrumb-item"><a href="#" class="luc-breadcrumb-link">Docs</a></li>
+                    <li class="luc-breadcrumb-item active"><a href="#" class="luc-breadcrumb-link" aria-current="page">Glass</a></li>
+                </ol>
+            </nav>
+            <!-- Chevron variant -->
+            <nav class="luc-breadcrumb luc-breadcrumb-chevron" aria-label="Breadcrumb chevron">
+                <ol class="luc-breadcrumb-list">
+                    <li class="luc-breadcrumb-item"><a href="#" class="luc-breadcrumb-link">Home</a></li>
+                    <li class="luc-breadcrumb-item"><a href="#" class="luc-breadcrumb-link">Library</a></li>
+                    <li class="luc-breadcrumb-item active"><a href="#" class="luc-breadcrumb-link" aria-current="page">Data</a></li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Skeleton Loaders -->
+    <div class="luc-container example-section">
+        <h2 class="luc-text-3xl luc-text-gold">Skeleton Loaders</h2>
+        <p class="luc-text-muted luc-mt-2">Shimmer placeholders for async content.</p>
+        <div class="luc-grid luc-grid-cols-3 luc-gap-6 luc-mt-6">
+            <!-- Card skeleton -->
+            <div class="luc-skeleton-card">
+                <div class="luc-skeleton-row luc-mb-4">
+                    <div class="luc-skeleton luc-skeleton-avatar"></div>
+                    <div style="flex:1;display:flex;flex-direction:column;gap:0.5rem;">
+                        <div class="luc-skeleton luc-skeleton-text" style="width:70%"></div>
+                        <div class="luc-skeleton luc-skeleton-text" style="width:45%"></div>
+                    </div>
+                </div>
+                <div class="luc-skeleton luc-skeleton-image luc-skeleton-image-sm"></div>
+                <div class="luc-skeleton-paragraph luc-mt-4">
+                    <div class="luc-skeleton luc-skeleton-text"></div>
+                    <div class="luc-skeleton luc-skeleton-text"></div>
+                    <div class="luc-skeleton luc-skeleton-text luc-skeleton-text-short"></div>
+                </div>
+            </div>
+            <!-- Text skeleton -->
+            <div class="luc-skeleton-card">
+                <div class="luc-skeleton luc-skeleton-heading" style="width:60%"></div>
+                <div class="luc-skeleton-paragraph">
+                    <div class="luc-skeleton luc-skeleton-text"></div>
+                    <div class="luc-skeleton luc-skeleton-text"></div>
+                    <div class="luc-skeleton luc-skeleton-text"></div>
+                    <div class="luc-skeleton luc-skeleton-text luc-skeleton-text-short"></div>
+                </div>
+                <div class="luc-flex luc-gap-3 luc-mt-4">
+                    <div class="luc-skeleton luc-skeleton-button"></div>
+                    <div class="luc-skeleton luc-skeleton-badge"></div>
+                </div>
+            </div>
+            <!-- Pulse variant -->
+            <div class="luc-skeleton-card">
+                <div class="luc-skeleton luc-skeleton-pulse luc-skeleton-image" style="height:140px"></div>
+                <div class="luc-skeleton-paragraph luc-mt-4">
+                    <div class="luc-skeleton luc-skeleton-pulse luc-skeleton-text"></div>
+                    <div class="luc-skeleton luc-skeleton-pulse luc-skeleton-text luc-skeleton-text-short"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toasts -->
+    <div class="luc-container example-section">
+        <h2 class="luc-text-3xl luc-text-gold">Toasts</h2>
+        <p class="luc-text-muted luc-mt-2">Static previews of all toast variants. In production, inject them into a <code style="color:var(--studio-gold)">.luc-toast-container</code>.</p>
+        <div class="luc-flex luc-flex-col luc-gap-3 luc-mt-6" style="max-width:400px;">
+            <div class="luc-toast luc-toast-success">
+                <div class="luc-toast-icon">✓</div>
+                <div class="luc-toast-content">
+                    <div class="luc-toast-title">Saved successfully</div>
+                    <p class="luc-toast-message">Your changes have been saved.</p>
+                </div>
+                <button class="luc-toast-close" aria-label="Close">✕</button>
+            </div>
+            <div class="luc-toast luc-toast-error">
+                <div class="luc-toast-icon">✕</div>
+                <div class="luc-toast-content">
+                    <div class="luc-toast-title">Something went wrong</div>
+                    <p class="luc-toast-message">Please try again later.</p>
+                </div>
+                <button class="luc-toast-close" aria-label="Close">✕</button>
+            </div>
+            <div class="luc-toast luc-toast-warning">
+                <div class="luc-toast-icon">⚠</div>
+                <div class="luc-toast-content">
+                    <div class="luc-toast-title">Session expiring</div>
+                    <p class="luc-toast-message">You'll be logged out in 5 minutes.</p>
+                </div>
+                <button class="luc-toast-close" aria-label="Close">✕</button>
+            </div>
+            <div class="luc-toast luc-toast-info">
+                <div class="luc-toast-icon">ℹ</div>
+                <div class="luc-toast-content">
+                    <div class="luc-toast-title">New update available</div>
+                    <p class="luc-toast-message">lucUI 2.0 is now live.</p>
+                </div>
+                <button class="luc-toast-close" aria-label="Close">✕</button>
+            </div>
+            <div class="luc-toast luc-toast-gold">
+                <div class="luc-toast-icon">★</div>
+                <div class="luc-toast-content">
+                    <div class="luc-toast-title">Premium feature unlocked</div>
+                    <p class="luc-toast-message">Welcome to luca.ecosystem.</p>
+                </div>
+                <button class="luc-toast-close" aria-label="Close">✕</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dividers -->
+    <div class="luc-container example-section">
+        <h2 class="luc-text-3xl luc-text-gold">Dividers</h2>
+        <div class="luc-card luc-mt-6">
+            <p class="luc-text-muted">Default divider below</p>
+            <hr class="luc-divider">
+            <p class="luc-text-muted">Gold divider below</p>
+            <hr class="luc-divider luc-divider-gold">
+            <div class="luc-divider-label">or continue with</div>
+            <p class="luc-text-muted">Content after a labelled divider</p>
+        </div>
+    </div>
+
     <!-- Footer -->
     <div class="luc-container example-section">
         <p class="luc-text-center luc-text-muted">
             <span class="luc-italic">Built with collaboration between luca.designss and luca.softss</span>
         </p>
     </div>
+
+    <script>
+        // Navbar scroll state
+        window.addEventListener('scroll', () => {
+            document.querySelector('.luc-navbar').classList.toggle('scrolled', window.scrollY > 20);
+        });
+
+        // Tabs
+        document.querySelectorAll('.luc-tab-list:not(.luc-tab-list-pill)').forEach(list => {
+            list.querySelectorAll('.luc-tab').forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const panel = document.getElementById(tab.getAttribute('aria-controls'));
+                    if (!panel) return;
+                    list.querySelectorAll('.luc-tab').forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
+                    list.closest('.luc-tabs').querySelectorAll('.luc-tab-panel').forEach(p => p.classList.remove('active'));
+                    tab.classList.add('active');
+                    tab.setAttribute('aria-selected', 'true');
+                    panel.classList.add('active');
+                });
+            });
+        });
+    </script>
 
 </body>
 </html>

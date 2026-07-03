@@ -147,3 +147,36 @@
     padding-top: var(--space-4);
     border-top: 1px solid var(--border-color);
 }
+
+/* Responsive Cards */
+@media (max-width: 768px) {
+    .luc-card {
+        padding: var(--space-5);
+    }
+    
+    .luc-card-lg {
+        padding: var(--space-6);
+    }
+    
+    .luc-card-title {
+        font-size: var(--text-xl);
+    }
+}
+
+@media (max-width: 480px) {
+    .luc-card {
+        padding: var(--space-4);
+    }
+    
+    .luc-card-sm {
+        padding: var(--space-3);
+    }
+    
+    .luc-card-lg {
+        padding: var(--space-5);
+    }
+    
+    .luc-card-title {
+        font-size: var(--text-lg);
+    }
+}

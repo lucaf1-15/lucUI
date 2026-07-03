@@ -186,3 +186,33 @@
 .luc-alert-dismissible {
     padding-right: var(--space-12);
 }
+
+/* Responsive Alerts */
+@media (max-width: 768px) {
+    .luc-alert {
+        padding: var(--space-4);
+    }
+    
+    .luc-alert-lg {
+        padding: var(--space-4);
+    }
+    
+    .luc-alert-content {
+        gap: var(--space-2);
+    }
+}
+
+@media (max-width: 480px) {
+    .luc-alert {
+        padding: var(--space-3);
+    }
+    
+    .luc-alert-sm {
+        padding: var(--space-2);
+    }
+    
+    .luc-alert-icon {
+        width: 20px;
+        height: 20px;
+    }
+}

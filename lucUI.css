@@ -1,6 +1,6 @@
 /* ============================================================
    lucUI — Design System Framework
-   Main Entry Point
+   Main Entry Point — v2.0
    ============================================================ */
 
 /* Import Core Files */
@@ -8,6 +8,7 @@
 @import url('lucCORE/luc-reset.css');
 @import url('lucCORE/luc-typography.css');
 @import url('lucCORE/luc-base.css');
+@import url('lucCORE/luc-themes.css');
 
 /* Import Component Files */
 @import url('lucCOMPONENTS/luc-buttons.css');
@@ -17,12 +18,21 @@
 @import url('lucCOMPONENTS/luc-modals.css');
 @import url('lucCOMPONENTS/luc-alerts.css');
 @import url('lucCOMPONENTS/luc-badges.css');
+@import url('lucCOMPONENTS/luc-tooltips.css');
+@import url('lucCOMPONENTS/luc-dropdowns.css');
+@import url('lucCOMPONENTS/luc-tabs.css');
+@import url('lucCOMPONENTS/luc-toasts.css');
+@import url('lucCOMPONENTS/luc-breadcrumbs.css');
+@import url('lucCOMPONENTS/luc-progress.css');
+@import url('lucCOMPONENTS/luc-skeleton.css');
+@import url('lucCOMPONENTS/luc-accordion.css');
 
 /* Import Utility Files */
 @import url('lucUTILITIES/luc-glass.css');
 @import url('lucUTILITIES/luc-animations.css');
 @import url('lucUTILITIES/luc-spacing.css');
 @import url('lucUTILITIES/luc-layout.css');
+@import url('lucUTILITIES/luc-utilities.css');
 
 /* ============================================================
    Quick Start
@@ -39,5 +49,7 @@
        <p class="luc-card-body">Beautiful glass morphism design.</p>
        <button class="luc-btn luc-btn-primary">Get Started</button>
    </div>
+   
+   Light mode: add data-theme="light" to <html> or <body>
    
    ============================================================ */

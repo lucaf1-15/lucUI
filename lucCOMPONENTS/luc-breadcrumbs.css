@@ -1,0 +1,119 @@
+/* ============================================================
+   lucUI — Breadcrumb Component
+   ============================================================ */
+
+/* Breadcrumb Wrapper */
+.luc-breadcrumb {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0;
+    font-size: var(--text-sm);
+    font-family: var(--font-body);
+    font-weight: 500;
+}
+
+/* Breadcrumb List */
+.luc-breadcrumb-list {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 0;
+}
+
+/* Breadcrumb Item */
+.luc-breadcrumb-item {
+    display: inline-flex;
+    align-items: center;
+}
+
+/* Separator */
+.luc-breadcrumb-item + .luc-breadcrumb-item::before {
+    content: '/';
+    color: var(--text-muted);
+    opacity: 0.5;
+    padding: 0 var(--space-2);
+    font-size: var(--text-xs);
+    pointer-events: none;
+    user-select: none;
+}
+
+/* Breadcrumb Link */
+.luc-breadcrumb-link {
+    color: var(--text-muted);
+    text-decoration: none;
+    padding: 0.2rem 0.3rem;
+    border-radius: var(--radius-sm);
+    transition: color var(--transition-fast) var(--ease-snappy),
+                background var(--transition-fast) var(--ease-snappy);
+}
+
+.luc-breadcrumb-link:hover {
+    color: var(--studio-gold);
+    background: rgba(174,157,93,0.08);
+}
+
+.luc-breadcrumb-link:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0,187,255,0.45);
+    color: var(--designer-azure);
+}
+
+/* Active / Current Item */
+.luc-breadcrumb-item.active .luc-breadcrumb-link,
+.luc-breadcrumb-link[aria-current="page"] {
+    color: var(--text-light);
+    font-weight: 600;
+    cursor: default;
+    pointer-events: none;
+}
+
+.luc-breadcrumb-link[aria-current="page"]:hover {
+    background: transparent;
+}
+
+/* Glass Variant */
+.luc-breadcrumb-glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px) saturate(160%);
+    -webkit-backdrop-filter: blur(16px) saturate(160%);
+    border: 1px solid var(--glass-edge);
+    border-radius: var(--radius-full);
+    padding: var(--space-2) var(--space-4);
+    box-shadow: var(--shadow-sm), inset 0 1px 0 var(--glass-shine);
+    display: inline-flex;
+}
+
+/* Custom Separator Variants */
+.luc-breadcrumb-chevron .luc-breadcrumb-item + .luc-breadcrumb-item::before {
+    content: '›';
+    font-size: var(--text-base);
+    opacity: 0.45;
+}
+
+.luc-breadcrumb-dot .luc-breadcrumb-item + .luc-breadcrumb-item::before {
+    content: '·';
+    font-size: var(--text-lg);
+    line-height: 1;
+    opacity: 0.45;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .luc-breadcrumb {
+        font-size: var(--text-xs);
+    }
+
+    /* Collapse middle items on very small screens */
+    .luc-breadcrumb-item:not(:first-child):not(:last-child):not(:nth-last-child(2)) {
+        display: none;
+    }
+
+    /* Show ellipsis after first item when items are hidden */
+    .luc-breadcrumb-item:first-child + .luc-breadcrumb-item:not(:last-child)::before {
+        content: '…';
+    }
+}

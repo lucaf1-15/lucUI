@@ -144,3 +144,29 @@
     cursor: not-allowed;
     pointer-events: none;
 }
+
+/* Responsive Buttons */
+@media (max-width: 768px) {
+    .luc-btn {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.85rem;
+    }
+    
+    .luc-btn-lg {
+        padding: 0.9rem 2rem;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .luc-btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.8rem;
+        width: 100%;
+    }
+    
+    .luc-btn-sm {
+        padding: 0.4rem 1rem;
+        font-size: 0.75rem;
+    }
+}

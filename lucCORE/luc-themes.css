@@ -1,0 +1,159 @@
+/* ============================================================
+   lucUI — Theme System
+   Light mode & theme overrides via data-theme attribute
+   Usage: <html data-theme="light"> or <body data-theme="light">
+   ============================================================ */
+
+/* ── Light Theme ────────────────────────────────────────── */
+[data-theme="light"] {
+    /* Brand colors stay consistent across themes */
+    --luca-navy: #1d2d44;
+    --studio-gold: #9a8a4a;           /* Slightly deeper for light bg contrast */
+    --designer-azure: #0099d6;
+    --luca-tangerine: #d97700;
+    --bold-viridian: #00aa00;
+
+    /* Text */
+    --text-light: #1a2535;
+    --text-muted: rgba(26, 37, 53, 0.60);
+
+    /* Glass / Surface */
+    --glass-bg: rgba(255,255,255,0.55);
+    --glass-hover: rgba(255,255,255,0.70);
+    --glass-nav: rgba(255,255,255,0.72);
+    --glass-modal: rgba(245,247,250,0.90);
+    --glass-edge: rgba(0,0,0,0.08);
+    --glass-shine: rgba(255,255,255,0.80);
+
+    /* Cards */
+    --card-bg: rgba(255,255,255,0.60);
+
+    /* Borders */
+    --border-color: rgba(0,0,0,0.08);
+
+    /* Shadows (softer on light) */
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.10);
+    --shadow-md: 0 4px 16px rgba(0,0,0,0.12), 0 1px 4px rgba(0,0,0,0.08);
+    --shadow-lg: 0 8px 32px rgba(0,0,0,0.15), 0 3px 10px rgba(0,0,0,0.09);
+    --shadow-xl: 0 20px 60px rgba(0,0,0,0.18), 0 8px 24px rgba(0,0,0,0.10);
+}
+
+/* Light theme body background */
+[data-theme="light"] body {
+    background: radial-gradient(ellipse 120% 60% at 50% 0%, #dce8f5 0%, #c8d8ea 45%, #b8ccde 100%);
+    color: var(--text-light);
+}
+
+/* Light theme headings */
+[data-theme="light"] h1,
+[data-theme="light"] h2,
+[data-theme="light"] h3,
+[data-theme="light"] h4,
+[data-theme="light"] h5,
+[data-theme="light"] h6 {
+    color: var(--luca-navy);
+}
+
+/* Light theme inputs */
+[data-theme="light"] .luc-input,
+[data-theme="light"] .luc-textarea,
+[data-theme="light"] .luc-select {
+    color: var(--text-light);
+    background: rgba(255,255,255,0.65);
+    border-color: rgba(0,0,0,0.12);
+}
+
+[data-theme="light"] .luc-input::placeholder,
+[data-theme="light"] .luc-textarea::placeholder {
+    color: rgba(26, 37, 53, 0.40);
+}
+
+[data-theme="light"] .luc-input:focus,
+[data-theme="light"] .luc-textarea:focus,
+[data-theme="light"] .luc-select:focus {
+    border-color: var(--studio-gold);
+    box-shadow: 0 0 0 3px rgba(154,138,74,0.18), var(--shadow-md);
+    background: rgba(255,255,255,0.80);
+}
+
+/* Light theme select arrow */
+[data-theme="light"] .luc-select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%239a8a4a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+}
+
+/* Light theme navbar */
+[data-theme="light"] .luc-navbar {
+    background: rgba(255,255,255,0.60);
+    border-bottom-color: rgba(154,138,74,0.18);
+}
+
+[data-theme="light"] .luc-navbar.scrolled {
+    background: rgba(255,255,255,0.80);
+}
+
+/* Light theme navbar links */
+[data-theme="light"] .luc-navbar-link {
+    color: rgba(26, 37, 53, 0.80);
+    background: rgba(0,0,0,0.04);
+    border-color: rgba(0,0,0,0.10);
+}
+
+[data-theme="light"] .luc-navbar-link:hover {
+    color: var(--luca-navy);
+    background: rgba(154,138,74,0.10);
+    border-color: rgba(154,138,74,0.35);
+}
+
+/* Light theme dropdown */
+[data-theme="light"] .luc-dropdown-menu {
+    background: rgba(255,255,255,0.92);
+    border-color: rgba(0,0,0,0.10);
+}
+
+[data-theme="light"] .luc-dropdown-item {
+    color: var(--text-light);
+}
+
+[data-theme="light"] .luc-dropdown-item:hover {
+    background: rgba(154,138,74,0.08);
+    color: var(--luca-navy);
+}
+
+/* Light theme modal */
+[data-theme="light"] .luc-modal {
+    background: rgba(245,247,250,0.95);
+    border-color: rgba(0,0,0,0.10);
+}
+
+[data-theme="light"] .luc-modal-title {
+    color: var(--luca-navy);
+}
+
+/* Light theme toast */
+[data-theme="light"] .luc-toast {
+    background: rgba(255,255,255,0.92);
+    border-color: rgba(0,0,0,0.10);
+}
+
+[data-theme="light"] .luc-toast-title {
+    color: var(--text-light);
+}
+
+/* ── Auto Theme (respects OS preference) ───────────────── */
+@media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) {
+        --text-light: #1a2535;
+        --text-muted: rgba(26, 37, 53, 0.60);
+        --glass-bg: rgba(255,255,255,0.55);
+        --glass-hover: rgba(255,255,255,0.70);
+        --glass-edge: rgba(0,0,0,0.08);
+        --glass-shine: rgba(255,255,255,0.80);
+        --glass-modal: rgba(245,247,250,0.90);
+        --card-bg: rgba(255,255,255,0.60);
+        --border-color: rgba(0,0,0,0.08);
+        --shadow-sm: 0 1px 3px rgba(0,0,0,0.10);
+        --shadow-md: 0 4px 16px rgba(0,0,0,0.12), 0 1px 4px rgba(0,0,0,0.08);
+        --shadow-lg: 0 8px 32px rgba(0,0,0,0.15), 0 3px 10px rgba(0,0,0,0.09);
+        --shadow-xl: 0 20px 60px rgba(0,0,0,0.18), 0 8px 24px rgba(0,0,0,0.10);
+    }
+}

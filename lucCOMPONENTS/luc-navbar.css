@@ -16,18 +16,17 @@
                 inset 1px 0 0 rgba(255,255,255,0.08),
                 inset 0 1px 0 rgba(255,255,255,0.10);
     z-index: var(--z-fixed);
-    height: 90px;
+    height: 56px;
     display: flex;
     align-items: center;
-    transition: padding var(--transition-base) var(--ease-snappy), 
+    transition: height var(--transition-base) var(--ease-snappy),
                 background var(--transition-base) var(--ease-snappy), 
                 box-shadow var(--transition-base) var(--ease-snappy);
 }
 
 .luc-navbar.scrolled {
-    padding-top: 0.65rem;
-    padding-bottom: 0.65rem;
-    background: rgba(6,14,26,0.55);
+    height: 48px;
+    background: rgba(6,14,26,0.60);
     box-shadow: var(--shadow-lg);
 }
 
@@ -43,14 +42,16 @@
 
 /* Brand Logo */
 .luc-navbar-brand {
-    height: 80px;
+    height: 32px;
     width: auto;
-    filter: drop-shadow(0 4px 10px rgba(174, 157, 93, 0.2));
-    transition: filter var(--transition-base) var(--ease-smooth);
+    filter: drop-shadow(0 2px 6px rgba(174, 157, 93, 0.2));
+    transition: filter var(--transition-base) var(--ease-smooth),
+                opacity var(--transition-base) var(--ease-smooth);
 }
 
 .luc-navbar-brand:hover {
-    filter: drop-shadow(0 6px 15px rgba(174, 157, 93, 0.3));
+    filter: drop-shadow(0 4px 10px rgba(174, 157, 93, 0.35));
+    opacity: 0.9;
 }
 
 /* Navbar Links */
@@ -91,6 +92,15 @@
     transform: translateY(1px);
     background: rgba(174,157,93,0.08);
     box-shadow: inset 0 1px 3px rgba(0,0,0,0.15);
+}
+
+/* Active / current page link */
+.luc-navbar-link.active,
+.luc-navbar-link[aria-current="page"] {
+    background: rgba(174,157,93,0.14);
+    border-color: rgba(174,157,93,0.40);
+    color: var(--studio-gold);
+    box-shadow: 0 0 12px rgba(174,157,93,0.20), inset 0 1px 0 rgba(255,255,255,0.10);
 }
 
 .luc-navbar-link:focus-visible {

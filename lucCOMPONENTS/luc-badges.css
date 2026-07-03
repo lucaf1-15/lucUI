@@ -153,3 +153,28 @@
 .luc-badge-solid.luc-badge-navy {
     background: var(--luca-navy);
 }
+
+/* Responsive Badges */
+@media (max-width: 768px) {
+    .luc-badge {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.6rem;
+    }
+    
+    .luc-badge-lg {
+        font-size: 0.75rem;
+        padding: 0.3rem 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .luc-badge {
+        font-size: 0.65rem;
+        padding: 0.15rem 0.5rem;
+    }
+    
+    .luc-badge-sm {
+        font-size: 0.6rem;
+        padding: 0.1rem 0.4rem;
+    }
+}

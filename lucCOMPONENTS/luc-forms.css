@@ -181,3 +181,28 @@
 .luc-helper-text.success {
     color: #27c93f;
 }
+
+/* Responsive Forms */
+@media (max-width: 768px) {
+    .luc-input,
+    .luc-textarea,
+    .luc-select {
+        font-size: 1rem; /* Prevent iOS zoom */
+    }
+    
+    .luc-form-group {
+        margin-bottom: var(--space-3);
+    }
+}
+
+@media (max-width: 480px) {
+    .luc-input,
+    .luc-textarea,
+    .luc-select {
+        padding: 0.7rem 1rem;
+    }
+    
+    .luc-textarea {
+        min-height: 100px;
+    }
+}

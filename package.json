@@ -1,6 +1,6 @@
 {
   "name": "lucui-css-framework",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Premium glass morphism CSS framework by luca.ecosystem",
   "main": "lucUI.css",
   "files": [
@@ -9,12 +9,10 @@
     "lucCORE/",
     "lucCOMPONENTS/",
     "lucUTILITIES/",
+    "lucUI logo.svg",
     "example.html",
     "README.md",
-    "LICENSE",
-    "CONTRIBUTING.md",
-    "CHANGELOG.md",
-    "SETUP.md"
+    "LICENSE"
   ],
   "keywords": [
     "css",

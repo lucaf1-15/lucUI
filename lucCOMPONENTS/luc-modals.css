@@ -149,3 +149,44 @@
 .luc-modal-backdrop.slide.active .luc-modal {
     transform: translateY(0);
 }
+
+/* Responsive Modals */
+@media (max-width: 768px) {
+    .luc-modal {
+        margin: var(--space-4);
+        max-width: calc(100% - var(--space-8));
+    }
+    
+    .luc-modal-lg,
+    .luc-modal-xl {
+        max-width: calc(100% - var(--space-8));
+    }
+    
+    .luc-modal-header,
+    .luc-modal-body,
+    .luc-modal-footer {
+        padding: var(--space-4);
+    }
+}
+
+@media (max-width: 480px) {
+    .luc-modal {
+        margin: var(--space-3);
+        max-width: calc(100% - var(--space-6));
+    }
+    
+    .luc-modal-header,
+    .luc-modal-body,
+    .luc-modal-footer {
+        padding: var(--space-3);
+    }
+    
+    .luc-modal-footer {
+        flex-direction: column;
+        gap: var(--space-2);
+    }
+    
+    .luc-modal-footer .luc-btn {
+        width: 100%;
+    }
+}

@@ -81,3 +81,25 @@ p {
 .luc-leading-tight { line-height: 1.2; }
 .luc-leading-normal { line-height: 1.6; }
 .luc-leading-loose { line-height: 2; }
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+    h1 { font-size: var(--text-4xl); }
+    h2 { font-size: var(--text-3xl); }
+    h3 { font-size: var(--text-2xl); }
+    
+    .luc-text-5xl { font-size: var(--text-4xl); }
+    .luc-text-4xl { font-size: var(--text-3xl); }
+    .luc-text-3xl { font-size: var(--text-2xl); }
+}
+
+@media (max-width: 480px) {
+    h1 { font-size: var(--text-3xl); }
+    h2 { font-size: var(--text-2xl); }
+    h3 { font-size: var(--text-xl); }
+    
+    .luc-text-5xl { font-size: var(--text-3xl); }
+    .luc-text-4xl { font-size: var(--text-2xl); }
+    .luc-text-3xl { font-size: var(--text-xl); }
+    .luc-text-2xl { font-size: var(--text-lg); }
+}

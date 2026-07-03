@@ -3,7 +3,49 @@
 All notable changes to lucUI CSS Framework will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+and this project adheres to Semantic Versioning.
+
+---
+
+## [2.0.0] - 2026-07-02
+
+### Added — New Components
+- **Tooltips** (`luc-tooltips.css`) — CSS-only tooltips with top/bottom/left/right positioning, gold and azure color variants, and smooth fade+translate animation
+- **Dropdowns** (`luc-dropdowns.css`) — glass floating menus with open/close toggle, dividers, headers, danger items, and right-align variant
+- **Tabs** (`luc-tabs.css`) — three style variants (default border, pill, underline), accessible `aria-selected` support, fade-in panel animation
+- **Toasts/Snackbars** (`luc-toasts.css`) — temporary notifications with 6 position options, progress bar, all brand color variants, and slide-in/out animations
+- **Breadcrumbs** (`luc-breadcrumbs.css`) — default, glass, chevron, and dot separator variants; responsive collapse on small screens
+- **Progress Bars** (`luc-progress.css`) — animated shimmer fill, all brand color variants, striped, animated striped, indeterminate, and labeled variants
+- **Skeleton Loaders** (`luc-skeleton.css`) — shimmer and pulse variants; pre-built shapes: text, heading, avatar, image, button, badge, card, paragraph, row
+- **Accordion** (`luc-accordion.css`) — CSS-only using `<details>`/`<summary>`, flush variant, animated open/close chevron
+
+### Added — Theme System
+- **Light mode** (`luc-themes.css`) — opt-in via `data-theme="light"` on `<html>` or `<body>`; also responds to `prefers-color-scheme: light` automatically; covers all components including navbar, inputs, modals, dropdowns, and toasts
+
+### Added — Utilities
+- **General utilities** (`luc-utilities.css`):
+  - Dividers: `.luc-divider`, `.luc-divider-vertical`, `.luc-divider-gold`, `.luc-divider-label`
+  - Text truncation: `.luc-truncate`, `.luc-line-clamp-1` through `.luc-line-clamp-4`
+  - Accessibility: `.luc-sr-only`, `.luc-sr-only-focusable`
+  - Aspect ratios: `.luc-aspect-square`, `.luc-aspect-video`, `.luc-aspect-photo`, `.luc-aspect-portrait`, `.luc-aspect-wide`, `.luc-aspect-golden`
+  - Cursor utilities: pointer, default, not-allowed, grab, grabbing
+  - Pointer events: `.luc-pointer-events-none`, `.luc-pointer-events-auto`
+  - User select: `.luc-select-none`, `.luc-select-text`, `.luc-select-all`
+  - Object fit: `.luc-object-cover`, `.luc-object-contain`, `.luc-object-fill`
+  - Opacity: `.luc-opacity-0/25/50/75/100`
+  - Print styles: strips glass effects, normalises colors, appends URLs to links
+
+### Improved
+- **Navbar** — added `.active` / `[aria-current="page"]` state for current page link highlighting
+- **Navbar** — height reduced from `90px` to `56px` (scrolled: `48px`) for a leaner, more modern look; brand logo scaled to match
+- **npm package** — removed `CONTRIBUTING.md`, `CHANGELOG.md`, `SETUP.md` from published files; added `lucUI logo.svg`
+- **Logo** — SVG logo now included in the npm package; PNG removed (SVG is resolution-independent and smaller)
+
+### Architecture
+- `lucUI.css` updated to `v2.0` — imports all 8 new component files and the new utilities file
+- `lucCORE/luc-themes.css` added as a new core file alongside variables, reset, typography, and base
+
+---
 
 ## [1.0.0] - 2026-05-20
 
@@ -44,14 +86,3 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - No build process required
 - Ready-to-use via CDN or npm
 - Modular imports supported
-
----
-
-## [Unreleased]
-
-### Planned
-- Additional component variants
-- More animation presets
-- Theme system support
-- Dark mode variants
-- Additional utility classes

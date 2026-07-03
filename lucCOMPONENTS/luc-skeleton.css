@@ -1,0 +1,159 @@
+/* ============================================================
+   lucUI — Skeleton Loader Component
+   ============================================================ */
+
+/* Base Skeleton */
+.luc-skeleton {
+    background: linear-gradient(
+        90deg,
+        rgba(255,255,255,0.05) 25%,
+        rgba(255,255,255,0.10) 50%,
+        rgba(255,255,255,0.05) 75%
+    );
+    background-size: 200% 100%;
+    border-radius: var(--radius-sm);
+    animation: luc-skeleton-shimmer 1.6s var(--ease-smooth) infinite;
+    display: block;
+    position: relative;
+    overflow: hidden;
+}
+
+@keyframes luc-skeleton-shimmer {
+    0%   { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* Common Skeleton Shapes */
+
+/* Text Line */
+.luc-skeleton-text {
+    height: 1em;
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--space-2);
+}
+
+/* Short text (e.g. last line of a paragraph) */
+.luc-skeleton-text-short {
+    width: 65%;
+}
+
+/* Heading */
+.luc-skeleton-heading {
+    height: 1.5em;
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--space-3);
+}
+
+/* Avatar / circle */
+.luc-skeleton-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.luc-skeleton-avatar-sm {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
+
+.luc-skeleton-avatar-lg {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+}
+
+/* Thumbnail / image block */
+.luc-skeleton-image {
+    width: 100%;
+    height: 200px;
+    border-radius: var(--radius-md);
+}
+
+.luc-skeleton-image-sm {
+    height: 120px;
+}
+
+.luc-skeleton-image-lg {
+    height: 320px;
+}
+
+/* Button placeholder */
+.luc-skeleton-button {
+    height: 40px;
+    width: 120px;
+    border-radius: var(--radius-full);
+}
+
+.luc-skeleton-button-sm {
+    height: 32px;
+    width: 90px;
+    border-radius: var(--radius-full);
+}
+
+.luc-skeleton-button-lg {
+    height: 52px;
+    width: 160px;
+    border-radius: var(--radius-full);
+}
+
+/* Badge placeholder */
+.luc-skeleton-badge {
+    height: 24px;
+    width: 64px;
+    border-radius: var(--radius-full);
+    display: inline-block;
+}
+
+/* Card Skeleton — shares glass surface with .luc-card */
+.luc-skeleton-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(24px) saturate(180%) brightness(1.05);
+    -webkit-backdrop-filter: blur(24px) saturate(180%) brightness(1.05);
+    border: 1px solid var(--glass-edge);
+    border-radius: var(--radius-xl);
+    padding: var(--space-6);
+    box-shadow: var(--shadow-md), inset 0 1px 0 var(--glass-shine);
+}
+
+/* Paragraph block helper */
+.luc-skeleton-paragraph {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.luc-skeleton-paragraph .luc-skeleton-text:last-child {
+    width: 60%;
+}
+
+/* Inlined (horizontal) skeleton row */
+.luc-skeleton-row {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+/* Pulse variant (softer, no sweep) */
+.luc-skeleton-pulse {
+    animation: luc-skeleton-pulse 1.8s ease-in-out infinite;
+    background: rgba(255,255,255,0.06);
+}
+
+@keyframes luc-skeleton-pulse {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.4; }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .luc-skeleton {
+        animation: none;
+        background: rgba(255,255,255,0.07);
+    }
+
+    .luc-skeleton-pulse {
+        animation: none;
+    }
+}
