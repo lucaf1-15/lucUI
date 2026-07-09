@@ -1,0 +1,46 @@
+/* ============================================================
+   lucUI — Toggle Switch Component
+   ============================================================ */
+
+.luc-toggle {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+.luc-toggle-input {
+    display: none;
+}
+
+.luc-toggle-track {
+    width: 48px;
+    height: 24px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-edge);
+    border-radius: var(--radius-full);
+    position: relative;
+    transition: all var(--transition-base) ease;
+}
+
+.luc-toggle-thumb {
+    width: 18px;
+    height: 18px;
+    background: var(--text-light);
+    border-radius: var(--radius-full);
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    transition: all var(--transition-base) var(--ease-spring);
+    box-shadow: var(--shadow-sm);
+}
+
+.luc-toggle-input:checked + .luc-toggle-track {
+    background: linear-gradient(135deg, var(--studio-gold), var(--luca-tangerine));
+    border-color: transparent;
+}
+
+.luc-toggle-input:checked + .luc-toggle-track .luc-toggle-thumb {
+    left: 26px;
+    background: #fff;
+}

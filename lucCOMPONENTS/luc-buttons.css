@@ -1,23 +1,30 @@
 /* ============================================================
-   lucUI — Button Components
+   lucUI — Button Components v3.0
+   Enhanced with loading states, icons, and groups
    ============================================================ */
 
-/* Base Button Styles */
+/* Base Button Styles - Enhanced */
 .luc-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    gap: 0.5rem;
     padding: 0.8rem 2rem;
     font-size: 0.9rem;
     font-weight: 600;
     border-radius: var(--radius-full);
     cursor: pointer;
-    transition: all var(--transition-base) var(--ease-smooth);
+    transition: transform var(--transition-base) var(--ease-spring), box-shadow var(--transition-base) var(--ease-smooth), background var(--transition-base) var(--ease-smooth), border-color var(--transition-base) var(--ease-smooth);
     position: relative;
     overflow: hidden;
     text-transform: none;
     letter-spacing: 0.01em;
     font-family: var(--font-body);
+    white-space: nowrap;
+}
+
+.luc-btn:hover {
+    transform: translateY(-2px) scale(1.01);
 }
 
 /* Focus Styles */
@@ -138,11 +145,155 @@
     font-size: 1rem;
 }
 
-/* Button States */
+/* Button States - Enhanced */
 .luc-btn:disabled {
     opacity: 0.5;
     cursor: not-allowed;
     pointer-events: none;
+}
+
+/* Loading State */
+.luc-btn.loading {
+    pointer-events: none;
+    position: relative;
+}
+
+.luc-btn.loading::before {
+    content: '';
+    position: absolute;
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+.luc-btn.loading .luc-btn-text {
+    opacity: 0.7;
+}
+
+/* Icon Button */
+.luc-btn-icon {
+    padding: 0.8rem;
+    width: 2.8rem;
+    height: 2.8rem;
+}
+
+.luc-btn-icon-sm {
+    padding: 0.5rem;
+    width: 2rem;
+    height: 2rem;
+}
+
+.luc-btn-icon-lg {
+    padding: 1rem;
+    width: 3.5rem;
+    height: 3.5rem;
+}
+
+/* Button Group */
+.luc-btn-group {
+    display: inline-flex;
+    gap: 0.5rem;
+}
+
+.luc-btn-group .luc-btn {
+    border-radius: var(--radius-md);
+}
+
+.luc-btn-group .luc-btn:first-child {
+    border-radius: var(--radius-md) 0 0 var(--radius-md);
+}
+
+.luc-btn-group .luc-btn:last-child {
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+.luc-btn-group .luc-btn:not(:first-child):not(:last-child) {
+    border-radius: 0;
+}
+
+.luc-btn-group.vertical {
+    flex-direction: column;
+}
+
+.luc-btn-group.vertical .luc-btn:first-child {
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+}
+
+.luc-btn-group.vertical .luc-btn:last-child {
+    border-radius: 0 0 var(--radius-md) var(--radius-md);
+}
+
+.luc-btn-group.vertical .luc-btn:not(:first-child):not(:last-child) {
+    border-radius: 0;
+}
+
+/* Full Width Button */
+.luc-btn-full {
+    width: 100%;
+}
+
+/* Outline Button Variants */
+.luc-btn-outline {
+    background: transparent;
+    border: 2px solid var(--studio-gold);
+    color: var(--studio-gold);
+}
+
+.luc-btn-outline:hover {
+    background: var(--studio-gold);
+    color: #fff;
+}
+
+.luc-btn-outline-azure {
+    background: transparent;
+    border: 2px solid var(--designer-azure);
+    color: var(--designer-azure);
+}
+
+.luc-btn-outline-azure:hover {
+    background: var(--designer-azure);
+    color: #fff;
+}
+
+.luc-btn-outline-tangerine {
+    background: transparent;
+    border: 2px solid var(--luca-tangerine);
+    color: var(--luca-tangerine);
+}
+
+.luc-btn-outline-tangerine:hover {
+    background: var(--luca-tangerine);
+    color: #fff;
+}
+
+.luc-btn-outline-viridian {
+    background: transparent;
+    border: 2px solid var(--bold-viridian);
+    color: var(--bold-viridian);
+}
+
+.luc-btn-outline-viridian:hover {
+    background: var(--bold-viridian);
+    color: #1d2d44;
+}
+
+/* Ghost Button */
+.luc-btn-ghost {
+    background: transparent;
+    border: 1px solid transparent;
+    color: var(--text-light);
+}
+
+.luc-btn-ghost:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.2);
+}
+
+.luc-btn-ghost:active {
+    background: rgba(255,255,255,0.15);
 }
 
 /* Responsive Buttons */

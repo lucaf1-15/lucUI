@@ -1,16 +1,17 @@
 {
   "name": "lucui-css-framework",
   "version": "2.0.0",
-  "description": "Premium glass morphism CSS framework by luca.ecosystem",
+  "description": "Premium glass-morphism CSS framework with an interactive JavaScript layer by luca.ecosystem",
   "main": "lucUI.css",
   "files": [
     "lucUI.css",
     "lucUI.min.css",
+    "lucUI.js",
     "lucCORE/",
     "lucCOMPONENTS/",
     "lucUTILITIES/",
     "lucUI logo.svg",
-    "example.html",
+    "tutorial.html",
     "README.md",
     "LICENSE"
   ],
@@ -23,19 +24,24 @@
     "lucui",
     "luca-ecosystem",
     "transparency",
-    "glass"
+    "glass",
+    "accessibility"
   ],
   "author": "luca.ecosystem",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/luca-ecosystem/lucui"
+    "url": "https://github.com/lucaf1-15/lucUI"
   },
   "bugs": {
-    "url": "https://github.com/luca-ecosystem/lucui/issues"
+    "url": "https://github.com/lucaf1-15/lucUI/issues"
   },
-  "homepage": "https://luca.ecosystem",
+  "homepage": "https://luca.ecosystem.pages.dev",
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
-    "build": "echo 'No build step required - lucUI is dependency-free plain CSS'"
+    "build": "node scripts/build.js",
+    "prepublishOnly": "npm run build"
   }
 }

@@ -22,9 +22,13 @@
     border-radius: var(--radius-full);
     background: linear-gradient(90deg, #cbb96e 0%, var(--studio-gold) 60%, #d4c47a 100%);
     box-shadow: 0 0 10px rgba(174,157,93,0.35);
-    transition: width 0.6s var(--ease-snappy);
+    transition: width 0.6s var(--ease-snappy), filter 0.3s ease;
     position: relative;
     overflow: hidden;
+}
+
+.luc-progress:hover .luc-progress-bar {
+    filter: brightness(1.08);
 }
 
 /* Shimmer on fill */

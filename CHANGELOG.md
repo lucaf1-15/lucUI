@@ -41,9 +41,37 @@ and this project adheres to Semantic Versioning.
 - **npm package** — removed `CONTRIBUTING.md`, `CHANGELOG.md`, `SETUP.md` from published files; added `lucUI logo.svg`
 - **Logo** — SVG logo now included in the npm package; PNG removed (SVG is resolution-independent and smaller)
 
-### Architecture
-- `lucUI.css` updated to `v2.0` — imports all 8 new component files and the new utilities file
-- `lucCORE/luc-themes.css` added as a new core file alongside variables, reset, typography, and base
+### Added — JavaScript Layer
+- **lucUI.js** — interactive layer for theme switching, modals, toasts, scroll reveals, accordions, tabs, dropdowns, and cookie consent
+
+### Added — Extended Components (v2.0)
+- **Carousel** (`luc-carousel.css`) — slide-based image/content carousel
+- **Pagination** (`luc-pagination.css`) — page navigation with glass styling
+- **Data Tables** (`luc-datatables.css`) — sortable, responsive table component
+- **Avatar** (`luc-avatar.css`) — profile images with size and status variants
+- **Chips** (`luc-chips.css`) — compact tag/filter chips
+- **Divider** (`luc-divider.css`) — horizontal/vertical dividers with label support
+- **Loader** (`luc-loader.css`) — spinner and loading state indicators
+- **Gallery** (`luc-gallery.css`) — image grid with hover overlays
+- **Testimonials** (`luc-testimonials.css`) — quote cards with avatar and rating
+- **Pricing** (`luc-pricing.css`) — pricing table cards with featured tier
+- **Features** (`luc-features.css`) — feature grid with icons
+- **Hero** (`luc-hero.css`) — full-width hero sections
+- **Footer** (`luc-footer.css`) — multi-column site footer
+- **Sidebar** (`luc-sidebar.css`) — collapsible navigation sidebar
+- **Search** (`luc-search.css`) — search input with results dropdown
+- **Datepicker** (`luc-datepicker.css`) — calendar date picker
+- **File Upload** (`luc-fileupload.css`) — drag-and-drop file upload zone
+- **Range Slider** (`luc-rangeslider.css`) — styled range input
+- **Toggle** (`luc-toggle.css`) — switch/toggle control
+- **Stepper** (`luc-stepper.css`) — multi-step progress indicator
+- **Timeline** (`luc-timeline.css`) — vertical event timeline
+- **Notifications** (`luc-notifications.css`) — notification bell and panel
+- **User Card** (`luc-usercard.css`) — profile summary card
+- **Cookie Consent** (`luc-cookieconsent.css`) — GDPR cookie banner
+
+### Added — Documentation
+- **tutorial.html** — interactive component showcase replacing example.html
 
 ---
 

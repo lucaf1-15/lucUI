@@ -1,0 +1,70 @@
+/* ============================================================
+   lucUI — Stepper / Multi-step Component
+   ============================================================ */
+
+.luc-stepper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    margin-bottom: var(--space-8);
+}
+
+.luc-stepper::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--glass-edge);
+    z-index: 1;
+    transform: translateY(-50%);
+}
+
+.luc-step {
+    position: relative;
+    z-index: 2;
+    background: var(--luca-navy);
+    padding: 0 var(--space-2);
+}
+
+.luc-step-circle {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-full);
+    background: var(--glass-bg);
+    border: 2px solid var(--glass-edge);
+    color: var(--text-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    margin: 0 auto var(--space-2) auto;
+    transition: all var(--transition-base) ease;
+}
+
+.luc-step.active .luc-step-circle {
+    background: var(--studio-gold);
+    border-color: var(--studio-gold);
+    color: #fff;
+    box-shadow: 0 0 12px rgba(174, 157, 93, 0.4);
+}
+
+.luc-step.completed .luc-step-circle {
+    background: var(--bold-viridian);
+    border-color: var(--bold-viridian);
+    color: #fff;
+}
+
+.luc-step-label {
+    font-size: var(--text-xs);
+    color: var(--text-muted);
+    text-align: center;
+    display: block;
+}
+
+.luc-step.active .luc-step-label {
+    color: var(--text-light);
+    font-weight: 600;
+}

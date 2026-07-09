@@ -1,0 +1,75 @@
+/* ============================================================
+   lucUI — Pricing Table Component
+   ============================================================ */
+
+.luc-pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-6);
+}
+
+.luc-pricing-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-edge);
+    border-radius: var(--radius-xl);
+    padding: var(--space-8);
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-base) var(--ease-spring);
+    display: flex;
+    flex-direction: column;
+}
+
+.luc-pricing-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--studio-gold);
+    box-shadow: var(--shadow-lg), 0 0 20px rgba(174, 157, 93, 0.15);
+}
+
+.luc-pricing-card.featured {
+    background: linear-gradient(145deg, rgba(255,255,255,0.08) 0%, rgba(174,157,93,0.05) 100%);
+    border: 2px solid var(--studio-gold);
+    transform: scale(1.05);
+}
+
+.luc-pricing-card.featured:hover {
+    transform: scale(1.05) translateY(-5px);
+}
+
+.luc-pricing-title {
+    font-size: var(--text-xl);
+    color: var(--text-light);
+    margin-bottom: var(--space-2);
+}
+
+.luc-pricing-price {
+    font-size: var(--text-5xl);
+    font-weight: 800;
+    color: var(--studio-gold);
+    margin: var(--space-4) 0;
+}
+
+.luc-pricing-price span {
+    font-size: var(--text-base);
+    color: var(--text-muted);
+    font-weight: normal;
+}
+
+.luc-pricing-features {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-6) 0;
+    text-align: left;
+    flex-grow: 1;
+}
+
+.luc-pricing-feature {
+    padding: var(--space-2) 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    color: var(--text-light);
+    font-size: var(--text-sm);
+}
+
+.luc-pricing-feature:last-child {
+    border-bottom: none;
+}

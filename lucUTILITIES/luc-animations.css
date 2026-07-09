@@ -1,24 +1,28 @@
 /* ============================================================
-   lucUI — Animation Utilities
+   lucUI — Animation Utilities v3.0
+   Enhanced with scroll-triggered reveals and physics-based animations
    ============================================================ */
 
-/* Reveal Animation */
+/* Scroll Reveal Animation - Enhanced */
 .luc-reveal {
     opacity: 0;
-    transform: translateY(30px) scale(0.98);
-    transition: opacity 0.55s var(--ease-snappy), transform 0.55s var(--ease-spring);
+    transform: translateY(40px) scale(0.97);
+    transition: opacity 0.6s var(--ease-snappy), transform 0.6s var(--ease-spring), filter 0.6s var(--ease-smooth);
+    will-change: opacity, transform;
 }
 
 .luc-reveal.visible {
     opacity: 1;
     transform: translateY(0) scale(1);
+    filter: blur(0);
 }
 
-/* Reveal Variants */
+/* Reveal Variants - Enhanced */
 .luc-reveal-up {
     opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.55s var(--ease-snappy), transform 0.55s var(--ease-spring);
+    transform: translateY(40px);
+    transition: opacity 0.6s var(--ease-snappy), transform 0.6s var(--ease-spring);
+    will-change: opacity, transform;
 }
 
 .luc-reveal-up.visible {
@@ -28,8 +32,9 @@
 
 .luc-reveal-down {
     opacity: 0;
-    transform: translateY(-30px);
-    transition: opacity 0.55s var(--ease-snappy), transform 0.55s var(--ease-spring);
+    transform: translateY(-40px);
+    transition: opacity 0.6s var(--ease-snappy), transform 0.6s var(--ease-spring);
+    will-change: opacity, transform;
 }
 
 .luc-reveal-down.visible {
@@ -39,8 +44,9 @@
 
 .luc-reveal-left {
     opacity: 0;
-    transform: translateX(30px);
-    transition: opacity 0.55s var(--ease-snappy), transform 0.55s var(--ease-spring);
+    transform: translateX(40px);
+    transition: opacity 0.6s var(--ease-snappy), transform 0.6s var(--ease-spring);
+    will-change: opacity, transform;
 }
 
 .luc-reveal-left.visible {
@@ -50,8 +56,9 @@
 
 .luc-reveal-right {
     opacity: 0;
-    transform: translateX(-30px);
-    transition: opacity 0.55s var(--ease-snappy), transform 0.55s var(--ease-spring);
+    transform: translateX(-40px);
+    transition: opacity 0.6s var(--ease-snappy), transform 0.6s var(--ease-spring);
+    will-change: opacity, transform;
 }
 
 .luc-reveal-right.visible {
@@ -61,13 +68,40 @@
 
 .luc-reveal-scale {
     opacity: 0;
-    transform: scale(0.9);
-    transition: opacity 0.55s var(--ease-snappy), transform 0.55s var(--ease-spring);
+    transform: scale(0.85);
+    transition: opacity 0.6s var(--ease-snappy), transform 0.6s var(--ease-spring);
+    will-change: opacity, transform;
 }
 
 .luc-reveal-scale.visible {
     opacity: 1;
     transform: scale(1);
+}
+
+.luc-reveal-rotate {
+    opacity: 0;
+    transform: rotate(-10deg) scale(0.9);
+    transition: opacity 0.6s var(--ease-snappy), transform 0.6s var(--ease-spring);
+    will-change: opacity, transform;
+}
+
+.luc-reveal-rotate.visible {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+}
+
+.luc-reveal-blur {
+    opacity: 0;
+    filter: blur(10px);
+    transform: translateY(20px);
+    transition: opacity 0.6s var(--ease-snappy), filter 0.6s var(--ease-smooth), transform 0.6s var(--ease-spring);
+    will-change: opacity, filter, transform;
+}
+
+.luc-reveal-blur.visible {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
 }
 
 /* Fade Animation */
@@ -108,13 +142,32 @@
     transform: translateY(0);
 }
 
-/* Hover Animations */
+/* Global motion helpers */
+.luc-animated {
+    animation: luc-float 6s ease-in-out infinite;
+}
+
+@keyframes luc-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+
+.luc-tilt-on-hover {
+    transition: transform var(--transition-base) var(--ease-spring), box-shadow var(--transition-base) var(--ease-smooth);
+}
+
+.luc-tilt-on-hover:hover {
+    transform: perspective(900px) rotateX(2deg) rotateY(-2deg) translateY(-4px);
+}
+
+/* Hover Animations - Enhanced */
 .luc-hover-lift {
-    transition: transform var(--transition-base) var(--ease-spring);
+    transition: transform var(--transition-base) var(--ease-spring), box-shadow var(--transition-base) var(--ease-smooth);
 }
 
 .luc-hover-lift:hover {
     transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
 }
 
 .luc-hover-scale {
@@ -131,6 +184,36 @@
 
 .luc-hover-glow:hover {
     box-shadow: 0 0 30px rgba(174,157,93,0.3);
+}
+
+.luc-hover-shine {
+    position: relative;
+    overflow: hidden;
+}
+
+.luc-hover-shine::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transform: skewX(-25deg);
+    transition: left 0.6s ease;
+}
+
+.luc-hover-shine:hover::after {
+    left: 150%;
+}
+
+.luc-hover-tilt {
+    transition: transform var(--transition-base) var(--ease-spring);
+    transform-style: preserve-3d;
+}
+
+.luc-hover-tilt:hover {
+    transform: perspective(1000px) rotateX(5deg) rotateY(5deg);
 }
 
 /* Pulse Animation */

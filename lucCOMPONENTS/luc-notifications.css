@@ -1,0 +1,87 @@
+/* ============================================================
+   lucUI — Notification Center Component
+   ============================================================ */
+
+.luc-notification-center {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    width: 360px;
+    background: var(--glass-modal);
+    border: 1px solid var(--glass-edge);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+    z-index: var(--z-fixed);
+    backdrop-filter: blur(25px);
+    overflow: hidden;
+    display: none;
+    flex-direction: column;
+}
+
+.luc-notification-center.active {
+    display: flex;
+}
+
+.luc-notification-center-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-4);
+    border-bottom: 1px solid var(--glass-edge);
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.luc-notification-center-title {
+    font-size: var(--text-base);
+    font-weight: 600;
+    color: var(--studio-gold);
+}
+
+.luc-notification-center-list {
+    max-height: 400px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.luc-notification-item {
+    display: flex;
+    gap: var(--space-3);
+    padding: var(--space-4);
+    border-bottom: 1px solid var(--glass-edge);
+    transition: background var(--transition-fast) ease;
+    cursor: pointer;
+}
+
+.luc-notification-item:hover {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.luc-notification-item.unread {
+    background: rgba(174, 157, 93, 0.03);
+}
+
+.luc-notification-item-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--studio-gold);
+    border-radius: var(--radius-full);
+    margin-top: 5px;
+    flex-shrink: 0;
+}
+
+.luc-notification-item-content {
+    flex-grow: 1;
+}
+
+.luc-notification-item-text {
+    font-size: var(--text-sm);
+    color: var(--text-light);
+    line-height: 1.4;
+    margin-bottom: var(--space-1);
+}
+
+.luc-notification-item-time {
+    font-size: var(--text-xs);
+    color: var(--text-muted);
+}

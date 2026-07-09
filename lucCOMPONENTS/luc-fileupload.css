@@ -1,0 +1,35 @@
+/* ============================================================
+   lucUI — File Upload Drag-Drop Component
+   ============================================================ */
+
+.luc-upload-zone {
+    border: 2px dashed var(--glass-edge);
+    background: var(--glass-bg);
+    border-radius: var(--radius-lg);
+    padding: var(--space-8) var(--space-6);
+    text-align: center;
+    cursor: pointer;
+    transition: all var(--transition-base) ease;
+}
+
+.luc-upload-zone:hover,
+.luc-upload-zone.dragover {
+    border-color: var(--studio-gold);
+    background: var(--glass-hover);
+}
+
+.luc-upload-icon {
+    font-size: 2.5rem;
+    color: var(--studio-gold);
+    margin-bottom: var(--space-4);
+}
+
+.luc-upload-text {
+    color: var(--text-light);
+    margin-bottom: var(--space-2);
+}
+
+.luc-upload-subtext {
+    color: var(--text-muted);
+    font-size: var(--text-xs);
+}

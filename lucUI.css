@@ -26,6 +26,31 @@
 @import url('lucCOMPONENTS/luc-progress.css');
 @import url('lucCOMPONENTS/luc-skeleton.css');
 @import url('lucCOMPONENTS/luc-accordion.css');
+@import url('lucCOMPONENTS/luc-carousel.css');
+@import url('lucCOMPONENTS/luc-pagination.css');
+@import url('lucCOMPONENTS/luc-datatables.css');
+@import url('lucCOMPONENTS/luc-avatar.css');
+@import url('lucCOMPONENTS/luc-chips.css');
+@import url('lucCOMPONENTS/luc-divider.css');
+@import url('lucCOMPONENTS/luc-loader.css');
+@import url('lucCOMPONENTS/luc-gallery.css');
+@import url('lucCOMPONENTS/luc-testimonials.css');
+@import url('lucCOMPONENTS/luc-pricing.css');
+@import url('lucCOMPONENTS/luc-features.css');
+@import url('lucCOMPONENTS/luc-hero.css');
+@import url('lucCOMPONENTS/luc-footer.css');
+@import url('lucCOMPONENTS/luc-sidebar.css');
+@import url('lucCOMPONENTS/luc-search.css');
+@import url('lucCOMPONENTS/luc-datepicker.css');
+@import url('lucCOMPONENTS/luc-fileupload.css');
+@import url('lucCOMPONENTS/luc-rangeslider.css');
+@import url('lucCOMPONENTS/luc-toggle.css');
+@import url('lucCOMPONENTS/luc-stepper.css');
+@import url('lucCOMPONENTS/luc-timeline.css');
+@import url('lucCOMPONENTS/luc-notifications.css');
+@import url('lucCOMPONENTS/luc-usercard.css');
+@import url('lucCOMPONENTS/luc-cookieconsent.css');
+
 
 /* Import Utility Files */
 @import url('lucUTILITIES/luc-glass.css');

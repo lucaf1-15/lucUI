@@ -1,0 +1,55 @@
+/* ============================================================
+   lucUI — Avatar Component
+   ============================================================ */
+
+.luc-avatar {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-full);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-edge);
+    box-shadow: var(--shadow-sm);
+    overflow: visible;
+}
+
+.luc-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: inherit;
+}
+
+.luc-avatar-sm {
+    width: 32px;
+    height: 32px;
+    font-size: var(--text-xs);
+}
+
+.luc-avatar-md {
+    width: 48px;
+    height: 48px;
+    font-size: var(--text-base);
+}
+
+.luc-avatar-lg {
+    width: 64px;
+    height: 64px;
+    font-size: var(--text-xl);
+}
+
+.luc-avatar-status {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    width: 12px;
+    height: 12px;
+    border-radius: var(--radius-full);
+    border: 2px solid var(--luca-navy);
+}
+
+.luc-avatar-status.online { background-color: var(--bold-viridian); }
+.luc-avatar-status.offline { background-color: #64748b; }
+.luc-avatar-status.away { background-color: var(--luca-tangerine); }
+.luc-avatar-status.busy { background-color: #ef4444; }

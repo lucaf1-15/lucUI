@@ -1,0 +1,67 @@
+/* ============================================================
+   lucUI — Date Picker Component
+   ============================================================ */
+
+.luc-datepicker {
+    position: relative;
+    width: 100%;
+}
+
+.luc-datepicker-calendar {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: var(--space-2);
+    width: 300px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-edge);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    z-index: var(--z-dropdown);
+    backdrop-filter: blur(20px);
+    padding: var(--space-4);
+    display: none;
+}
+
+.luc-datepicker-calendar.active {
+    display: block;
+}
+
+.luc-calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-4);
+}
+
+.luc-calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: var(--space-1);
+    text-align: center;
+}
+
+.luc-calendar-day-name {
+    font-size: var(--text-xs);
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.luc-calendar-day {
+    padding: var(--space-2) 0;
+    font-size: var(--text-sm);
+    color: var(--text-light);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all var(--transition-fast) ease;
+}
+
+.luc-calendar-day:hover {
+    background: var(--glass-hover);
+    color: var(--studio-gold);
+}
+
+.luc-calendar-day.selected {
+    background: var(--studio-gold);
+    color: #fff;
+}

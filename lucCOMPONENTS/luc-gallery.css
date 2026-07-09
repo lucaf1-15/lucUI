@@ -1,0 +1,57 @@
+/* ============================================================
+   lucUI — Image Gallery / Lightbox Component
+   ============================================================ */
+
+.luc-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: var(--space-4);
+}
+
+.luc-gallery-item {
+    position: relative;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--glass-edge);
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-base) var(--ease-spring);
+}
+
+.luc-gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-base) ease;
+}
+
+.luc-gallery-item:hover img {
+    transform: scale(1.08);
+}
+
+.luc-gallery-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(8, 18, 32, 0.4);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity var(--transition-fast) ease;
+}
+
+.luc-gallery-item:hover .luc-gallery-overlay {
+    opacity: 1;
+}
+
+.luc-gallery-caption {
+    color: #fff;
+    font-weight: 600;
+    transform: translateY(10px);
+    transition: transform var(--transition-base) var(--ease-spring);
+}
+
+.luc-gallery-item:hover .luc-gallery-caption {
+    transform: translateY(0);
+}

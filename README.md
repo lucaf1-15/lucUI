@@ -16,10 +16,16 @@ Include lucUI via CDN in your HTML:
 
 ```html
 <!-- Full version -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucui-css-framework@1.0.0/lucUI.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucui-css-framework@2.0.0/lucUI.css">
 
 <!-- Minified version (smaller file size) -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucui-css-framework@1.0.0/lucUI.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucui-css-framework@2.0.0/lucUI.min.css">
+```
+
+For the interactive layer, add the JavaScript file as well:
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/lucui-css-framework@2.0.0/lucUI.js"></script>
 ```
 
 #### Option 2: npm
@@ -53,11 +59,29 @@ Download the latest release from GitHub and include the file:
 ### Basic Usage
 
 ```html
-<div class="luc-card">
+<div class="luc-card luc-glass">
     <h2 class="luc-card-title">Hello lucUI</h2>
     <p class="luc-card-body">Beautiful glass morphism design.</p>
     <button class="luc-btn luc-btn-primary">Get Started</button>
 </div>
+```
+
+### Interactive Features
+
+```html
+<button class="luc-btn luc-btn-primary" data-luc-toggle="modal" data-luc-target="#demo-modal">
+  Open modal
+</button>
+
+<div class="luc-reveal luc-mt-6">
+  <div class="luc-card luc-glass">Reveal on scroll</div>
+</div>
+```
+
+### Development
+
+```bash
+npm run build
 ```
 
 ---
@@ -453,11 +477,12 @@ npm install lucui-css-framework
 
 ### CDN (jsDelivr)
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucui-css-framework@1.0.0/lucUI.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucui-css-framework@2.0.0/lucUI.min.css">
+<script src="https://cdn.jsdelivr.net/npm/lucui-css-framework@2.0.0/lucUI.js"></script>
 ```
 
 ### GitHub
-Download releases from: https://github.com/luca-ecosystem/lucui/releases
+Download releases from: https://github.com/lucaf1-15/lucUI/releases
 
 ---
 

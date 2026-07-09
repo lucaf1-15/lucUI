@@ -1,0 +1,45 @@
+/* ============================================================
+   lucUI — Hero Section Component
+   ============================================================ */
+
+.luc-hero {
+    position: relative;
+    padding: var(--space-16) var(--space-6);
+    text-align: center;
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--glass-edge);
+    background: var(--glass-bg);
+    overflow: hidden;
+    margin-bottom: var(--space-8);
+}
+
+.luc-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.luc-hero-title {
+    font-family: var(--font-display);
+    font-size: var(--text-5xl);
+    font-weight: var(--weight-display);
+    color: var(--text-light);
+    margin-bottom: var(--space-4);
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+}
+
+.luc-hero-subtitle {
+    font-size: var(--text-xl);
+    color: var(--text-muted);
+    margin-bottom: var(--space-6);
+    line-height: 1.6;
+}
+
+.luc-hero-actions {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+}

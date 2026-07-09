@@ -1,0 +1,46 @@
+/* ============================================================
+   lucUI — Testimonial Card Component
+   ============================================================ */
+
+.luc-testimonial-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-edge);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+}
+
+.luc-testimonial-quote {
+    font-size: var(--text-lg);
+    line-height: 1.6;
+    color: var(--text-light);
+    margin-bottom: var(--space-4);
+    position: relative;
+    z-index: 2;
+}
+
+.luc-testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.luc-testimonial-author-img {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-full);
+    border: 1px solid var(--glass-edge);
+}
+
+.luc-testimonial-author-name {
+    font-weight: 600;
+    color: var(--studio-gold);
+    font-size: var(--text-sm);
+}
+
+.luc-testimonial-author-title {
+    font-size: var(--text-xs);
+    color: var(--text-muted);
+}

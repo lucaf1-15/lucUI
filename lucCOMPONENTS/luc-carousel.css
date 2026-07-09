@@ -1,0 +1,96 @@
+/* ============================================================
+   lucUI — Carousel Component
+   ============================================================ */
+
+.luc-carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--glass-edge);
+    background: var(--glass-bg);
+}
+
+.luc-carousel-inner {
+    display: flex;
+    transition: transform var(--transition-slow) var(--ease-spring);
+    width: 100%;
+    height: 100%;
+}
+
+.luc-carousel-item {
+    min-width: 100%;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.luc-carousel-caption {
+    position: absolute;
+    bottom: 2rem;
+    left: 10%;
+    right: 10%;
+    padding: var(--space-4);
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    text-align: center;
+}
+
+.luc-carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-full);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-edge);
+    backdrop-filter: blur(10px);
+    color: var(--text-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--transition-fast) ease;
+    z-index: 10;
+}
+
+.luc-carousel-control:hover {
+    background: var(--glass-hover);
+    color: var(--studio-gold);
+    border-color: var(--studio-gold);
+}
+
+.luc-carousel-prev {
+    left: 1rem;
+}
+
+.luc-carousel-next {
+    right: 1rem;
+}
+
+.luc-carousel-indicators {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: var(--space-2);
+    z-index: 10;
+}
+
+.luc-carousel-indicator {
+    width: 12px;
+    height: 6px;
+    border-radius: var(--radius-full);
+    background: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all var(--transition-fast) ease;
+}
+
+.luc-carousel-indicator.active {
+    width: 24px;
+    background: var(--studio-gold);
+}

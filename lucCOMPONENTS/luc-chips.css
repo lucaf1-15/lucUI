@@ -1,0 +1,48 @@
+/* ============================================================
+   lucUI — Chips / Tags Component
+   ============================================================ */
+
+.luc-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-1) var(--space-3);
+    border-radius: var(--radius-full);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-edge);
+    color: var(--text-light);
+    font-size: var(--text-sm);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-fast) ease;
+}
+
+.luc-chip:hover {
+    background: var(--glass-hover);
+    border-color: var(--studio-gold);
+    color: var(--studio-gold);
+}
+
+.luc-chip-close {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: transparent;
+    color: inherit;
+    font-size: 1rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0;
+    opacity: 0.6;
+    transition: opacity var(--transition-fast) ease;
+}
+
+.luc-chip-close:hover {
+    opacity: 1;
+}
+
+.luc-chip-primary {
+    background: rgba(174, 157, 93, 0.15);
+    border-color: rgba(174, 157, 93, 0.3);
+    color: var(--studio-gold);
+}

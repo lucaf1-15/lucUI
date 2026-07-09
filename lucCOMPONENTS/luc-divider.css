@@ -1,0 +1,33 @@
+/* ============================================================
+   lucUI — Divider Component
+   ============================================================ */
+
+.luc-divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: var(--space-6) 0;
+    color: var(--text-muted);
+}
+
+.luc-divider::before,
+.luc-divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid var(--glass-edge);
+}
+
+.luc-divider:not(:empty)::before {
+    margin-right: var(--space-4);
+}
+
+.luc-divider:not(:empty)::after {
+    margin-left: var(--space-4);
+}
+
+.luc-divider-text {
+    font-size: var(--text-sm);
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}

@@ -1,0 +1,77 @@
+/* ============================================================
+   lucUI — User Profile Card Component
+   ============================================================ */
+
+.luc-user-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-edge);
+    border-radius: var(--radius-xl);
+    padding: var(--space-6);
+    box-shadow: var(--shadow-md);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: all var(--transition-base) ease;
+}
+
+.luc-user-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--studio-gold);
+}
+
+.luc-user-card-banner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background: linear-gradient(135deg, var(--studio-gold), var(--luca-tangerine));
+    opacity: 0.3;
+    z-index: 1;
+}
+
+.luc-user-card-avatar {
+    position: relative;
+    z-index: 2;
+    margin-top: 20px;
+    margin-bottom: var(--space-4);
+    border: 3px solid var(--luca-navy);
+}
+
+.luc-user-card-name {
+    font-size: var(--text-lg);
+    font-weight: 700;
+    color: var(--text-light);
+    margin-bottom: var(--space-1);
+}
+
+.luc-user-card-role {
+    font-size: var(--text-sm);
+    color: var(--studio-gold);
+    margin-bottom: var(--space-4);
+}
+
+.luc-user-card-bio {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin-bottom: var(--space-6);
+}
+
+.luc-user-card-stats {
+    display: flex;
+    justify-content: space-around;
+    border-top: 1px solid var(--glass-edge);
+    padding-top: var(--space-4);
+}
+
+.luc-user-card-stat-val {
+    font-size: var(--text-base);
+    font-weight: 700;
+    color: var(--text-light);
+}
+
+.luc-user-card-stat-lbl {
+    font-size: var(--text-xs);
+    color: var(--text-muted);
+}

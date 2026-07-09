@@ -26,7 +26,7 @@
     --weight-body: 500;          /* Medium */
     --weight-italic: 300;        /* Light Italic */
     
-    /* Typography Scale */
+    /* Typography Scale - Expanded */
     --text-xs: 0.75rem;
     --text-sm: 0.875rem;
     --text-base: 1rem;
@@ -36,6 +36,10 @@
     --text-3xl: 1.875rem;
     --text-4xl: 2.25rem;
     --text-5xl: 3rem;
+    --text-6xl: 3.75rem;
+    --text-7xl: 4.5rem;
+    --text-8xl: 6rem;
+    --text-9xl: 8rem;
     
     /* Border Radius */
     --radius-sm: 8px;

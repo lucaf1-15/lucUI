@@ -1,0 +1,66 @@
+/* ============================================================
+   lucUI — Search Input with Autocomplete Component
+   ============================================================ */
+
+.luc-search-container {
+    position: relative;
+    width: 100%;
+}
+
+.luc-search-input {
+    width: 100%;
+    padding: var(--space-3) var(--space-10) var(--space-3) var(--space-4);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-edge);
+    border-radius: var(--radius-full);
+    color: var(--text-light);
+    outline: none;
+    transition: all var(--transition-fast) ease;
+}
+
+.luc-search-input:focus {
+    background: var(--glass-hover);
+    border-color: var(--studio-gold);
+    box-shadow: 0 0 10px rgba(174, 157, 93, 0.15);
+}
+
+.luc-search-icon {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    pointer-events: none;
+}
+
+.luc-search-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    margin-top: var(--space-2);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-edge);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    z-index: var(--z-dropdown);
+    backdrop-filter: blur(15px);
+    overflow: hidden;
+    display: none;
+}
+
+.luc-search-results.active {
+    display: block;
+}
+
+.luc-search-item {
+    padding: var(--space-3) var(--space-4);
+    color: var(--text-light);
+    cursor: pointer;
+    transition: background var(--transition-fast) ease;
+}
+
+.luc-search-item:hover {
+    background: var(--glass-hover);
+    color: var(--studio-gold);
+}

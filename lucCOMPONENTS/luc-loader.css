@@ -1,0 +1,53 @@
+/* ============================================================
+   lucUI — Loader / Spinner Component
+   ============================================================ */
+
+.luc-loader-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--glass-edge);
+    border-top: 3px solid var(--studio-gold);
+    border-radius: var(--radius-full);
+    animation: luc-spin 1s linear infinite;
+    display: inline-block;
+}
+
+.luc-loader-glass {
+    display: inline-flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 60px;
+    height: 40px;
+}
+
+.luc-loader-bar {
+    width: 6px;
+    height: 100%;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-edge);
+    border-radius: var(--radius-sm);
+    animation: luc-bounce 1.2s ease-in-out infinite;
+}
+
+.luc-loader-bar:nth-child(2) {
+    animation-delay: -1.0s;
+}
+.luc-loader-bar:nth-child(3) {
+    animation-delay: -0.8s;
+}
+
+@keyframes luc-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes luc-bounce {
+    0%, 100% {
+        transform: scaleY(0.3);
+    }
+    50% {
+        transform: scaleY(1);
+        background: var(--studio-gold);
+        box-shadow: 0 0 10px rgba(174, 157, 93, 0.5);
+    }
+}

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="lucUI 2.0 tutorial — guided examples of the premium glass-morphism design system with reusable components and theme switching.">
+    <title>lucUI 2.0 Tutorial — Premium Design System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=Raleway:wght@400;500;600&family=Montserrat:ital,wght@1,300;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="lucUI.css">
+    <style>
+        :root { color-scheme: dark; }
+        html { scroll-behavior: smooth; }
+        body {
+            margin: 0;
+            padding-top: 96px;
+            background:
+                radial-gradient(circle at top left, rgba(0, 187, 255, 0.18), transparent 28%),
+                radial-gradient(circle at top right, rgba(174, 157, 93, 0.18), transparent 26%),
+                linear-gradient(135deg, rgba(8, 18, 32, 0.96), rgba(11, 24, 42, 0.98));
+            min-height: 100vh;
+        }
+        .luc-navbar { position: fixed; top: 0; left: 0; right: 0; }
+        .luc-navbar-container {
+            width: min(95%, 1400px);
+            max-width: 1440px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: var(--space-4);
+            flex-wrap: wrap;
+            padding: var(--space-3) 0;
+        }
+        .luc-navbar-brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.9rem;
+            white-space: nowrap;
+        }
+        .logo-mark {
+            width: 64px;
+            height: auto;
+            display: block;
+            max-width: 100%;
+        }
+        .page-intro { padding: 5rem 0 3rem; }
+        .tutorial-section { padding: 4.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+        .tutorial-section:last-of-type { border-bottom: none; }
+        .tutorial-hero { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr); gap: 3rem; align-items: start; }
+        .tutorial-hero > .luc-reveal:first-child { max-width: 720px; }
+        .tutorial-badge { display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.45rem 0.95rem; border-radius: 999px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.16); color: var(--studio-gold); text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.75rem; }
+        .luc-card-body pre { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace; }
+        .glass-pill { display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.55rem 1rem; border-radius: 999px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.16); color: var(--text-light); font-size: 0.9rem; }
+        .luc-hero-actions { display: flex; align-items: center; justify-content: flex-start; flex-wrap: wrap; gap: 1rem; }
+        .luc-card-header { margin-bottom: 1.25rem; }
+        .luc-card-title { margin-bottom: 0; }
+        .luc-card-body p { margin: 0; line-height: 1.85; }
+        .tutorial-step { margin-bottom: 1rem; }
+        .tutorial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.75rem; }
+        .tutorial-grid .luc-card { display: flex; flex-direction: column; min-height: 200px; }
+        .tutorial-grid .luc-card-body { flex: 1; }
+        .luc-grid-cols-2 { align-items: stretch; }
+        .luc-grid-cols-2 > .luc-card { display: flex; flex-direction: column; min-height: 350px; }
+        .luc-grid-cols-2 > .luc-card .luc-card-body { flex: 1; }
+        .luc-card-body pre {
+            margin: 0;
+            padding: 1rem;
+            border-radius: var(--radius-lg);
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.08);
+            overflow-x: auto;
+            font-size: 0.92rem;
+            line-height: 1.7;
+            color: var(--text-muted);
+            min-height: 170px;
+        }
+        .luc-tabs { padding: 0.25rem 0.25rem 0 0.25rem; }
+        .luc-tab-list { margin-bottom: 1.5rem; }
+        .luc-tab-panel { padding-bottom: 1rem; }
+        @media (max-width: 1024px) {
+            .tutorial-hero { grid-template-columns: 1fr; }
+            .tutorial-hero > .luc-reveal:first-child { max-width: none; }
+            .luc-navbar-container { justify-content: center; }
+            .luc-navbar-links { justify-content: center; }
+        }
+        @media (max-width: 768px) {
+            body { padding-top: 108px; }
+            .page-intro { padding: 4rem 0 2rem; }
+            .tutorial-section { padding: 3rem 0; }
+            .luc-hero-actions { justify-content: center; }
+            .tutorial-hero { gap: 2rem; }
+            .luc-navbar-container { padding: 0 1rem; }
+            .luc-navbar-links { width: 100%; justify-content: center; }
+        }
+        @media (max-width: 560px) {
+            .luc-navbar-container { padding: 0 0.75rem; }
+            .luc-navbar-link { padding: 0.65rem 0.9rem; font-size: 0.82rem; }
+            .glass-pill { padding: 0.45rem 0.8rem; font-size: 0.85rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="luc-navbar luc-glass">
+        <div class="luc-navbar-container">
+            <a href="https://luca-ecosystem.pages.dev/docs" target="_blank" rel="noopener noreferrer" class="luc-navbar-brand" aria-label="lucUI home">
+                <img src="lucUI logo.svg" alt="lucUI logo" class="logo-mark">
+                <span class="luc-text-gold luc-font-display" style="font-size: 1.4rem; margin-left: 0.7rem;">lucUI Tutorial</span>
+            </a>
+            <div class="luc-navbar-links">
+                <a href="#overview" class="luc-navbar-link">Overview</a>
+                <a href="#components" class="luc-navbar-link">Components</a>
+                <a href="#play" class="luc-navbar-link">Play</a>
+                <a href="https://luca-ecosystem.pages.dev/docs" target="_blank" rel="noopener noreferrer" class="luc-navbar-link">Docs</a>
+            </div>
+        </div>
+    </nav>
+
+    <main id="overview">
+        <section class="luc-container page-intro tutorial-section">
+            <div class="tutorial-hero">
+                <div class="luc-reveal">
+                    <div class="tutorial-badge">lucUI tutorial</div>
+                    <h1 class="luc-hero-title luc-mt-4">Learn lucUI by doing, not just by reading.</h1>
+                    <p class="luc-hero-subtitle luc-mt-4">This page is the tutorial for lucUI 2.0: a working documentation experience built with the framework itself.</p>
+                    <p class="luc-text-muted luc-mt-4">Each section shows a real pattern, explains what it does, and teaches you when to use it. Follow along, try the examples, and reuse the same structure in your own pages.</p>
+                    <div class="luc-hero-actions luc-mt-6">
+                        <a class="luc-btn luc-btn-primary" href="https://luca-ecosystem.pages.dev/docs" target="_blank" rel="noopener noreferrer">Start learning</a>
+                        <button class="luc-btn luc-btn-transparency" data-luc-toggle="modal" data-luc-target="#demo-modal">Open example modal</button>
+                    </div>
+                    <div class="luc-flex luc-gap-2 luc-flex-wrap luc-mt-6">
+                        <span class="glass-pill">Zero dependencies</span>
+                        <span class="glass-pill">Theme-ready</span>
+                        <span class="glass-pill">Accessible by default</span>
+                    </div>
+                </div>
+                <div class="luc-card luc-glass luc-reveal">
+                    <div class="luc-card-header">
+                        <h3 class="luc-card-title">How to use this tutorial</h3>
+                    </div>
+                    <div class="luc-card-body">
+                        <div class="tutorial-step">
+                            <div class="luc-alert luc-alert-success">
+                                <div class="luc-alert-icon">1</div>
+                                <div class="luc-alert-content">
+                                    <div class="luc-alert-title">Read the pattern</div>
+                                    <p class="luc-alert-message">Identify the layout, component, and spacing choices used in each section.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tutorial-step">
+                            <div class="luc-alert luc-alert-info">
+                                <div class="luc-alert-icon">2</div>
+                                <div class="luc-alert-content">
+                                    <div class="luc-alert-title">Try the example</div>
+                                    <p class="luc-alert-message">Interact with the buttons, switch themes, and inspect the cards to understand how lucUI behaves.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tutorial-step">
+                            <div class="luc-alert luc-alert-warning">
+                                <div class="luc-alert-icon">3</div>
+                                <div class="luc-alert-content">
+                                    <div class="luc-alert-title">Reuse the pattern</div>
+                                    <p class="luc-alert-message">Take the same components and class names into your own pages to build consistent UI quickly.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="luc-container tutorial-section" id="components">
+            <div class="luc-flex luc-justify-between luc-items-start luc-mb-6">
+                <div>
+                    <div class="tutorial-badge">Core components</div>
+                    <h2 class="luc-text-3xl luc-text-gold luc-mt-3">Explore lucUI's reusable components.</h2>
+                    <p class="luc-text-muted luc-mt-4">Each card below explains a component, shows how it fits into real interface flows, and helps you choose the right element for the job.</p>
+                </div>
+                <a class="luc-btn luc-btn-transparency" href="https://luca-ecosystem.pages.dev/docs" target="_blank" rel="noopener noreferrer">Open the docs</a>
+            </div>
+            <div class="tutorial-grid">
+                <article class="luc-card luc-glass luc-reveal">
+                    <div class="luc-card-header"><h3 class="luc-card-title">Cards</h3></div>
+                    <div class="luc-card-body">
+                        <p class="luc-text-muted">Cards group related content and create a clean visual surface for panels, stories, and features. Use them for onboarding, tooltips, and content summaries.</p>
+                    </div>
+                </article>
+                <article class="luc-card luc-glass luc-reveal">
+                    <div class="luc-card-header"><h3 class="luc-card-title">Buttons</h3></div>
+                    <div class="luc-card-body">
+                        <p class="luc-text-muted">Buttons are the action points in your interface. Use primary buttons for main calls to action, and secondary buttons for less prominent controls.</p>
+                    </div>
+                </article>
+                <article class="luc-card luc-glass luc-reveal">
+                    <div class="luc-card-header"><h3 class="luc-card-title">Tabs</h3></div>
+                    <div class="luc-card-body">
+                        <p class="luc-text-muted">Tabs let you organize related content into clear, switchable panels. Use them when users need to compare sections without leaving the current view.</p>
+                    </div>
+                </article>
+                <article class="luc-card luc-glass luc-reveal">
+                    <div class="luc-card-header"><h3 class="luc-card-title">Modals</h3></div>
+                    <div class="luc-card-body">
+                        <p class="luc-text-muted">Modals focus attention on a single task or message while keeping the rest of the page in view. Use them for confirmations, details, or short forms.</p>
+                    </div>
+                </article>
+                <article class="luc-card luc-glass luc-reveal">
+                    <div class="luc-card-header"><h3 class="luc-card-title">Toasts</h3></div>
+                    <div class="luc-card-body">
+                        <p class="luc-text-muted">Toasts communicate short updates with minimal disruption. Use them for save confirmations, alerts, or subtle status messages.</p>
+                    </div>
+                </article>
+                <article class="luc-card luc-glass luc-reveal">
+                    <div class="luc-card-header"><h3 class="luc-card-title">Progress</h3></div>
+                    <div class="luc-card-body">
+                        <p class="luc-text-muted">Progress bars help users understand status and completion at a glance. Use them for uploads, onboarding steps, and task progress.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="luc-container tutorial-section" id="play">
+            <div class="luc-card luc-glass luc-reveal luc-mb-6">
+                <div class="luc-card-header"><h3 class="luc-card-title">Practice while you learn</h3></div>
+                <div class="luc-card-body">
+                    <p class="luc-text-muted">This section is interactive. Experiment with theme buttons, view the tab states, and open the modal to observe how lucUI makes interfaces feel responsive.</p>
+                    <p class="luc-text-muted luc-mt-3">Note: the theme buttons use `data-luc-theme-switch` attributes, and the tab component is powered by the built-in lucUI JavaScript tab manager.</p>
+                </div>
+            </div>
+            <div class="luc-grid luc-grid-cols-2 luc-gap-8 luc-items-stretch">
+                <div class="luc-card luc-glass luc-reveal">
+                    <div class="luc-card-header"><h3 class="luc-card-title">Try the live examples</h3></div>
+                    <div class="luc-card-body">
+                        <div class="luc-tabs luc-mb-4">
+                            <div class="luc-tab-list" role="tablist">
+                                <button class="luc-tab active" role="tab" aria-selected="true" data-luc-tab="0">Theme</button>
+                                <button class="luc-tab" role="tab" aria-selected="false" data-luc-tab="1">Motion</button>
+                                <button class="luc-tab" role="tab" aria-selected="false" data-luc-tab="2">Modal</button>
+                            </div>
+                            <div class="luc-tab-panel active" role="tabpanel">
+                                <p class="luc-text-muted">Switch theme palettes and see how the system adapts instantly.</p>
+                            </div>
+                            <div class="luc-tab-panel" role="tabpanel">
+                                <p class="luc-text-muted">Reveal animations make sections feel like they arrive naturally as you scroll.</p>
+                            </div>
+                            <div class="luc-tab-panel" role="tabpanel">
+                                <p class="luc-text-muted">Open a dialog to see how lucUI handles focus, overlays, and dismissal.</p>
+                            </div>
+                        </div>
+                        <div class="luc-flex luc-gap-2 luc-flex-wrap">
+                            <button class="luc-btn luc-btn-sm" data-luc-theme-switch="light">Light</button>
+                            <button class="luc-btn luc-btn-sm" data-luc-theme-switch="dark">Dark</button>
+                            <button class="luc-btn luc-btn-sm" data-luc-theme-switch="midnight">Midnight</button>
+                            <button class="luc-btn luc-btn-sm" data-luc-theme-switch="sunrise">Sunrise</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="luc-card luc-glass luc-reveal">
+                    <div class="luc-card-header"><h3 class="luc-card-title">Quick start snippet</h3></div>
+                    <div class="luc-card-body">
+                        <pre class="luc-text-muted" style="white-space: pre-wrap;">&lt;link rel="stylesheet" href="lucUI.css"&gt;
+&lt;script src="lucUI.js"&gt;&lt;/script&gt;
+
+&lt;button class="luc-btn luc-btn-primary" data-luc-toggle="modal" data-luc-target="#demo-modal"&gt;Open dialog&lt;/button&gt;</pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="luc-container" style="padding: 2rem 0 3rem;">
+        <div class="luc-card luc-glass">
+            <div class="luc-card-body luc-flex luc-justify-between luc-align-center luc-flex-wrap luc-gap-4">
+                <div>
+                    <h3 class="luc-card-title">Ready to build?</h3>
+                    <p class="luc-text-muted">Use the docs to go deeper and start composing your own lucUI interfaces.</p>
+                </div>
+                <a class="luc-btn luc-btn-primary" href="https://luca-ecosystem.pages.dev/docs" target="_blank" rel="noopener noreferrer">Continue to docs</a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="luc-modal-backdrop" id="demo-modal" aria-hidden="true">
+        <div class="luc-modal luc-glass-noise" role="dialog" aria-modal="true" aria-labelledby="demo-modal-title">
+            <div class="luc-modal-header">
+                <h3 class="luc-modal-title" id="demo-modal-title">Welcome to lucUI</h3>
+                <button class="luc-btn luc-btn-sm" data-luc-dismiss="modal">&times;</button>
+            </div>
+            <div class="luc-modal-body">
+                <p class="luc-text-muted">This tutorial page demonstrates how lucUI handles modal dialogs, spacing, and surface styling.</p>
+            </div>
+            <div class="luc-modal-footer">
+                <button class="luc-btn luc-btn-primary" data-luc-dismiss="modal">Continue</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="luc-cookie-banner luc-glass">
+        <span class="luc-cookie-text">This tutorial uses cookies to keep the experience smooth.</span>
+        <div class="luc-cookie-actions">
+            <button class="luc-btn luc-btn-primary luc-btn-sm" data-luc-cookie="accept">Accept</button>
+        </div>
+    </div>
+
+    <script src="lucUI.js"></script>
+</body>
+</html>

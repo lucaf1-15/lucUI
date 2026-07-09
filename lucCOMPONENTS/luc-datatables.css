@@ -1,0 +1,46 @@
+/* ============================================================
+   lucUI — Data Tables Component
+   ============================================================ */
+
+.luc-table-container {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--glass-edge);
+    background: var(--glass-bg);
+    box-shadow: var(--shadow-md);
+}
+
+.luc-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    color: var(--text-light);
+}
+
+.luc-table th,
+.luc-table td {
+    padding: var(--space-4);
+    border-bottom: 1px solid var(--glass-edge);
+}
+
+.luc-table th {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: var(--text-xs);
+    letter-spacing: 0.05em;
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--studio-gold);
+}
+
+.luc-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.luc-table tbody tr:hover {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.luc-table-striped tbody tr:nth-child(odd) {
+    background: rgba(255, 255, 255, 0.015);
+}
