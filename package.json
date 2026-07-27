@@ -1,17 +1,22 @@
 {
   "name": "lucui-css-framework",
   "version": "2.0.0",
-  "description": "Premium glass-morphism CSS framework with an interactive JavaScript layer by luca.ecosystem",
+  "description": "The prism interface system: editorial typography, reactive glass, accessible components, and semantic CSS tokens by luca.ecosystem",
   "main": "lucUI.css",
+  "style": "lucUI.min.css",
   "files": [
     "lucUI.css",
     "lucUI.min.css",
+    "lucUI.source.css",
     "lucUI.js",
     "lucCORE/",
     "lucCOMPONENTS/",
     "lucUTILITIES/",
     "lucUI logo.svg",
     "tutorial.html",
+    "starters/",
+    "COMPONENTS.md",
+    "MIGRATION.md",
     "README.md",
     "LICENSE"
   ],
@@ -25,6 +30,9 @@
     "luca-ecosystem",
     "transparency",
     "glass",
+    "prism",
+    "editorial-ui",
+    "design-tokens",
     "accessibility"
   ],
   "author": "luca.ecosystem",

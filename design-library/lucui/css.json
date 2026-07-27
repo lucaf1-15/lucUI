@@ -1,0 +1,163 @@
+{
+  "color": {
+    "brand": {
+      "brand-50": { "hex": "#e8edf3", "opacity": "1" },
+      "brand-100": { "hex": "#c4d0dd", "opacity": "1" },
+      "brand-200": { "hex": "#9dafc3", "opacity": "1" },
+      "brand-300": { "hex": "#768ea9", "opacity": "1" },
+      "brand-400": { "hex": "#587599", "opacity": "1" },
+      "brand-500": { "hex": "#1d2d44", "opacity": "1", "isPrimary": true },
+      "brand-600": { "hex": "#18253a", "opacity": "1" },
+      "brand-700": { "hex": "#131e30", "opacity": "1" },
+      "brand-800": { "hex": "#0e1826", "opacity": "1" },
+      "brand-900": { "hex": "#09101c", "opacity": "1" }
+    },
+    "accent": {
+      "accent-50": { "hex": "#e0f8ff", "opacity": "1" },
+      "accent-100": { "hex": "#b3edff", "opacity": "1" },
+      "accent-200": { "hex": "#80e1ff", "opacity": "1" },
+      "accent-300": { "hex": "#4dd5ff", "opacity": "1" },
+      "accent-400": { "hex": "#26ccff", "opacity": "1" },
+      "accent-500": { "hex": "#00bbff", "opacity": "1", "isPrimary": true },
+      "accent-600": { "hex": "#009ad4", "opacity": "1" },
+      "accent-700": { "hex": "#007aaa", "opacity": "1" },
+      "accent-800": { "hex": "#005980", "opacity": "1" },
+      "accent-900": { "hex": "#003955", "opacity": "1" }
+    },
+    "gold": {
+      "gold-50": { "hex": "#f7f4e8", "opacity": "1" },
+      "gold-100": { "hex": "#ebe3c4", "opacity": "1" },
+      "gold-200": { "hex": "#ded09e", "opacity": "1" },
+      "gold-300": { "hex": "#d1bd78", "opacity": "1" },
+      "gold-400": { "hex": "#c7af5c", "opacity": "1" },
+      "gold-500": { "hex": "#ae9d5d", "opacity": "1", "isPrimary": true },
+      "gold-600": { "hex": "#96884f", "opacity": "1" },
+      "gold-700": { "hex": "#7e7141", "opacity": "1" },
+      "gold-800": { "hex": "#665b33", "opacity": "1" },
+      "gold-900": { "hex": "#4e4525", "opacity": "1" }
+    },
+    "background": {
+      "background-50": { "hex": "#eef0f3", "opacity": "1" },
+      "background-100": { "hex": "#d3d8df", "opacity": "1" },
+      "background-200": { "hex": "#b4bcc8", "opacity": "1" },
+      "background-300": { "hex": "#95a0b1", "opacity": "1" },
+      "background-400": { "hex": "#7e8b9f", "opacity": "1" },
+      "background-500": { "hex": "#081321", "opacity": "1", "isPrimary": true },
+      "background-600": { "hex": "#060f1b", "opacity": "1" },
+      "background-700": { "hex": "#050b15", "opacity": "1" },
+      "background-800": { "hex": "#03080f", "opacity": "1" },
+      "background-900": { "hex": "#020509", "opacity": "1" }
+    },
+    "text": {
+      "text-50": { "hex": "#fefdf9", "opacity": "1" },
+      "text-100": { "hex": "#fcf9f0", "opacity": "1" },
+      "text-200": { "hex": "#faf5e7", "opacity": "1" },
+      "text-300": { "hex": "#f8f1de", "opacity": "1" },
+      "text-400": { "hex": "#f7f0d8", "opacity": "1" },
+      "text-500": { "hex": "#f7f4ec", "opacity": "1", "isPrimary": true },
+      "text-600": { "hex": "#c4c0b5", "opacity": "1" },
+      "text-700": { "hex": "#9e9a90", "opacity": "1" },
+      "text-800": { "hex": "#78756c", "opacity": "1" },
+      "text-900": { "hex": "#525048", "opacity": "1" }
+    },
+    "state-success": {
+      "state-success": { "hex": "#00ff00", "opacity": "1", "isPrimary": true },
+      "state-success-dark": { "hex": "#00cc00", "opacity": "1" },
+      "state-success-foreground": { "hex": "#ffffff", "opacity": "1" }
+    },
+    "state-error": {
+      "state-error": { "hex": "#ef4444", "opacity": "1", "isPrimary": true },
+      "state-error-dark": { "hex": "#dc2626", "opacity": "1" },
+      "state-error-foreground": { "hex": "#ffffff", "opacity": "1" }
+    },
+    "state-warning": {
+      "state-warning": { "hex": "#ff8c00", "opacity": "1", "isPrimary": true },
+      "state-warning-dark": { "hex": "#cc7000", "opacity": "1" },
+      "state-warning-foreground": { "hex": "#ffffff", "opacity": "1" }
+    }
+  },
+  "font": {
+    "family": {
+      "font-display": "'Playfair Display', serif",
+      "font-body": "'Raleway', sans-serif",
+      "font-italic": "'Montserrat', sans-serif",
+      "font-sans": "'Raleway', sans-serif",
+      "font-mono": "'SF Mono', 'Fira Code', 'Cascadia Code', monospace"
+    },
+    "size": {
+      "font-size-xs": "0.75rem",
+      "font-size-sm": "0.875rem",
+      "font-size-base": "1rem",
+      "font-size-lg": "1.125rem",
+      "font-size-xl": "1.25rem",
+      "font-size-2xl": "1.5rem",
+      "font-size-3xl": "1.875rem",
+      "font-size-4xl": "2.25rem"
+    },
+    "weight": {
+      "font-weight-light": "300",
+      "font-weight-normal": "400",
+      "font-weight-medium": "500",
+      "font-weight-semibold": "600",
+      "font-weight-bold": "700",
+      "font-weight-display": "900"
+    },
+    "lineHeight": {
+      "line-height-tight": "1.15",
+      "line-height-normal": "1.5",
+      "line-height-relaxed": "1.75"
+    }
+  },
+  "shadow": {
+    "shadow-sm": {
+      "xOffset": "0px", "yOffset": "1px", "blur": "3px", "spread": "0px",
+      "color": { "hex": "#000000", "opacity": "0.25" }
+    },
+    "shadow-md": {
+      "xOffset": "0px", "yOffset": "4px", "blur": "16px", "spread": "0px",
+      "color": { "hex": "#000000", "opacity": "0.30" }
+    },
+    "shadow-lg": {
+      "xOffset": "0px", "yOffset": "8px", "blur": "32px", "spread": "0px",
+      "color": { "hex": "#000000", "opacity": "0.35" }
+    },
+    "shadow-xl": {
+      "xOffset": "0px", "yOffset": "20px", "blur": "60px", "spread": "0px",
+      "color": { "hex": "#000000", "opacity": "0.45" }
+    },
+    "shadow-glow": {
+      "xOffset": "0px", "yOffset": "0px", "blur": "48px", "spread": "0px",
+      "color": { "hex": "#00bbff", "opacity": "0.16" }
+    }
+  },
+  "radius": {
+    "radius": "16px",
+    "radius-sm": "8px",
+    "radius-md": "16px",
+    "radius-lg": "24px",
+    "radius-xl": "32px",
+    "radius-2xl": "44px",
+    "radius-full": "9999px"
+  },
+  "spacing": {
+    "spacing": "4px",
+    "space-1": "0.25rem",
+    "space-2": "0.5rem",
+    "space-3": "0.75rem",
+    "space-4": "1rem",
+    "space-5": "1.25rem",
+    "space-6": "1.5rem",
+    "space-8": "2rem",
+    "space-10": "2.5rem",
+    "space-12": "3rem",
+    "space-16": "4rem",
+    "space-20": "5rem",
+    "space-24": "6rem",
+    "space-32": "8rem"
+  },
+  "glass": {
+    "glass-bg": { "hex": "#ffffff", "opacity": "0.055" },
+    "glass-hover": { "hex": "#ffffff", "opacity": "0.09" },
+    "glass-edge": { "hex": "#ffffff", "opacity": "0.10" }
+  }
+}

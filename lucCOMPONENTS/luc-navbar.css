@@ -1,5 +1,5 @@
 /* ============================================================
-   lucUI — Navbar Component v3.0
+   lucUI — Navbar Component v2.0
    Enhanced with mega menu, search, and user menu
    ============================================================ */
 
@@ -9,7 +9,7 @@
     top: 0;
     left: 0;
     right: 0;
-    background: rgba(8,18,32,0.52);
+    background: var(--glass-nav);
     backdrop-filter: blur(34px) saturate(240%) brightness(1.2) contrast(1.05);
     -webkit-backdrop-filter: blur(34px) saturate(240%) brightness(1.2) contrast(1.05);
     border-bottom: 1px solid rgba(174, 157, 93, 0.22);
@@ -29,7 +29,7 @@
 
 .luc-navbar.scrolled {
     height: 56px;
-    background: rgba(6,14,26,0.60);
+    background: var(--glass-nav);
     box-shadow: var(--shadow-lg);
 }
 
@@ -68,7 +68,7 @@
 }
 
 .luc-navbar-link {
-    color: rgba(224, 230, 237, 0.95);
+    color: var(--text-light);
     font-weight: 600;
     font-size: 0.9rem;
     text-transform: none;
@@ -91,7 +91,7 @@
 .luc-navbar-link:hover {
     background: rgba(174,157,93,0.10);
     border-color: rgba(174,157,93,0.38);
-    color: #fff;
+    color: var(--text-light);
     box-shadow: 0 0 16px rgba(174,157,93,0.28), inset 0 1px 0 rgba(255,255,255,0.10);
     transform: translateY(-1px);
 }
@@ -121,7 +121,9 @@
 .luc-navbar-accent {
     color: var(--studio-gold);
     font-size: 0.7rem;
-    font-family: var(--font-display);
+    font-family: var(--font-italic);
+    font-style: italic;
+    font-weight: var(--weight-italic);
     opacity: 0.8;
 }
 
@@ -170,6 +172,11 @@
     width: 250px;
 }
 
+.luc-navbar-search-input:focus-visible {
+    outline: 2px solid var(--luc-focus-ring, var(--designer-azure));
+    outline-offset: 3px;
+}
+
 .luc-navbar-search-input::placeholder {
     color: var(--text-muted);
 }
@@ -192,8 +199,8 @@
 }
 
 .luc-navbar-user-avatar {
-    width: 36px;
-    height: 36px;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
     background: linear-gradient(135deg, var(--studio-gold), var(--designer-azure));
     display: flex;
@@ -201,7 +208,7 @@
     justify-content: center;
     font-weight: 600;
     font-size: 0.875rem;
-    color: #fff;
+    color: var(--luca-navy);
     cursor: pointer;
     transition: all var(--transition-base) var(--ease-snappy);
     border: 2px solid rgba(255,255,255,0.2);
@@ -217,7 +224,7 @@
     top: 100%;
     right: 0;
     margin-top: var(--space-2);
-    background: rgba(8,16,28,0.95);
+    background: var(--luc-surface-strong, rgba(8,16,28,0.95));
     backdrop-filter: blur(32px) saturate(200%);
     -webkit-backdrop-filter: blur(32px) saturate(200%);
     border: 1px solid var(--glass-edge);
@@ -274,7 +281,7 @@
     top: 100%;
     left: 0;
     margin-top: var(--space-2);
-    background: rgba(8,16,28,0.95);
+    background: var(--luc-surface-strong, rgba(8,16,28,0.95));
     backdrop-filter: blur(32px) saturate(200%);
     -webkit-backdrop-filter: blur(32px) saturate(200%);
     border: 1px solid var(--glass-edge);
@@ -332,7 +339,7 @@
 /* Responsive */
 @media (max-width: 900px) {
     .luc-navbar-links {
-        background: rgba(8,16,28,0.88);
+        background: var(--luc-surface-strong, rgba(8,16,28,0.88));
         backdrop-filter: blur(32px) saturate(200%);
         -webkit-backdrop-filter: blur(32px) saturate(200%);
         border-bottom: 1px solid var(--glass-edge);

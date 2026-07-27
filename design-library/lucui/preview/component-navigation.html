@@ -1,0 +1,43 @@
+<!DOCTYPE html><html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>lucUI — Navigation Preview</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<link rel="stylesheet" href="../components.css">
+<style>
+  body { background: var(--background); color: var(--foreground); font-family: var(--font-body); }
+  .demo-section { padding: 2rem; }
+  .demo-section h2 { font-family: var(--font-display); font-size: var(--font-size-xl); margin-bottom: 1rem; }
+  main { max-width: 800px; margin: 3rem auto; padding: 0 2rem; }
+</style>
+</head>
+<body>
+  <nav class="lucui-navbar">
+    <a class="lucui-navbar-brand" href="#">
+      <svg width="28" height="28" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="45" stroke="var(--accent)" stroke-width="4"/><path d="M30 65 L50 30 L70 65" stroke="var(--secondary)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      lucUI
+    </a>
+    <div class="lucui-navbar-links">
+      <a class="lucui-navbar-link active" href="#" aria-current="page">Overview</a>
+      <a class="lucui-navbar-link" href="#">Projects</a>
+      <a class="lucui-navbar-link" href="#">Deliverables</a>
+      <a class="lucui-navbar-link" href="#">Team</a>
+    </div>
+    <div>
+      <button class="lucui-btn lucui-btn-primary lucui-btn-sm">Get started</button>
+    </div>
+  </nav>
+
+  <main>
+    <h1 style="font-family:var(--font-display); font-size:var(--font-size-3xl);">Navigation Preview</h1>
+    <p style="font-family:var(--font-body); line-height:var(--line-height-relaxed);">The navbar above demonstrates the default glass navigation with pill-style links, brand mark, and action button. Scroll to see the scrolled state with increased opacity.</p>
+  </main>
+
+  <script>
+    window.addEventListener('scroll', function() {
+      document.querySelector('.lucui-navbar').classList.toggle('scrolled', window.scrollY > 20);
+    });
+  </script>
+</body>
+</html>

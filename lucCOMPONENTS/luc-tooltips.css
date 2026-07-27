@@ -15,10 +15,10 @@
     bottom: calc(100% + 8px);
     left: 50%;
     transform: translateX(-50%) translateY(4px);
-    background: rgba(8,18,32,0.92);
+    background: var(--luc-surface-strong, rgba(8,18,32,0.92));
     backdrop-filter: blur(16px) saturate(180%);
     -webkit-backdrop-filter: blur(16px) saturate(180%);
-    border: 1px solid rgba(174,157,93,0.2);
+    border: 1px solid var(--glass-edge);
     border-radius: var(--radius-sm);
     box-shadow: var(--shadow-md), inset 0 1px 0 rgba(255,255,255,0.08);
     color: var(--text-light);
@@ -44,7 +44,7 @@
     left: 50%;
     transform: translateX(-50%) translateY(4px);
     border: 5px solid transparent;
-    border-top-color: rgba(174,157,93,0.2);
+    border-top-color: var(--glass-edge);
     pointer-events: none;
     opacity: 0;
     visibility: hidden;
@@ -83,7 +83,7 @@
     top: calc(100% + 2px);
     transform: translateX(-50%) translateY(-4px);
     border-top-color: transparent;
-    border-bottom-color: rgba(174,157,93,0.2);
+    border-bottom-color: var(--glass-edge);
 }
 
 .luc-tooltip-bottom:hover::after,
@@ -112,7 +112,7 @@
     right: calc(100% + 2px);
     transform: translateY(-50%) translateX(4px);
     border-top-color: transparent;
-    border-left-color: rgba(174,157,93,0.2);
+    border-left-color: var(--glass-edge);
 }
 
 .luc-tooltip-left:hover::after,
@@ -139,7 +139,7 @@
     left: calc(100% + 2px);
     transform: translateY(-50%) translateX(-4px);
     border-top-color: transparent;
-    border-right-color: rgba(174,157,93,0.2);
+    border-right-color: var(--glass-edge);
 }
 
 .luc-tooltip-right:hover::after,

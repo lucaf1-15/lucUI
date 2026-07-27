@@ -43,7 +43,6 @@
     font-size: var(--text-base);
     color: var(--text-light);
     margin-bottom: var(--space-1);
-    font-weight: 600;
 }
 
 .luc-timeline-time {

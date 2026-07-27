@@ -15,6 +15,7 @@
     flex-direction: column;
     z-index: var(--z-sticky);
     backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     transition: transform var(--transition-base) ease;
 }
 
@@ -54,4 +55,9 @@
     background: var(--glass-hover);
     color: var(--studio-gold);
     border-left: 3px solid var(--studio-gold);
+}
+
+.luc-sidebar-link:focus-visible {
+    outline: 2px solid var(--luc-focus-ring, var(--designer-azure));
+    outline-offset: 3px;
 }

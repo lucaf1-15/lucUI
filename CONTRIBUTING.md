@@ -11,11 +11,17 @@ Thank you for your interest in contributing to lucUI!
 
 ## Development
 
-lucUI is a plain CSS framework with no build process required. Simply edit the CSS files directly:
+lucUI remains dependency-free in the browser, while its release bundles are generated from the modular source. Edit the modules directly, then rebuild before testing or submitting:
 
 - **Core files:** `lucCORE/` - Design tokens, reset, typography, base styles
 - **Components:** `lucCOMPONENTS/` - UI components (buttons, cards, navbar, etc.)
 - **Utilities:** `lucUTILITIES/` - Utility classes (glass, animations, spacing, layout)
+- **Source entry point:** `lucUI.source.css` - Ordered module manifest
+- **Generated bundles:** `lucUI.css` and `lucUI.min.css` - Do not edit these by hand
+
+```bash
+npm run build
+```
 
 ## Code Style
 
@@ -27,9 +33,12 @@ lucUI is a plain CSS framework with no build process required. Simply edit the C
 ## Testing
 
 Test your changes by:
-1. Including `lucUI.css` in an HTML file
-2. Using the classes you've modified
-3. Testing in modern browsers (Chrome, Safari, Firefox, Edge)
+
+1. Running `npm run build`
+2. Including the generated `lucUI.css` in an HTML file
+3. Using the classes you've modified
+4. Testing dark, light, midnight, and sunrise themes
+5. Testing keyboard navigation, reduced motion, and responsive layouts in Chrome, Safari, Firefox, and Edge
 
 ## Submitting Changes
 
@@ -44,6 +53,7 @@ Test your changes by:
 - Ensure accessibility (focus states, reduced motion)
 - Test responsive behavior
 - Update documentation if needed
+- Keep brand primitives stable; use semantic tokens for theme-specific color decisions
 
 ## Brand Guidelines
 

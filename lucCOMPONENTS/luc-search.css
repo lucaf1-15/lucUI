@@ -24,6 +24,11 @@
     box-shadow: 0 0 10px rgba(174, 157, 93, 0.15);
 }
 
+.luc-search-input:focus-visible {
+    outline: 2px solid var(--luc-focus-ring, var(--designer-azure));
+    outline-offset: 3px;
+}
+
 .luc-search-icon {
     position: absolute;
     right: 14px;
@@ -45,6 +50,7 @@
     box-shadow: var(--shadow-lg);
     z-index: var(--z-dropdown);
     backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
     overflow: hidden;
     display: none;
 }

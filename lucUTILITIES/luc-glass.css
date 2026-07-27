@@ -1,5 +1,5 @@
 /* ============================================================
-   lucUI — Glass Morphism Utilities v3.0
+   lucUI — Glass Morphism Utilities v2.0
    Enhanced with multi-layer blur, dynamic lighting, and depth
    ============================================================ */
 
@@ -15,6 +15,25 @@
                 inset 0 -1px 0 rgba(0,0,0,0.05);
     position: relative;
     overflow: hidden;
+}
+
+/* Browsers without backdrop-filter still receive a legible surface. */
+@supports not ((backdrop-filter: blur(1px))) {
+    .luc-glass,
+    .luc-card,
+    .luc-prism,
+    .luc-navbar,
+    .luc-modal,
+    .luc-dropdown-menu,
+    .luc-toast,
+    .luc-datepicker-calendar,
+    .luc-gallery-overlay,
+    .luc-notification-center,
+    .luc-search-results,
+    .luc-sidebar,
+    .luc-tooltip::after {
+        background: var(--luc-surface-strong, rgba(8,18,32,0.96));
+    }
 }
 
 /* Enhanced Specular Edge - Multi-stop gradients */

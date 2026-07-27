@@ -13,6 +13,7 @@
     box-shadow: var(--shadow-xl);
     z-index: var(--z-fixed);
     backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
     overflow: hidden;
     display: none;
     flex-direction: column;
@@ -33,7 +34,6 @@
 
 .luc-notification-center-title {
     font-size: var(--text-base);
-    font-weight: 600;
     color: var(--studio-gold);
 }
 

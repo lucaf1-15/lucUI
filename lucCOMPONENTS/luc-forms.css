@@ -1,5 +1,5 @@
 /* ============================================================
-   lucUI — Form Components v3.0
+   lucUI — Form Components v2.0
    Enhanced with floating labels and input groups
    ============================================================ */
 
@@ -45,6 +45,13 @@
     transform: translateY(-1px);
 }
 
+.luc-input:focus-visible,
+.luc-textarea:focus-visible,
+.luc-select:focus-visible {
+    outline: 2px solid var(--luc-focus-ring, var(--designer-azure));
+    outline-offset: 3px;
+}
+
 .luc-input::placeholder,
 .luc-textarea::placeholder {
     color: var(--text-muted);
@@ -70,6 +77,7 @@
     display: flex;
     align-items: center;
     gap: var(--space-2);
+    min-height: 44px;
 }
 
 .luc-checkbox {
@@ -97,14 +105,15 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: #fff;
+    color: var(--luca-navy);
     font-size: 0.875rem;
     font-weight: bold;
 }
 
 .luc-checkbox:focus-visible {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(174,157,93,0.2);
+    outline: 2px solid var(--luc-focus-ring, var(--designer-azure));
+    outline-offset: 3px;
+    box-shadow: none;
 }
 
 /* Radio Button */
@@ -112,6 +121,7 @@
     display: flex;
     align-items: center;
     gap: var(--space-2);
+    min-height: 44px;
 }
 
 .luc-radio {
@@ -141,13 +151,14 @@
     transform: translate(-50%, -50%);
     width: 0.5rem;
     height: 0.5rem;
-    background: #fff;
+    background: var(--luca-navy);
     border-radius: 50%;
 }
 
 .luc-radio:focus-visible {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(174,157,93,0.2);
+    outline: 2px solid var(--luc-focus-ring, var(--designer-azure));
+    outline-offset: 3px;
+    box-shadow: none;
 }
 
 /* Form States */

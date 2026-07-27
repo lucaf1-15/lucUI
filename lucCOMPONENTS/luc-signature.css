@@ -1,0 +1,449 @@
+/* ============================================================
+   lucUI — Signature System v2.0
+   Reactive prism surfaces, editorial stages, bento layouts,
+   metrics, code panels, marquees, and command palette
+   ============================================================ */
+
+/* Editorial stage */
+.luc-stage {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    min-height: min(860px, 92vh);
+    padding: clamp(5rem, 11vw, 9rem) clamp(1.25rem, 5vw, 5rem);
+    border: 1px solid var(--glass-edge);
+    border-radius: var(--radius-2xl);
+    background:
+        radial-gradient(circle at 78% 22%, rgba(var(--designer-azure-rgb), 0.14), transparent 28%),
+        radial-gradient(circle at 16% 82%, rgba(var(--studio-gold-rgb), 0.13), transparent 30%),
+        linear-gradient(145deg, rgba(8, 19, 33, 0.92), rgba(17, 34, 55, 0.68));
+    box-shadow: var(--shadow-float), inset 0 1px 0 rgba(255,255,255,0.10);
+}
+
+.luc-stage::before,
+.luc-stage::after {
+    content: '';
+    position: absolute;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.luc-stage::before {
+    width: min(52vw, 720px);
+    aspect-ratio: 1;
+    top: -24%;
+    right: -10%;
+    border: 1px solid rgba(var(--designer-azure-rgb), 0.22);
+    border-radius: 42% 58% 64% 36% / 47% 38% 62% 53%;
+    background: rgba(var(--designer-azure-rgb), 0.035);
+    box-shadow: inset 0 0 100px rgba(var(--designer-azure-rgb), 0.08), 0 0 100px rgba(var(--designer-azure-rgb), 0.08);
+    transform: rotate(-14deg);
+    animation: luc-stage-drift 16s ease-in-out infinite alternate;
+}
+
+.luc-stage::after {
+    inset: 0;
+    opacity: 0.28;
+    background-image: radial-gradient(rgba(255,255,255,0.26) 0.7px, transparent 0.7px);
+    background-size: 18px 18px;
+    mask-image: linear-gradient(115deg, transparent 8%, #000 48%, transparent 88%);
+    -webkit-mask-image: linear-gradient(115deg, transparent 8%, #000 48%, transparent 88%);
+}
+
+.luc-stage-content {
+    position: relative;
+    z-index: 1;
+    width: min(100%, var(--luc-content-width));
+    margin-inline: auto;
+}
+
+@keyframes luc-stage-drift {
+    to { transform: rotate(2deg) translate3d(-5%, 7%, 0); }
+}
+
+/* Small editorial label */
+.luc-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    min-height: 2rem;
+    padding: 0.42rem 0.85rem;
+    border: 1px solid rgba(var(--studio-gold-rgb), 0.28);
+    border-radius: var(--radius-full);
+    background: rgba(var(--studio-gold-rgb), 0.07);
+    color: var(--studio-gold);
+    font-family: var(--font-italic);
+    font-size: var(--text-xs);
+    font-style: italic;
+    font-weight: var(--weight-italic);
+    letter-spacing: 0.08em;
+}
+
+.luc-kicker::before {
+    content: '';
+    width: 0.42rem;
+    height: 0.42rem;
+    border-radius: 50%;
+    background: currentColor;
+    box-shadow: 0 0 16px currentColor;
+}
+
+.luc-gradient-text {
+    color: transparent;
+    background: linear-gradient(112deg, var(--luc-ink) 12%, var(--studio-gold) 50%, var(--designer-azure) 92%);
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+/* Reactive glass surface. JS updates the --luc-spot-* variables. */
+.luc-prism {
+    --luc-spot-opacity: 0;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.11);
+    background:
+        linear-gradient(145deg, rgba(255,255,255,0.075), rgba(255,255,255,0.018)),
+        var(--luc-surface);
+    backdrop-filter: blur(30px) saturate(175%);
+    -webkit-backdrop-filter: blur(30px) saturate(175%);
+    box-shadow: var(--shadow-lg), inset 0 1px 0 rgba(255,255,255,0.12);
+}
+
+.luc-prism::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: calc(0.32 + var(--luc-spot-opacity));
+    background:
+        radial-gradient(420px circle at var(--luc-spot-x) var(--luc-spot-y), rgba(var(--luc-accent-rgb), 0.24), transparent 46%),
+        linear-gradient(110deg, rgba(255,255,255,0.18), transparent 18% 78%, rgba(var(--studio-gold-rgb), 0.08));
+    transition: opacity var(--transition-base) var(--ease-smooth);
+}
+
+.luc-prism::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    pointer-events: none;
+    border-radius: inherit;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.035), inset 0 -70px 100px rgba(0,0,0,0.10);
+}
+
+.luc-prism > * { position: relative; z-index: 1; }
+.luc-prism[data-luc-spotlight]:hover { --luc-spot-opacity: 1; }
+
+/* Responsive bento composition */
+.luc-bento {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-auto-rows: minmax(88px, auto);
+    gap: clamp(0.8rem, 1.8vw, 1.5rem);
+}
+
+.luc-bento-item {
+    grid-column: span 4;
+    min-height: 280px;
+    padding: clamp(1.35rem, 3vw, 2.25rem);
+    border-radius: var(--radius-xl);
+}
+
+.luc-bento-wide { grid-column: span 8; }
+.luc-bento-half { grid-column: span 6; }
+.luc-bento-full { grid-column: 1 / -1; }
+.luc-bento-tall { grid-row: span 2; }
+
+/* Metrics */
+.luc-metric {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.luc-metric-value {
+    font-family: var(--font-display);
+    font-size: clamp(2.3rem, 5vw, 4.8rem);
+    font-weight: var(--weight-display);
+    line-height: 0.95;
+    letter-spacing: -0.05em;
+    color: var(--studio-gold);
+}
+
+.luc-metric-label {
+    color: var(--text-muted);
+    font-family: var(--font-italic);
+    font-size: var(--text-sm);
+    font-style: italic;
+    font-weight: var(--weight-italic);
+}
+
+/* Code window */
+.luc-code-window {
+    overflow: hidden;
+    border: 1px solid var(--glass-edge);
+    border-radius: var(--radius-lg);
+    background: rgba(3, 9, 17, 0.74);
+    box-shadow: var(--shadow-lg), inset 0 1px 0 rgba(255,255,255,0.06);
+}
+
+.luc-code-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    min-height: 3rem;
+    padding: 0.65rem 0.9rem;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    background: rgba(255,255,255,0.035);
+}
+
+.luc-code-dots { display: flex; gap: 0.42rem; }
+.luc-code-dots span { width: 0.58rem; height: 0.58rem; border-radius: 50%; background: rgba(255,255,255,0.20); }
+.luc-code-dots span:nth-child(1) { background: var(--luca-tangerine); }
+.luc-code-dots span:nth-child(2) { background: var(--studio-gold); }
+.luc-code-dots span:nth-child(3) { background: var(--bold-viridian); }
+
+.luc-code-title {
+    color: var(--text-muted);
+    font-size: var(--text-xs);
+    letter-spacing: 0.06em;
+}
+
+.luc-code-body {
+    margin: 0;
+    padding: clamp(1.1rem, 3vw, 1.8rem);
+    overflow: auto;
+    color: #dce8f3;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    font-size: clamp(0.76rem, 1.5vw, 0.92rem);
+    line-height: 1.75;
+    tab-size: 2;
+}
+
+.luc-code-keyword { color: var(--designer-azure); }
+.luc-code-string { color: #d8ca91; }
+.luc-code-comment { color: rgba(224,230,237,0.45); font-style: italic; }
+
+.luc-copy-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.45rem 0.7rem;
+    border: 1px solid rgba(255,255,255,0.11);
+    border-radius: var(--radius-full);
+    background: rgba(255,255,255,0.05);
+    color: var(--text-muted);
+    font-size: var(--text-xs);
+    transition: color var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
+}
+
+.luc-copy-button:hover,
+.luc-copy-button[data-luc-copied="true"] {
+    color: var(--designer-azure);
+    border-color: rgba(var(--designer-azure-rgb), 0.38);
+    background: rgba(var(--designer-azure-rgb), 0.08);
+}
+
+/* Infinite brand rail */
+.luc-marquee {
+    display: flex;
+    overflow: hidden;
+    user-select: none;
+    mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+
+.luc-marquee-track {
+    display: flex;
+    flex: none;
+    align-items: center;
+    min-width: max-content;
+    animation: luc-marquee 28s linear infinite;
+}
+
+.luc-marquee-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding-inline: 2rem;
+    color: var(--text-muted);
+    font-family: var(--font-italic);
+    font-style: italic;
+    font-weight: var(--weight-italic);
+    white-space: nowrap;
+}
+
+.luc-marquee-item::before { content: '✦'; color: var(--studio-gold); font-style: normal; }
+@keyframes luc-marquee { to { transform: translateX(-50%); } }
+
+/* Command palette */
+.luc-command-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: var(--z-modal);
+    display: grid;
+    place-items: start center;
+    padding: min(18vh, 9rem) var(--space-4) var(--space-4);
+    background: rgba(2, 7, 13, 0.68);
+    backdrop-filter: blur(18px) saturate(130%);
+    -webkit-backdrop-filter: blur(18px) saturate(130%);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--transition-fast) var(--ease-smooth), visibility var(--transition-fast) var(--ease-smooth);
+}
+
+.luc-command-backdrop.active { opacity: 1; visibility: visible; }
+
+.luc-command {
+    width: min(680px, 100%);
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.13);
+    border-radius: var(--radius-xl);
+    background: rgba(8, 18, 32, 0.94);
+    box-shadow: var(--shadow-float), 0 0 80px rgba(var(--designer-azure-rgb), 0.10);
+    transform: translateY(-12px) scale(0.98);
+    transition: transform var(--transition-base) var(--ease-spring);
+}
+
+.luc-command-backdrop.active .luc-command { transform: translateY(0) scale(1); }
+
+.luc-command-search {
+    width: 100%;
+    min-height: 4rem;
+    padding: 1rem 1.25rem;
+    border: 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    outline: 0;
+    background: transparent;
+    color: var(--text-light);
+    font-family: var(--font-body);
+    font-size: var(--text-lg);
+}
+
+.luc-command-search::placeholder { color: var(--text-muted); }
+.luc-command-search:focus-visible {
+    outline: 2px solid var(--luc-focus-ring, var(--designer-azure));
+    outline-offset: -2px;
+}
+.luc-command-list { max-height: min(52vh, 430px); padding: 0.6rem; overflow-y: auto; }
+
+.luc-command-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    width: 100%;
+    padding: 0.85rem 0.9rem;
+    border: 1px solid transparent;
+    border-radius: var(--radius-md);
+    color: var(--text-muted);
+    text-align: left;
+    transition: color var(--transition-fast), background var(--transition-fast), border-color var(--transition-fast);
+}
+
+.luc-command-item:hover,
+.luc-command-item.active,
+.luc-command-item[aria-selected="true"] {
+    color: var(--text-light);
+    border-color: rgba(var(--designer-azure-rgb), 0.18);
+    background: rgba(var(--designer-azure-rgb), 0.075);
+}
+
+.luc-command-empty { padding: 2rem; color: var(--text-muted); text-align: center; }
+
+.luc-kbd {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 1.7rem;
+    min-height: 1.55rem;
+    padding: 0.15rem 0.42rem;
+    border: 1px solid rgba(255,255,255,0.14);
+    border-bottom-color: rgba(255,255,255,0.24);
+    border-radius: 0.42rem;
+    background: rgba(255,255,255,0.055);
+    color: var(--text-muted);
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.68rem;
+    line-height: 1;
+    box-shadow: 0 2px 0 rgba(0,0,0,0.18);
+}
+
+/* Theme dock */
+.luc-theme-dock {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.32rem;
+    border: 1px solid var(--glass-edge);
+    border-radius: var(--radius-full);
+    background: rgba(7, 16, 29, 0.66);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+}
+
+.luc-theme-option {
+    width: 2.75rem;
+    height: 2.75rem;
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: 50%;
+    background: var(--luc-theme-swatch, var(--studio-gold));
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.26);
+    transition: transform var(--transition-fast) var(--ease-spring), box-shadow var(--transition-fast);
+}
+
+.luc-theme-option:hover { transform: scale(1.08); }
+.luc-theme-option[aria-pressed="true"] { box-shadow: 0 0 0 3px var(--luc-canvas), 0 0 0 5px var(--designer-azure); }
+.luc-theme-option:focus-visible {
+    outline: 2px solid var(--luc-focus-ring, var(--designer-azure));
+    outline-offset: 3px;
+}
+
+/* Page reading progress */
+.luc-scroll-progress {
+    --luc-scroll-progress: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: calc(var(--z-tooltip) + 1);
+    height: 2px;
+    pointer-events: none;
+    transform: scaleX(var(--luc-scroll-progress));
+    transform-origin: left center;
+    background: linear-gradient(90deg, var(--studio-gold), var(--designer-azure));
+    box-shadow: 0 0 14px rgba(var(--designer-azure-rgb), 0.48);
+}
+
+@media (max-width: 900px) {
+    .luc-bento-item,
+    .luc-bento-wide,
+    .luc-bento-half { grid-column: span 6; }
+    .luc-bento-full { grid-column: 1 / -1; }
+}
+
+@media (max-width: 640px) {
+    .luc-stage { min-height: auto; padding: 5.5rem 1.1rem 4rem; border-radius: var(--radius-xl); }
+    .luc-bento { grid-template-columns: 1fr; }
+    .luc-bento-item,
+    .luc-bento-wide,
+    .luc-bento-half,
+    .luc-bento-full { grid-column: 1; min-height: 230px; }
+    .luc-command-backdrop { padding-top: 4.5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .luc-stage::before,
+    .luc-marquee-track { animation: none; }
+}
+
+@media (forced-colors: active) {
+    .luc-gradient-text { color: CanvasText; background: none; }
+    .luc-prism,
+    .luc-stage,
+    .luc-command,
+    .luc-theme-dock { border: 1px solid CanvasText; }
+}

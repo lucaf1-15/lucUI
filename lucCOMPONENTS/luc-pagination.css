@@ -18,8 +18,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    min-width: 40px;
-    height: 40px;
+    min-width: 44px;
+    height: 44px;
     padding: 0 var(--space-3);
     border-radius: var(--radius-md);
     background: var(--glass-bg);
@@ -37,10 +37,15 @@
     transform: translateY(-1px);
 }
 
+.luc-page-link:focus-visible {
+    outline: 2px solid var(--luc-focus-ring, var(--designer-azure));
+    outline-offset: 3px;
+}
+
 .luc-page-item.active .luc-page-link {
     background: linear-gradient(135deg, var(--studio-gold), var(--luca-tangerine));
     border-color: transparent;
-    color: #fff;
+    color: var(--luca-navy);
     box-shadow: 0 4px 12px rgba(174, 157, 93, 0.3);
 }
 

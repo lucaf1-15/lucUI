@@ -9,6 +9,26 @@
     --designer-azure: #00bbff;   /* luca.designss accent */
     --luca-tangerine: #ff8c00;   /* luca.softss accent */
     --bold-viridian: #00ff00;    /* lucAI & luca.toolss accent */
+
+    /* Brand RGB Channels — use with rgba(var(--token-rgb), alpha) */
+    --luca-navy-rgb: 29, 45, 68;
+    --studio-gold-rgb: 174, 157, 93;
+    --designer-azure-rgb: 0, 187, 255;
+    --luca-tangerine-rgb: 255, 140, 0;
+    --bold-viridian-rgb: 0, 255, 0;
+
+    /* Semantic Color Layer */
+    --luc-canvas: #081321;
+    --luc-canvas-deep: #050b13;
+    --luc-surface: rgba(15, 28, 47, 0.72);
+    --luc-surface-strong: rgba(10, 20, 35, 0.90);
+    --luc-ink: #f7f4ec;
+    --luc-ink-muted: rgba(247, 244, 236, 0.68);
+    --luc-accent: var(--designer-azure);
+    --luc-accent-rgb: var(--designer-azure-rgb);
+    --luc-accent-contrast: var(--luca-navy);
+    --luc-focus-ring: rgba(var(--designer-azure-rgb), 0.48);
+    --luc-selection: rgba(var(--designer-azure-rgb), 0.26);
     
     /* Extended Color Palette */
     --card-bg: #243b55;
@@ -46,6 +66,7 @@
     --radius-md: 16px;
     --radius-lg: 24px;
     --radius-xl: 32px;
+    --radius-2xl: 44px;
     --radius-full: 9999px;
     
     /* Spacing Scale */
@@ -59,12 +80,17 @@
     --space-10: 2.5rem;
     --space-12: 3rem;
     --space-16: 4rem;
+    --space-20: 5rem;
+    --space-24: 6rem;
+    --space-32: 8rem;
     
     /* Shadows */
     --shadow-sm: 0 1px 3px rgba(0,0,0,0.25);
     --shadow-md: 0 4px 16px rgba(0,0,0,0.30), 0 1px 4px rgba(0,0,0,0.20);
     --shadow-lg: 0 8px 32px rgba(0,0,0,0.35), 0 3px 10px rgba(0,0,0,0.22), 0 1px 3px rgba(0,0,0,0.15);
     --shadow-xl: 0 20px 60px rgba(0,0,0,0.45), 0 8px 24px rgba(0,0,0,0.28), 0 2px 6px rgba(0,0,0,0.18);
+    --shadow-glow: 0 0 48px rgba(var(--luc-accent-rgb), 0.16);
+    --shadow-float: 0 32px 90px rgba(0,0,0,0.42), 0 12px 34px rgba(0,0,0,0.24);
     
     /* Glass Effects */
     --glass-bg: rgba(255,255,255,0.055);
@@ -73,6 +99,13 @@
     --glass-modal: rgba(12,22,38,0.72);
     --glass-edge: rgba(255,255,255,0.10);
     --glass-shine: rgba(255,255,255,0.06);
+
+    /* Reactive lighting — updated by lucUI.js when available */
+    --luc-pointer-x: 50%;
+    --luc-pointer-y: 20%;
+    --luc-spot-x: 50%;
+    --luc-spot-y: 50%;
+    --luc-spot-opacity: 0;
     
     /* Animation Easing */
     --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -83,6 +116,10 @@
     --transition-fast: 0.2s;
     --transition-base: 0.3s;
     --transition-slow: 0.4s;
+
+    /* Layout */
+    --luc-content-width: 1400px;
+    --luc-reading-width: 72ch;
     
     /* Z-Index Scale */
     --z-dropdown: 1000;

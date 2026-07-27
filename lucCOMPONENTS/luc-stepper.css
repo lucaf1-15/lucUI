@@ -47,14 +47,14 @@
 .luc-step.active .luc-step-circle {
     background: var(--studio-gold);
     border-color: var(--studio-gold);
-    color: #fff;
+    color: var(--luca-navy);
     box-shadow: 0 0 12px rgba(174, 157, 93, 0.4);
 }
 
 .luc-step.completed .luc-step-circle {
     background: var(--bold-viridian);
     border-color: var(--bold-viridian);
-    color: #fff;
+    color: var(--luca-navy);
 }
 
 .luc-step-label {

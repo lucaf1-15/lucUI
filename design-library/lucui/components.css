@@ -1,0 +1,392 @@
+/* lucUI — Component Styles
+ * Consumes design tokens from colors_and_type.css
+ */
+
+/* ── BUTTONS ──────────────────────────────────────────── */
+.lucui-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-family: var(--font-body);
+  font-weight: var(--font-weight-medium);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-default);
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+  min-height: 44px;
+}
+
+.lucui-btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--ring);
+}
+
+.lucui-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.lucui-btn-sm {
+  padding: var(--space-1) var(--space-3);
+  font-size: var(--font-size-sm);
+  border-radius: var(--radius-sm);
+}
+
+.lucui-btn-md {
+  padding: var(--space-2) var(--space-5);
+  font-size: var(--font-size-base);
+  border-radius: var(--radius);
+}
+
+.lucui-btn-lg {
+  padding: var(--space-3) var(--space-8);
+  font-size: var(--font-size-lg);
+  border-radius: var(--radius);
+}
+
+.lucui-btn-primary {
+  background: var(--accent);
+  color: var(--accent-foreground);
+  border-color: var(--accent);
+}
+
+.lucui-btn-primary:hover {
+  filter: brightness(1.1);
+}
+
+.lucui-btn-secondary {
+  background: var(--secondary);
+  color: var(--secondary-foreground);
+  border-color: var(--secondary);
+}
+
+.lucui-btn-secondary:hover {
+  filter: brightness(1.1);
+}
+
+.lucui-btn-outline {
+  background: transparent;
+  color: var(--foreground);
+  border-color: var(--border);
+}
+
+.lucui-btn-outline:hover {
+  background: var(--glass-hover);
+  border-color: var(--border-active);
+}
+
+.lucui-btn-ghost {
+  background: transparent;
+  color: var(--foreground);
+  border-color: transparent;
+}
+
+.lucui-btn-ghost:hover {
+  background: var(--glass-hover);
+}
+
+.lucui-btn-azure {
+  background: var(--accent);
+  color: var(--accent-foreground);
+  border-color: var(--accent);
+}
+
+.lucui-btn-gold {
+  background: var(--secondary);
+  color: var(--secondary-foreground);
+  border-color: var(--secondary);
+}
+
+.lucui-btn-transparency {
+  background: var(--glass-bg);
+  color: var(--foreground);
+  border-color: var(--glass-edge);
+  backdrop-filter: blur(12px);
+}
+
+.lucui-btn-transparency:hover {
+  background: var(--glass-hover);
+}
+
+/* ── CARDS ────────────────────────────────────────────── */
+.lucui-card {
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+  transition: all var(--duration-normal) var(--ease-default);
+}
+
+.lucui-card-default {
+  background: var(--card);
+  color: var(--card-foreground);
+  border: 1px solid var(--border);
+}
+
+.lucui-card-glass {
+  background: var(--glass-bg);
+  color: var(--foreground);
+  border: 1px solid var(--glass-edge);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.lucui-card-glass:hover {
+  background: var(--glass-hover);
+}
+
+.lucui-card-title {
+  font-family: var(--font-body);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--space-2);
+  color: var(--accent);
+}
+
+.lucui-card-body {
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-relaxed);
+  color: var(--foreground);
+}
+
+/* ── INPUTS ───────────────────────────────────────────── */
+.lucui-input,
+.lucui-textarea,
+.lucui-select {
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  color: var(--foreground);
+  background: var(--glass-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-2) var(--space-4);
+  min-height: 44px;
+  transition: all var(--duration-fast) var(--ease-default);
+  width: 100%;
+}
+
+.lucui-input::placeholder,
+.lucui-textarea::placeholder {
+  color: var(--foreground-muted);
+}
+
+.lucui-input:focus,
+.lucui-textarea:focus,
+.lucui-select:focus {
+  outline: none;
+  border-color: var(--input-focus);
+  box-shadow: 0 0 0 3px var(--ring-gold), var(--shadow-sm);
+  background: var(--glass-hover);
+}
+
+.lucui-input-error,
+.lucui-textarea-error,
+.lucui-select-error {
+  border-color: var(--state-error);
+}
+
+.lucui-input-error:focus,
+.lucui-textarea-error:focus,
+.lucui-select-error:focus {
+  border-color: var(--state-error);
+  box-shadow: 0 0 0 3px rgba(239,68,68,0.3);
+}
+
+.lucui-label {
+  display: block;
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--foreground);
+  margin-bottom: var(--space-1);
+}
+
+.lucui-textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.lucui-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23ae9d5d' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--space-3) center;
+  padding-right: var(--space-10);
+}
+
+/* ── NAVIGATION ────────────────────────────────────────── */
+.lucui-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) var(--space-6);
+  background: var(--glass-nav);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--glass-edge);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: all var(--duration-normal) var(--ease-default);
+}
+
+.lucui-navbar.scrolled {
+  background: var(--glass-modal);
+  box-shadow: var(--shadow-sm);
+}
+
+.lucui-navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-xl);
+  color: var(--foreground);
+  text-decoration: none;
+}
+
+.lucui-navbar-links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.lucui-navbar-link {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-1) var(--space-4);
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--foreground);
+  text-decoration: none;
+  border-radius: var(--radius-full);
+  border: 1px solid transparent;
+  min-height: 36px;
+  transition: all var(--duration-fast) var(--ease-default);
+}
+
+.lucui-navbar-link:hover {
+  background: var(--glass-hover);
+  border-color: var(--glass-edge);
+}
+
+.lucui-navbar-link.active,
+.lucui-navbar-link[aria-current="page"] {
+  background: rgba(0,187,255,0.15);
+  border-color: rgba(0,187,255,0.35);
+  color: var(--accent);
+}
+
+/* ── BADGES ────────────────────────────────────────────── */
+.lucui-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px var(--space-2);
+  font-family: var(--font-body);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+}
+
+.lucui-badge-azure {
+  background: rgba(0,187,255,0.15);
+  color: var(--accent);
+  border: 1px solid rgba(0,187,255,0.3);
+}
+
+.lucui-badge-gold {
+  background: rgba(174,157,93,0.15);
+  color: var(--secondary);
+  border: 1px solid rgba(174,157,93,0.3);
+}
+
+.lucui-badge-viridian {
+  background: rgba(0,255,0,0.15);
+  color: var(--state-success);
+  border: 1px solid rgba(0,255,0,0.3);
+}
+
+/* ── AVATARS ────────────────────────────────────────────── */
+.lucui-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  background: var(--glass-bg);
+  color: var(--foreground);
+  font-family: var(--font-body);
+  font-weight: var(--font-weight-semibold);
+  border: 2px solid var(--glass-edge);
+  overflow: hidden;
+}
+
+.lucui-avatar-sm {
+  width: 32px;
+  height: 32px;
+  font-size: var(--font-size-xs);
+}
+
+.lucui-avatar-md {
+  width: 44px;
+  height: 44px;
+  font-size: var(--font-size-sm);
+}
+
+/* ── PROGRESS ──────────────────────────────────────────── */
+.lucui-progress {
+  height: 6px;
+  background: var(--glass-bg);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.lucui-progress-bar {
+  height: 100%;
+  background: var(--accent);
+  border-radius: var(--radius-full);
+  transition: width var(--duration-slow) var(--ease-spring);
+}
+
+.lucui-progress-gold .lucui-progress-bar {
+  background: var(--secondary);
+}
+
+.lucui-progress-viridian .lucui-progress-bar {
+  background: var(--state-success);
+}
+
+/* ── TOOLTIPS ──────────────────────────────────────────── */
+.lucui-tooltip {
+  position: relative;
+  display: inline-flex;
+}
+
+.lucui-tooltip::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  padding: var(--space-1) var(--space-3);
+  background: var(--glass-modal);
+  color: var(--foreground);
+  font-family: var(--font-body);
+  font-size: var(--font-size-xs);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--glass-edge);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--duration-fast) var(--ease-default);
+  backdrop-filter: blur(12px);
+}
+
+.lucui-tooltip:hover::after {
+  opacity: 1;
+}

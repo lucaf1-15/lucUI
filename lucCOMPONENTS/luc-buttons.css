@@ -1,6 +1,6 @@
 /* ============================================================
-   lucUI — Button Components v3.0
-   Enhanced with loading states, icons, and groups
+   lucUI — Button Components v2.0
+   Tactile controls with restrained brand lighting
    ============================================================ */
 
 /* Base Button Styles - Enhanced */
@@ -69,7 +69,7 @@
 .luc-btn-primary {
     background: linear-gradient(155deg, #cbb96e 0%, #AE9D5D 45%, #8e7e42 100%);
     border: 1px solid rgba(255,255,255,0.15);
-    color: #fff;
+    color: var(--luca-navy);
     box-shadow: var(--shadow-md), inset 0 1px 0 rgba(255,255,255,0.28), inset 0 -1px 0 rgba(0,0,0,0.15);
 }
 
@@ -83,9 +83,9 @@
 }
 
 .luc-btn-primary:hover {
-    background: linear-gradient(155deg, #22d6ff 0%, #00BBFF 45%, #0099cc 100%);
+    background: linear-gradient(155deg, #d8ca91 0%, #b7a666 45%, #928149 100%);
     transform: translateY(-3px);
-    box-shadow: var(--shadow-lg), 0 0 28px rgba(0,187,255,0.35), inset 0 1px 0 rgba(255,255,255,0.25);
+    box-shadow: var(--shadow-lg), 0 0 28px rgba(var(--studio-gold-rgb), 0.28), inset 0 1px 0 rgba(255,255,255,0.28);
 }
 
 .luc-btn-primary:active {
@@ -98,21 +98,21 @@
 .luc-btn-azure {
     background: linear-gradient(155deg, #22d6ff 0%, #00BBFF 45%, #0099cc 100%);
     border: 1px solid rgba(255,255,255,0.15);
-    color: #fff;
+    color: var(--luca-navy);
     box-shadow: var(--shadow-md), inset 0 1px 0 rgba(255,255,255,0.28), inset 0 -1px 0 rgba(0,0,0,0.15);
 }
 
 .luc-btn-azure:hover {
-    background: linear-gradient(155deg, #cbb96e 0%, #AE9D5D 45%, #8e7e42 100%);
+    background: linear-gradient(155deg, #53dfff 0%, #00BBFF 48%, #008fbd 100%);
     transform: translateY(-3px);
-    box-shadow: var(--shadow-lg), 0 0 28px rgba(174,157,93,0.35), inset 0 1px 0 rgba(255,255,255,0.25);
+    box-shadow: var(--shadow-lg), 0 0 28px rgba(var(--designer-azure-rgb), 0.34), inset 0 1px 0 rgba(255,255,255,0.25);
 }
 
 /* Tangerine Button (luca.softss) */
 .luc-btn-tangerine {
     background: linear-gradient(155deg, #ffaa33 0%, #ff8c00 45%, #cc7000 100%);
     border: 1px solid rgba(255,255,255,0.15);
-    color: #fff;
+    color: var(--luca-navy);
     box-shadow: var(--shadow-md), inset 0 1px 0 rgba(255,255,255,0.28), inset 0 -1px 0 rgba(0,0,0,0.15);
 }
 
@@ -166,7 +166,7 @@
     border: 2px solid rgba(255,255,255,0.3);
     border-top-color: #fff;
     border-radius: 50%;
-    animation: spin 0.8s linear infinite;
+    animation: luc-spin 0.8s linear infinite;
 }
 
 .luc-btn.loading .luc-btn-text {
@@ -244,7 +244,7 @@
 
 .luc-btn-outline:hover {
     background: var(--studio-gold);
-    color: #fff;
+    color: var(--luca-navy);
 }
 
 .luc-btn-outline-azure {
@@ -255,7 +255,7 @@
 
 .luc-btn-outline-azure:hover {
     background: var(--designer-azure);
-    color: #fff;
+    color: var(--luca-navy);
 }
 
 .luc-btn-outline-tangerine {
@@ -266,7 +266,7 @@
 
 .luc-btn-outline-tangerine:hover {
     background: var(--luca-tangerine);
-    color: #fff;
+    color: var(--luca-navy);
 }
 
 .luc-btn-outline-viridian {

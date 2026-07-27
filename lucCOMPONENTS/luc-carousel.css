@@ -32,6 +32,7 @@
     padding: var(--space-4);
     background: rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     border-radius: var(--radius-md);
     border: 1px solid rgba(255, 255, 255, 0.1);
     color: #fff;
@@ -42,12 +43,13 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
     border-radius: var(--radius-full);
     background: var(--glass-bg);
     border: 1px solid var(--glass-edge);
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     color: var(--text-light);
     display: flex;
     align-items: center;
@@ -61,6 +63,12 @@
     background: var(--glass-hover);
     color: var(--studio-gold);
     border-color: var(--studio-gold);
+}
+
+.luc-carousel-control:focus-visible,
+.luc-carousel-indicator:focus-visible {
+    outline: 2px solid var(--luc-focus-ring, var(--designer-azure));
+    outline-offset: 3px;
 }
 
 .luc-carousel-prev {
@@ -82,8 +90,12 @@
 }
 
 .luc-carousel-indicator {
-    width: 12px;
-    height: 6px;
+    width: 44px;
+    height: 28px;
+    padding: 0;
+    border: 0;
+    position: relative;
+    background: transparent;
     border-radius: var(--radius-full);
     background: rgba(255, 255, 255, 0.3);
     cursor: pointer;
@@ -91,6 +103,18 @@
 }
 
 .luc-carousel-indicator.active {
-    width: 24px;
+    width: 44px;
+}
+
+.luc-carousel-indicator::after {
+    content: '';
+    position: absolute;
+    inset: 11px 0;
+    height: 6px;
+    border-radius: var(--radius-full);
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.luc-carousel-indicator.active::after {
     background: var(--studio-gold);
 }

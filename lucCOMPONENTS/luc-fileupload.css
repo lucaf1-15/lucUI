@@ -18,6 +18,11 @@
     background: var(--glass-hover);
 }
 
+.luc-upload-zone:focus-within {
+    outline: 2px solid var(--luc-focus-ring, var(--designer-azure));
+    outline-offset: 4px;
+}
+
 .luc-upload-icon {
     font-size: 2.5rem;
     color: var(--studio-gold);

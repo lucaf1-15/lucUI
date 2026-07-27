@@ -130,7 +130,7 @@
 
 .luc-badge-solid {
     background: currentColor;
-    color: #fff;
+    color: var(--luca-navy);
     border: none;
 }
 
@@ -152,6 +152,7 @@
 
 .luc-badge-solid.luc-badge-navy {
     background: var(--luca-navy);
+    color: #fff;
 }
 
 /* Responsive Badges */

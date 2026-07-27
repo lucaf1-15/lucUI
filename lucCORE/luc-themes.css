@@ -6,12 +6,16 @@
 
 /* ── Light Theme ────────────────────────────────────────── */
 [data-theme="light"] {
-    /* Brand colors stay consistent across themes */
-    --luca-navy: #1d2d44;
-    --studio-gold: #ae9d5d;
-    --designer-azure: #00bbff;
-    --luca-tangerine: #ff8c00;
-    --bold-viridian: #00ff00;
+    color-scheme: light;
+    --luc-canvas: #f4f7fb;
+    --luc-canvas-deep: #e8f0f8;
+    --luc-surface: rgba(255,255,255,0.72);
+    --luc-surface-strong: rgba(255,255,255,0.94);
+    --luc-ink: #111827;
+    --luc-ink-muted: rgba(17,24,39,0.68);
+    --luc-accent: var(--designer-azure);
+    --luc-accent-rgb: var(--designer-azure-rgb);
+    --luc-focus-ring: rgba(var(--designer-azure-rgb), 0.60);
 
     /* Text */
     --text-light: #111827;
@@ -40,7 +44,10 @@
 
 /* Light theme body background */
 [data-theme="light"] body {
-    background: linear-gradient(135deg, #ffffff 0%, #f6fbff 45%, #eef6ff 100%);
+    background-color: var(--luc-canvas);
+    background-image:
+        radial-gradient(700px circle at var(--luc-pointer-x) var(--luc-pointer-y), rgba(var(--designer-azure-rgb), 0.10), transparent 44%),
+        linear-gradient(135deg, #ffffff 0%, #f6fbff 45%, #eaf3fb 100%);
     color: var(--text-light);
 }
 
@@ -56,7 +63,7 @@
 
 /* Light theme card titles */
 [data-theme="light"] .luc-card-title {
-    color: var(--designer-azure);
+    color: #006b91;
 }
 
 /* Light theme inputs */
@@ -142,13 +149,13 @@
 }
 
 [data-theme="light"] .luc-btn-primary {
-    background: linear-gradient(135deg, var(--designer-azure), #00a3d9);
-    border-color: var(--designer-azure);
-    color: #ffffff;
+    background: linear-gradient(155deg, #cbb96e, var(--studio-gold) 48%, #95864f);
+    border-color: rgba(var(--studio-gold-rgb), 0.70);
+    color: var(--luca-navy);
 }
 
 [data-theme="light"] .luc-btn-primary:hover {
-    background: linear-gradient(135deg, #00bbff, #008ec8);
+    background: linear-gradient(155deg, #d8ca91, #b7a666 48%, #928149);
 }
 
 /* Light theme toast */
@@ -161,32 +168,44 @@
     color: var(--text-light);
 }
 
-/* ── Auto Theme (respects OS preference) ───────────────── */
-@media (prefers-color-scheme: light) {
-    :root:not([data-theme="dark"]) {
-        --text-light: #1a2535;
-        --text-muted: rgba(26, 37, 53, 0.60);
-        --glass-bg: rgba(255,255,255,0.55);
-        --glass-hover: rgba(255,255,255,0.70);
-        --glass-edge: rgba(0,0,0,0.08);
-        --glass-shine: rgba(255,255,255,0.80);
-        --glass-modal: rgba(245,247,250,0.90);
-        --card-bg: rgba(255,255,255,0.60);
-        --border-color: rgba(0,0,0,0.08);
-        --shadow-sm: 0 1px 3px rgba(0,0,0,0.10);
-        --shadow-md: 0 4px 16px rgba(0,0,0,0.12), 0 1px 4px rgba(0,0,0,0.08);
-        --shadow-lg: 0 8px 32px rgba(0,0,0,0.15), 0 3px 10px rgba(0,0,0,0.09);
-        --shadow-xl: 0 20px 60px rgba(0,0,0,0.18), 0 8px 24px rgba(0,0,0,0.10);
-    }
+/* Opaque shells remain legible in light and sunrise atmospheres. */
+[data-theme="light"] .luc-dropdown-menu,
+[data-theme="sunrise"] .luc-dropdown-menu,
+[data-theme="light"] .luc-navbar-user-dropdown,
+[data-theme="sunrise"] .luc-navbar-user-dropdown,
+[data-theme="light"] .luc-navbar-mega-content,
+[data-theme="sunrise"] .luc-navbar-mega-content,
+[data-theme="light"] .luc-navbar-links,
+[data-theme="sunrise"] .luc-navbar-links,
+[data-theme="light"] .luc-toast,
+[data-theme="sunrise"] .luc-toast {
+    background: var(--luc-surface-strong);
+    border-color: var(--glass-edge);
+}
+
+[data-theme="light"] .luc-tooltip::after,
+[data-theme="sunrise"] .luc-tooltip::after {
+    background: var(--luc-surface-strong);
+    border-color: var(--glass-edge);
+    color: var(--text-light);
+}
+
+[data-theme="sunrise"] .luc-modal-title {
+    color: var(--luca-navy);
 }
 
 /* ── Dark Theme ───────────────────────────────────────── */
 [data-theme="dark"] {
-    --luca-navy: #08111f;
-    --studio-gold: #e8cc7e;
-    --designer-azure: #56c8ff;
-    --luca-tangerine: #ffb453;
-    --bold-viridian: #6cff9f;
+    color-scheme: dark;
+
+    /* Brand primitives stay fixed; semantic tokens carry themes. */
+    --luc-canvas: #08111f;
+    --luc-canvas-deep: #040a12;
+    --luc-surface: rgba(10, 18, 32, 0.80);
+    --luc-surface-strong: rgba(8, 12, 20, 0.96);
+    --luc-ink: #f8fafc;
+    --luc-ink-muted: rgba(248,250,252,0.76);
+    --luc-focus-ring: rgba(var(--designer-azure-rgb), 0.60);
 
     --text-light: #f8fafc;
     --text-muted: rgba(248, 250, 252, 0.78);
@@ -217,7 +236,7 @@
 [data-theme="dark"] .luc-navbar-link[aria-current="page"] {
     background: rgba(232,205,130,0.20);
     border-color: rgba(232,205,130,0.55);
-    color: var(--luca-navy);
+    color: #fff;
 }
 
 /* Dark theme card titles */
@@ -226,21 +245,27 @@
 }
 
 [data-theme="dark"] .luc-btn-primary {
-    background: linear-gradient(135deg, var(--studio-gold), #d9b86b);
+    background: linear-gradient(155deg, #cbb96e, var(--studio-gold) 48%, #8e7e42);
     border-color: var(--studio-gold);
+    color: var(--luca-navy);
 }
 
 [data-theme="dark"] .luc-btn-primary:hover {
-    background: linear-gradient(135deg, #edd297, #ccb169);
+    background: linear-gradient(155deg, #d8ca91, #b7a666 48%, #928149);
 }
 
 /* ── Midnight Theme ───────────────────────────────────────── */
 [data-theme="midnight"] {
-    --luca-navy: #000000;
-    --studio-gold: #ffffff;
-    --designer-azure: #00bbff;
-    --luca-tangerine: #ff8c00;
-    --bold-viridian: #00ff00;
+    color-scheme: dark;
+    --luc-canvas: #000000;
+    --luc-canvas-deep: #000000;
+    --luc-surface: rgba(10,10,10,0.76);
+    --luc-surface-strong: rgba(5,5,5,0.95);
+    --luc-ink: #f8fafc;
+    --luc-ink-muted: rgba(248,250,252,0.72);
+    --luc-accent: var(--bold-viridian);
+    --luc-accent-rgb: var(--bold-viridian-rgb);
+    --luc-focus-ring: rgba(var(--bold-viridian-rgb), 0.62);
 
     --text-light: #f8fafc;
     --text-muted: rgba(248, 250, 252, 0.72);
@@ -277,11 +302,16 @@
 
 /* ── Sunrise Theme ───────────────────────────────────────── */
 [data-theme="sunrise"] {
-    --luca-navy: #1d2d44;
-    --studio-gold: #ae9d5d;
-    --designer-azure: #00bbff;
-    --luca-tangerine: #ff8c00;
-    --bold-viridian: #00ff00;
+    color-scheme: light;
+    --luc-canvas: #fff7ed;
+    --luc-canvas-deep: #ffe9c8;
+    --luc-surface: rgba(255,247,237,0.74);
+    --luc-surface-strong: rgba(255,250,242,0.94);
+    --luc-ink: #2b1f12;
+    --luc-ink-muted: rgba(43,31,18,0.68);
+    --luc-accent: var(--luca-tangerine);
+    --luc-accent-rgb: var(--luca-tangerine-rgb);
+    --luc-focus-ring: rgba(var(--luca-tangerine-rgb), 0.60);
 
     --text-light: #2b1f12;
     --text-muted: rgba(43, 31, 18, 0.68);
@@ -308,11 +338,52 @@
 [data-theme="sunrise"] h4,
 [data-theme="sunrise"] h5,
 [data-theme="sunrise"] h6 {
-    color: var(--luca-tangerine);
+    color: #7a3b00;
 }
 
 /* Sunrise theme card titles */
 [data-theme="sunrise"] .luc-card-title {
-    color: var(--luca-tangerine);
+    color: #7a3b00;
 }
 
+/* Light surface corrections for components with deliberately opaque shells. */
+[data-theme="light"] .luc-card-transparency,
+[data-theme="sunrise"] .luc-card-transparency,
+[data-theme="light"] .luc-prism,
+[data-theme="sunrise"] .luc-prism {
+    background: linear-gradient(145deg, rgba(255,255,255,0.86), rgba(255,255,255,0.58));
+    border-color: rgba(29,45,68,0.10);
+}
+
+[data-theme="light"] .luc-command,
+[data-theme="sunrise"] .luc-command,
+[data-theme="light"] .luc-code-window,
+[data-theme="sunrise"] .luc-code-window {
+    background: var(--luc-surface-strong);
+}
+
+[data-theme="light"] .luc-code-body,
+[data-theme="sunrise"] .luc-code-body {
+    color: var(--luc-ink);
+}
+
+[data-theme="light"] .luc-theme-dock,
+[data-theme="sunrise"] .luc-theme-dock {
+    background: rgba(255,255,255,0.72);
+}
+
+[data-theme="light"] .luc-stage,
+[data-theme="sunrise"] .luc-stage {
+    background:
+        radial-gradient(circle at 78% 22%, rgba(var(--luc-accent-rgb), 0.12), transparent 28%),
+        radial-gradient(circle at 16% 82%, rgba(var(--studio-gold-rgb), 0.12), transparent 30%),
+        linear-gradient(145deg, rgba(255,255,255,0.92), rgba(255,255,255,0.58));
+    border-color: rgba(29,45,68,0.10);
+}
+
+[data-theme="light"] .luc-code-title,
+[data-theme="sunrise"] .luc-code-title,
+[data-theme="light"] .luc-code-comment,
+[data-theme="sunrise"] .luc-code-comment {
+    color: var(--text-muted);
+}

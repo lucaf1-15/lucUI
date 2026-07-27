@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#081321">
+    <meta name="description" content="A production-shaped lucUI 2.0 starter for a premium creative studio workspace.">
+    <title>Aster Studio — Client workspace starter</title>
+    <link rel="stylesheet" href="../lucUI.css">
+    <style>
+        :root {
+            --workspace-sidebar: 17rem;
+            --workspace-topbar: 4.7rem;
+            --workspace-line: rgba(255, 255, 255, .09);
+            --workspace-panel: rgba(11, 22, 38, .68);
+        }
+
+        html { scroll-padding-top: calc(var(--workspace-topbar) + 1rem); }
+        body { min-width: 320px; padding-top: var(--workspace-topbar); }
+        button, a, input, select, textarea { min-height: 2.75rem; }
+        .workspace-shell { min-height: calc(100vh - var(--workspace-topbar)); }
+
+        .workspace-topbar {
+            min-height: var(--workspace-topbar);
+            padding-inline: clamp(.8rem, 3vw, 2rem);
+            background: rgba(5, 13, 24, .78);
+            border-bottom-color: var(--workspace-line);
+        }
+        .workspace-topbar .luc-navbar-container { width: 100%; max-width: none; padding-block: .55rem; }
+        .workspace-brand { display: inline-flex; align-items: center; gap: .7rem; min-width: max-content; }
+        .workspace-brand img { width: 2rem; height: 2rem; border-radius: .7rem; filter: drop-shadow(0 0 1rem rgba(var(--designer-azure-rgb), .35)); }
+        .workspace-brand strong { display: block; color: var(--text-light); font-family: var(--font-display); font-size: 1.02rem; line-height: 1; }
+        .workspace-brand span { display: block; margin-top: .25rem; color: var(--text-muted); font-family: var(--font-italic); font-size: .65rem; font-style: italic; letter-spacing: .05em; }
+        .workspace-topbar .luc-navbar-links { gap: .25rem; }
+        .workspace-topbar .luc-navbar-link { min-height: 2.35rem; padding: .45rem .75rem; border-color: transparent; background: transparent; font-size: .75rem; letter-spacing: .025em; }
+        .workspace-topbar .luc-navbar-link[aria-current="page"],
+        .workspace-topbar .luc-navbar-link:hover { border-color: rgba(var(--designer-azure-rgb), .18); background: rgba(var(--designer-azure-rgb), .08); color: var(--text-light); }
+        .workspace-actions { display: inline-flex; align-items: center; gap: .45rem; }
+        .workspace-actions .nav-command { display: inline-flex; align-items: center; gap: .45rem; width: auto; min-width: auto; padding: .42rem .68rem; border-radius: var(--radius-full); }
+        .workspace-actions .nav-command:hover { color: var(--text-light); }
+        .workspace-icon-button { display: inline-grid; place-items: center; width: 2.65rem; min-height: 2.65rem; padding: 0; border: 1px solid var(--workspace-line); border-radius: 50%; background: rgba(255,255,255,.045); color: var(--text-muted); }
+        .workspace-icon-button:hover { border-color: rgba(var(--designer-azure-rgb), .38); color: var(--designer-azure); background: rgba(var(--designer-azure-rgb), .08); }
+        .workspace-notification-trigger { position: relative; }
+        .workspace-notification-trigger::after { content: ''; position: absolute; top: .45rem; right: .45rem; width: .38rem; height: .38rem; border-radius: 50%; background: var(--luca-tangerine); box-shadow: 0 0 .6rem var(--luca-tangerine); }
+        .workspace-avatar { width: 2.65rem; height: 2.65rem; padding: 0; border: 1px solid rgba(var(--studio-gold-rgb), .45); border-radius: 50%; background: linear-gradient(145deg, rgba(var(--studio-gold-rgb), .55), rgba(var(--designer-azure-rgb), .32)); color: var(--text-light); font-family: var(--font-display); font-size: .9rem; }
+        .workspace-notification-center { top: calc(var(--workspace-topbar) - .2rem); right: 1.25rem; width: min(23rem, calc(100vw - 1.5rem)); }
+
+        .workspace-layout { display: grid; grid-template-columns: var(--workspace-sidebar) minmax(0, 1fr); min-height: calc(100vh - var(--workspace-topbar)); }
+        .workspace-sidebar { position: sticky; top: var(--workspace-topbar); align-self: start; height: calc(100vh - var(--workspace-topbar)); width: var(--workspace-sidebar); padding: 1.25rem .9rem; border-right: 1px solid var(--workspace-line); background: rgba(6, 15, 27, .52); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); overflow-y: auto; }
+        .workspace-sidebar .luc-sidebar-header { margin-bottom: 1.4rem; padding-inline: .55rem; }
+        .workspace-sidebar .luc-sidebar-nav { gap: .25rem; }
+        .workspace-sidebar .luc-sidebar-link { min-height: 2.7rem; padding: .65rem .75rem; border-left: 3px solid transparent; color: var(--text-muted); font-size: .82rem; }
+        .workspace-sidebar .luc-sidebar-link:hover,
+        .workspace-sidebar .luc-sidebar-link.active { border-left-color: var(--designer-azure); background: rgba(var(--designer-azure-rgb), .08); color: var(--text-light); }
+        .workspace-sidebar-section { margin: 1.25rem .6rem .55rem; color: var(--text-muted); font-family: var(--font-italic); font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; }
+        .workspace-sidebar-foot { margin-top: auto; padding: .9rem .7rem 0; border-top: 1px solid var(--workspace-line); }
+        .workspace-sidebar-foot p { margin: 0; font-size: .72rem; }
+
+        .workspace-main { min-width: 0; padding: clamp(1.1rem, 3vw, 2.5rem); }
+        .workspace-main-inner { width: min(100%, 1180px); margin: 0 auto; }
+        .workspace-breadcrumb { margin-bottom: 1.35rem; }
+        .workspace-breadcrumb .luc-breadcrumb-list { gap: .45rem; }
+        .workspace-breadcrumb .luc-breadcrumb-link { font-size: .72rem; }
+        .workspace-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem; margin-bottom: 1.5rem; }
+        .workspace-heading h1 { max-width: 12ch; margin: .65rem 0 .5rem; font-size: clamp(2.35rem, 5vw, 4.7rem); }
+        .workspace-heading p { max-width: 48ch; margin: 0; font-size: .95rem; }
+        .workspace-heading-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: .55rem; }
+
+        .workspace-overview { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(17rem, .6fr); gap: 1rem; margin-bottom: 1rem; }
+        .workspace-hero { min-height: 19rem; padding: clamp(1.3rem, 3vw, 2.25rem); }
+        .workspace-hero h2 { max-width: 13ch; margin: .7rem 0 .7rem; font-size: clamp(2rem, 4vw, 3.5rem); }
+        .workspace-hero p { max-width: 48ch; }
+        .workspace-hero-footer { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 2rem; }
+        .workspace-avatars { display: flex; align-items: center; }
+        .workspace-avatars .luc-avatar { margin-left: -.45rem; border: 2px solid var(--luc-canvas); }
+        .workspace-avatars .luc-avatar:first-child { margin-left: 0; }
+        .workspace-hero-note { color: var(--text-muted); font-family: var(--font-italic); font-size: .72rem; }
+        .workspace-brief { display: flex; flex-direction: column; justify-content: space-between; min-height: 19rem; padding: 1.3rem; }
+        .workspace-brief-header { display: flex; align-items: center; justify-content: space-between; gap: .75rem; }
+        .workspace-brief-title { margin: 0; font-size: 1.4rem; }
+        .workspace-brief dl { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.7rem 0; }
+        .workspace-brief dt { color: var(--text-muted); font-family: var(--font-italic); font-size: .7rem; }
+        .workspace-brief dd { margin: .25rem 0 0; color: var(--text-light); font-family: var(--font-display); font-size: 1.25rem; }
+        .workspace-brief dd small { color: var(--bold-viridian); font-family: var(--font-body); font-size: .68rem; }
+        .workspace-progress-copy { display: flex; justify-content: space-between; gap: .5rem; margin-bottom: .5rem; color: var(--text-muted); font-size: .72rem; }
+
+        .workspace-metrics { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; margin-bottom: 1rem; }
+        .workspace-metric-card { min-height: 8.6rem; padding: 1.1rem; }
+        .workspace-metric-card .luc-metric-value { font-size: clamp(2rem, 4vw, 3.25rem); }
+        .workspace-metric-trend { margin-top: .65rem; color: var(--bold-viridian); font-family: var(--font-italic); font-size: .7rem; }
+        .workspace-metric-trend.warning { color: var(--luca-tangerine); }
+
+        .workspace-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(18rem, .75fr); gap: 1rem; }
+        .workspace-panel { min-width: 0; padding: 1.2rem; }
+        .workspace-panel-header { display: flex; align-items: flex-start; justify-content: space-between; gap: .75rem; margin-bottom: 1rem; }
+        .workspace-panel-header h2 { margin: 0; font-size: 1.55rem; }
+        .workspace-panel-header p { margin: .25rem 0 0; font-size: .75rem; }
+        .workspace-link { color: var(--designer-azure); font-family: var(--font-italic); font-size: .72rem; white-space: nowrap; }
+        .workspace-project-list { display: grid; gap: .7rem; }
+        .workspace-project { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .8rem; align-items: center; padding: .9rem; border: 1px solid var(--workspace-line); border-radius: var(--radius-md); background: rgba(255,255,255,.025); }
+        .workspace-project:hover { border-color: rgba(var(--designer-azure-rgb), .25); background: rgba(var(--designer-azure-rgb), .045); }
+        .workspace-project-main { min-width: 0; }
+        .workspace-project-title { display: flex; align-items: center; gap: .5rem; margin-bottom: .3rem; color: var(--text-light); font-family: var(--font-display); font-size: 1rem; }
+        .workspace-project-meta { display: flex; flex-wrap: wrap; gap: .65rem; color: var(--text-muted); font-size: .68rem; }
+        .workspace-project-meta span { display: inline-flex; align-items: center; gap: .3rem; }
+        .workspace-project-progress { width: 6.2rem; }
+        .workspace-project-progress .luc-progress { height: 5px; }
+        .workspace-project-progress small { display: block; margin-top: .3rem; color: var(--text-muted); text-align: right; font-size: .62rem; }
+
+        .workspace-tabs .luc-tab-list { margin-bottom: 1rem; }
+        .workspace-tabs .luc-tab { font-size: .75rem; }
+        .workspace-activity { display: grid; gap: .75rem; }
+        .workspace-activity-item { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: .65rem; align-items: start; }
+        .workspace-activity-icon { display: grid; place-items: center; width: 1.8rem; height: 1.8rem; border-radius: .6rem; background: rgba(var(--designer-azure-rgb), .1); color: var(--designer-azure); font-size: .78rem; }
+        .workspace-activity-item strong { display: block; color: var(--text-light); font-size: .76rem; font-weight: 600; }
+        .workspace-activity-item p { margin: .16rem 0 0; font-size: .7rem; }
+        .workspace-activity-item time { color: var(--text-muted); font-family: var(--font-italic); font-size: .65rem; }
+
+        .workspace-timeline { margin: .25rem 0 0; }
+        .workspace-timeline .luc-timeline-item { margin-bottom: 1rem; }
+        .workspace-timeline .luc-timeline-title { font-family: var(--font-body); font-size: .78rem; font-weight: 600; }
+        .workspace-timeline .luc-timeline-body { font-size: .7rem; }
+        .workspace-timeline .luc-timeline-badge { box-shadow: 0 0 0 4px var(--luc-canvas); }
+
+        .workspace-table-wrap { overflow-x: auto; margin-inline: -.25rem; }
+        .workspace-table { min-width: 38rem; font-size: .72rem; }
+        .workspace-table th { padding: .7rem .55rem; font-size: .62rem; }
+        .workspace-table td { padding: .8rem .55rem; }
+        .workspace-table td:first-child { color: var(--text-light); font-family: var(--font-body); font-weight: 600; }
+        .workspace-table .luc-badge { font-size: .58rem; }
+
+        .workspace-footer { display: flex; justify-content: space-between; gap: 1rem; margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--workspace-line); color: var(--text-muted); font-family: var(--font-italic); font-size: .7rem; }
+        .workspace-mobile-only { display: none; }
+        .workspace-scrim { display: none; }
+
+        @media (max-width: 1100px) {
+            .workspace-topbar .luc-navbar-links { display: none; }
+            .workspace-layout { grid-template-columns: 1fr; }
+            .workspace-sidebar { position: fixed; top: var(--workspace-topbar); bottom: 0; left: 0; height: auto; z-index: var(--z-fixed); transform: translateX(-105%); transition: transform var(--transition-base) var(--ease-spring); }
+            .workspace-sidebar.is-open { transform: translateX(0); }
+            .workspace-scrim { position: fixed; inset: var(--workspace-topbar) 0 0; z-index: calc(var(--z-fixed) - 1); display: block; background: rgba(0,0,0,.55); opacity: 0; pointer-events: none; transition: opacity var(--transition-base) var(--ease-smooth); }
+            .workspace-scrim.is-visible { opacity: 1; pointer-events: auto; }
+            .workspace-mobile-only { display: inline-grid; }
+        }
+        @media (max-width: 860px) {
+            .workspace-overview, .workspace-grid { grid-template-columns: 1fr; }
+            .workspace-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .workspace-heading { align-items: flex-start; flex-direction: column; }
+            .workspace-heading-actions { justify-content: flex-start; }
+        }
+        @media (max-width: 560px) {
+            :root { --workspace-topbar: 4.2rem; }
+            .workspace-topbar { padding-inline: .7rem; }
+            .workspace-brand span { display: none; }
+            .workspace-actions .nav-command kbd { display: none; }
+            .workspace-actions .nav-command { width: 2.65rem; padding: 0; justify-content: center; }
+            .workspace-main { padding: 1rem .7rem 2rem; }
+            .workspace-metrics { gap: .65rem; }
+            .workspace-metric-card { padding: .85rem; min-height: 7.5rem; }
+            .workspace-metric-card .luc-metric-value { font-size: 1.85rem; }
+            .workspace-hero-footer { align-items: flex-start; flex-direction: column; }
+            .workspace-project { grid-template-columns: 1fr; }
+            .workspace-project-progress { width: 100%; }
+            .workspace-project-progress small { text-align: left; }
+            .workspace-footer { align-items: flex-start; flex-direction: column; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .workspace-sidebar, .workspace-scrim { transition: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="luc-scroll-progress" data-luc-scroll-progress role="progressbar" aria-label="Workspace reading progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+
+    <nav class="luc-navbar workspace-topbar" aria-label="Workspace navigation">
+        <div class="luc-navbar-container">
+            <div class="workspace-brand">
+                <button class="workspace-icon-button workspace-mobile-only" id="workspace-menu" type="button" aria-label="Open workspace navigation" aria-expanded="false" aria-controls="workspace-sidebar">☰</button>
+                <a href="#overview" class="luc-navbar-brand" aria-label="Aster Studio home">
+                    <img src="../lucUI logo.svg" alt="" width="32" height="32">
+                    <span><strong>Aster Studio</strong><span>client workspace · lucUI 2.0</span></span>
+                </a>
+            </div>
+            <div class="luc-navbar-links" aria-label="Workspace sections">
+                <a class="luc-navbar-link" href="#overview" aria-current="page">Overview</a>
+                <a class="luc-navbar-link" href="#projects">Projects</a>
+                <a class="luc-navbar-link" href="#deliverables">Deliverables</a>
+            </div>
+            <div class="workspace-actions">
+                <button class="nav-command workspace-icon-button" type="button" data-luc-toggle="command" aria-label="Open workspace command palette"><span aria-hidden="true">⌕</span><kbd class="luc-kbd">⌘K</kbd></button>
+                <button class="workspace-icon-button workspace-notification-trigger" id="workspace-notifications" type="button" aria-label="Open notifications" aria-expanded="false" aria-controls="workspace-notification-center">♢</button>
+                <button class="workspace-avatar" type="button" aria-label="Open account menu">LM</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="workspace-notification-center luc-notification-center" id="workspace-notification-center" aria-label="Notifications">
+        <header class="luc-notification-center-header"><h2 class="luc-notification-center-title">Notifications</h2><button class="workspace-link" id="workspace-mark-read" type="button">Mark all read</button></header>
+        <div class="luc-notification-center-list">
+            <article class="luc-notification-item unread"><span class="luc-notification-item-dot" aria-hidden="true"></span><div class="luc-notification-item-content"><p class="luc-notification-item-text">Mina uploaded a new brand exploration.</p><time class="luc-notification-item-time" datetime="2026-07-27T09:40">18 min ago</time></div></article>
+            <article class="luc-notification-item unread"><span class="luc-notification-item-dot" aria-hidden="true"></span><div class="luc-notification-item-content"><p class="luc-notification-item-text">The Solace launch review is tomorrow at 10:30.</p><time class="luc-notification-item-time" datetime="2026-07-27T08:12">2 hr ago</time></div></article>
+            <article class="luc-notification-item"><span class="luc-notification-item-dot" aria-hidden="true"></span><div class="luc-notification-item-content"><p class="luc-notification-item-text">You approved the new navigation direction.</p><time class="luc-notification-item-time" datetime="2026-07-26T16:20">Yesterday</time></div></article>
+        </div>
+    </div>
+
+    <div class="workspace-scrim" id="workspace-scrim"></div>
+    <div class="workspace-shell">
+        <div class="workspace-layout">
+            <aside class="workspace-sidebar" id="workspace-sidebar" aria-label="Workspace navigation">
+                <div class="luc-sidebar-header"><span class="luc-kicker">Studio desk</span></div>
+                <nav>
+                    <div class="workspace-sidebar-section">Workspace</div>
+                    <ul class="luc-sidebar-nav">
+                        <li><a class="luc-sidebar-link active" href="#overview" aria-current="page"><span aria-hidden="true">◈</span> Overview</a></li>
+                        <li><a class="luc-sidebar-link" href="#projects"><span aria-hidden="true">▦</span> Projects <span class="luc-badge luc-badge-azure luc-badge-sm">4</span></a></li>
+                        <li><a class="luc-sidebar-link" href="#deliverables"><span aria-hidden="true">↗</span> Deliverables</a></li>
+                        <li><a class="luc-sidebar-link" href="#team"><span aria-hidden="true">◎</span> Team</a></li>
+                    </ul>
+                    <div class="workspace-sidebar-section">Personal</div>
+                    <ul class="luc-sidebar-nav">
+                        <li><a class="luc-sidebar-link" href="#activity"><span aria-hidden="true">⌁</span> Activity</a></li>
+                        <li><a class="luc-sidebar-link" href="#settings"><span aria-hidden="true">⚙</span> Settings</a></li>
+                    </ul>
+                </nav>
+                <div class="workspace-sidebar-foot"><p>Next studio ritual</p><p class="luc-text-gold">Friday · 16:00 · Crit room</p></div>
+            </aside>
+
+            <main class="workspace-main" id="overview">
+                <div class="workspace-main-inner">
+                    <nav class="luc-breadcrumb workspace-breadcrumb" aria-label="Breadcrumb"><ol class="luc-breadcrumb-list"><li class="luc-breadcrumb-item"><a class="luc-breadcrumb-link" href="#overview">Aster Studio</a></li><li class="luc-breadcrumb-item active" aria-current="page">Overview</li></ol></nav>
+
+                    <header class="workspace-heading">
+                        <div><span class="luc-kicker">Monday, 27 July 2026</span><h1>Good morning, Luca.</h1><p>Four moving pieces, one clear horizon. Here is the view from the studio floor.</p></div>
+                        <div class="workspace-heading-actions"><button class="luc-btn luc-btn-transparency" type="button" data-luc-toggle="modal" data-luc-target="#new-project-dialog">New project <span aria-hidden="true">＋</span></button><button class="luc-btn luc-btn-primary" type="button" data-luc-toast="Your weekly studio pulse is ready." data-luc-toast-title="Pulse generated" data-luc-toast-variant="success">Share pulse <span aria-hidden="true">↗</span></button></div>
+                    </header>
+
+                    <section class="workspace-overview" aria-label="Studio overview">
+                        <article class="luc-card luc-prism workspace-hero" data-luc-spotlight>
+                            <span class="luc-kicker">Featured workspace · Solace</span>
+                            <h2>Make room for the <span class="luc-gradient-text">quiet signal.</span></h2>
+                            <p>The Solace team is shaping a calmer way to plan care. The identity system is in review; launch choreography begins next week.</p>
+                            <div class="workspace-hero-footer"><div class="workspace-avatars" aria-label="Solace project team"><span class="luc-avatar luc-avatar-sm"><span aria-hidden="true">LM</span><span class="luc-avatar-status online" aria-hidden="true"></span></span><span class="luc-avatar luc-avatar-sm"><span aria-hidden="true">AM</span><span class="luc-avatar-status online" aria-hidden="true"></span></span><span class="luc-avatar luc-avatar-sm"><span aria-hidden="true">JR</span><span class="luc-avatar-status away" aria-hidden="true"></span></span><span class="workspace-hero-note">3 collaborators online</span></div><a class="luc-btn luc-btn-azure luc-btn-sm" href="#projects">Open project <span aria-hidden="true">↗</span></a></div>
+                        </article>
+                        <article class="luc-card luc-prism workspace-brief" data-luc-spotlight>
+                            <div class="workspace-brief-header"><div><span class="luc-eyebrow luc-text-gold">At a glance</span><h2 class="workspace-brief-title">This week</h2></div><span class="luc-badge luc-badge-viridian luc-badge-dot">On track</span></div>
+                            <dl><div><dt>Focus hours</dt><dd>28.5 <small>+12%</small></dd></div><div><dt>Open reviews</dt><dd>06</dd></div><div><dt>Next milestone</dt><dd>29 <small>JUL</small></dd></div><div><dt>Client mood</dt><dd>Bright <small>↗</small></dd></div></dl>
+                            <div><div class="workspace-progress-copy"><span>Studio capacity</span><strong>68%</strong></div><div class="luc-progress luc-progress-azure" role="progressbar" aria-label="Studio capacity" aria-valuemin="0" aria-valuemax="100" aria-valuenow="68"><div class="luc-progress-bar" style="width: 68%"></div></div></div>
+                        </article>
+                    </section>
+
+                    <section class="workspace-metrics" aria-label="Studio metrics">
+                        <article class="luc-card luc-prism workspace-metric-card" data-luc-spotlight><div class="luc-metric"><span class="luc-metric-label">Active projects</span><span class="luc-metric-value">04</span></div><span class="workspace-metric-trend">↗ 2 this quarter</span></article>
+                        <article class="luc-card luc-prism workspace-metric-card" data-luc-spotlight><div class="luc-metric"><span class="luc-metric-label">On-time delivery</span><span class="luc-metric-value">96%</span></div><span class="workspace-metric-trend">↗ Best month yet</span></article>
+                        <article class="luc-card luc-prism workspace-metric-card" data-luc-spotlight><div class="luc-metric"><span class="luc-metric-label">Awaiting review</span><span class="luc-metric-value">06</span></div><span class="workspace-metric-trend warning">• 2 due today</span></article>
+                        <article class="luc-card luc-prism workspace-metric-card" data-luc-spotlight><div class="luc-metric"><span class="luc-metric-label">Studio energy</span><span class="luc-metric-value">8.7</span></div><span class="workspace-metric-trend">↗ Up from 8.2</span></article>
+                    </section>
+
+                    <div class="workspace-grid">
+                        <section class="luc-card luc-prism workspace-panel" id="projects" data-luc-spotlight>
+                            <header class="workspace-panel-header"><div><span class="luc-eyebrow luc-text-azure">In motion</span><h2>Projects</h2><p>Where the studio is spending its attention.</p></div><a class="workspace-link" href="#deliverables">View all ↗</a></header>
+                            <div class="workspace-project-list">
+                                <a class="workspace-project" id="solace" href="#solace"><div class="workspace-project-main"><div class="workspace-project-title">Solace / Identity system <span class="luc-badge luc-badge-azure luc-badge-sm">Review</span></div><div class="workspace-project-meta"><span>◇ Brand world</span><span>Due 29 Jul</span><span>LM · AM · JR</span></div></div><div class="workspace-project-progress"><div class="luc-progress luc-progress-azure"><div class="luc-progress-bar" style="width: 82%"></div></div><small>82%</small></div></a>
+                                <a class="workspace-project" id="northline" href="#northline"><div class="workspace-project-main"><div class="workspace-project-title">Northline / Product launch <span class="luc-badge luc-badge-gold luc-badge-sm">Building</span></div><div class="workspace-project-meta"><span>◇ Campaign</span><span>Due 06 Aug</span><span>EC · LM</span></div></div><div class="workspace-project-progress"><div class="luc-progress"><div class="luc-progress-bar" style="width: 54%"></div></div><small>54%</small></div></a>
+                                <a class="workspace-project" id="morrow" href="#morrow"><div class="workspace-project-main"><div class="workspace-project-title">Morrow / Editorial platform <span class="luc-badge luc-badge-viridian luc-badge-sm">Live</span></div><div class="workspace-project-meta"><span>◇ Web experience</span><span>Retainer</span><span>NK · JR · LM</span></div></div><div class="workspace-project-progress"><div class="luc-progress luc-progress-viridian"><div class="luc-progress-bar" style="width: 100%"></div></div><small>100%</small></div></a>
+                            </div>
+                        </section>
+
+                        <section class="luc-card luc-prism workspace-panel workspace-tabs" id="activity" data-luc-spotlight>
+                            <header class="workspace-panel-header"><div><span class="luc-eyebrow luc-text-gold">Studio pulse</span><h2>Activity</h2><p>Small signals, kept together.</p></div><button class="workspace-link" type="button" data-luc-toast="Activity export queued." data-luc-toast-title="One moment" data-luc-toast-variant="info">Export</button></header>
+                            <div class="luc-tabs"><div class="luc-tab-list luc-tab-list-pill" aria-label="Activity views"><button class="luc-tab active" type="button">Recent</button><button class="luc-tab" type="button">Mentions</button></div><div class="luc-tab-panel active"><div class="workspace-activity"><article class="workspace-activity-item"><span class="workspace-activity-icon" aria-hidden="true">↗</span><div><strong>Mina shared 3 new routes</strong><p>Solace / Navigation exploration · <time datetime="2026-07-27T09:40">18 min ago</time></p></div></article><article class="workspace-activity-item"><span class="workspace-activity-icon" aria-hidden="true">✦</span><div><strong>You approved a direction</strong><p>Northline / Launch language · <time datetime="2026-07-27T08:55">1 hr ago</time></p></div></article><article class="workspace-activity-item"><span class="workspace-activity-icon" aria-hidden="true">◎</span><div><strong>Jules joined the workspace</strong><p>Added to Solace / Identity system · <time datetime="2026-07-26T16:20">Yesterday</time></p></div></article></div></div><div class="luc-tab-panel"><p class="luc-text-sm">No new mentions. The studio is quiet in the best way.</p></div></div>
+                        </section>
+
+                        <section class="luc-card luc-prism workspace-panel" id="deliverables" data-luc-spotlight>
+                            <header class="workspace-panel-header"><div><span class="luc-eyebrow luc-text-azure">The next handoff</span><h2>Deliverables</h2><p>Review queue across the active slate.</p></div><div class="luc-dropdown"><button class="luc-dropdown-toggle workspace-link" type="button">This week⌄</button><div class="luc-dropdown-menu luc-dropdown-menu-right"><button class="luc-dropdown-item" type="button">This week</button><button class="luc-dropdown-item" type="button">Next week</button><button class="luc-dropdown-item" type="button">All open</button></div></div></header>
+                            <div class="workspace-table-wrap"><table class="luc-table workspace-table"><caption class="luc-sr-only">Upcoming deliverables and their review status</caption><thead><tr><th scope="col">Deliverable</th><th scope="col">Project</th><th scope="col">Due</th><th scope="col">Status</th></tr></thead><tbody><tr><td>Navigation routes</td><td>Solace</td><td>Today</td><td><span class="luc-badge luc-badge-tangerine luc-badge-sm">Needs eyes</span></td></tr><tr><td>Launch film edit</td><td>Northline</td><td>29 Jul</td><td><span class="luc-badge luc-badge-gold luc-badge-sm">In review</span></td></tr><tr><td>Editorial modules</td><td>Morrow</td><td>01 Aug</td><td><span class="luc-badge luc-badge-viridian luc-badge-sm">Approved</span></td></tr><tr><td>Type specimen</td><td>Solace</td><td>02 Aug</td><td><span class="luc-badge luc-badge-azure luc-badge-sm">Draft</span></td></tr></tbody></table></div>
+                        </section>
+
+                        <section class="luc-card luc-prism workspace-panel" id="team" data-luc-spotlight>
+                            <header class="workspace-panel-header"><div><span class="luc-eyebrow luc-text-gold">People around the table</span><h2>Team rhythm</h2><p>Upcoming moments worth protecting.</p></div><a class="workspace-link" href="#team">Manage ↗</a></header>
+                            <ol class="luc-timeline workspace-timeline"><li class="luc-timeline-item"><span class="luc-timeline-badge" aria-hidden="true"></span><h3 class="luc-timeline-title">Solace review room</h3><time class="luc-timeline-time" datetime="2026-07-28T10:30">Tomorrow · 10:30</time><p class="luc-timeline-body">Identity system walkthrough with Ana and Jules.</p></li><li class="luc-timeline-item"><span class="luc-timeline-badge" aria-hidden="true"></span><h3 class="luc-timeline-title">Quiet hour / studio</h3><time class="luc-timeline-time" datetime="2026-07-29T14:00">Wednesday · 14:00</time><p class="luc-timeline-body">No meetings. Make the thing that has been waiting.</p></li><li class="luc-timeline-item"><span class="luc-timeline-badge" aria-hidden="true"></span><h3 class="luc-timeline-title">Friday critique</h3><time class="luc-timeline-time" datetime="2026-07-31T16:00">Friday · 16:00</time><p class="luc-timeline-body">Bring one brave option and one honest question.</p></li></ol>
+                        </section>
+                    </div>
+
+                    <footer class="workspace-footer"><span>Designed for teams who care how the work feels.</span><span>Aster Studio · workspace starter · lucUI 2.0</span></footer>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <div class="luc-command-backdrop" aria-hidden="true">
+        <div class="luc-command" role="dialog" aria-modal="true" aria-label="Workspace command palette" tabindex="-1">
+            <input class="luc-command-search" type="search" placeholder="Jump to a workspace view…" aria-label="Search workspace">
+            <div class="luc-command-list" role="listbox"><button class="luc-command-item" type="button" data-luc-command-target="#overview"><span>Open overview</span><kbd class="luc-kbd">O</kbd></button><button class="luc-command-item" type="button" data-luc-command-target="#projects"><span>Browse projects</span><kbd class="luc-kbd">P</kbd></button><button class="luc-command-item" type="button" data-luc-command-target="#deliverables"><span>Review deliverables</span><kbd class="luc-kbd">D</kbd></button><button class="luc-command-item" type="button" data-luc-command-target="#team"><span>See team rhythm</span><kbd class="luc-kbd">T</kbd></button></div>
+            <div class="luc-flex luc-justify-between luc-items-center luc-p-3"><span class="workspace-footer" style="margin:0;padding:0;border:0">Use ↑ ↓ to explore</span><button class="luc-copy-button" type="button" data-luc-dismiss="command">Close <kbd class="luc-kbd">Esc</kbd></button></div>
+        </div>
+    </div>
+
+    <div class="luc-modal-backdrop" id="new-project-dialog" aria-hidden="true">
+        <section class="luc-modal luc-prism" role="dialog" aria-modal="true" aria-labelledby="new-project-title" tabindex="-1">
+            <header class="luc-modal-header"><div><span class="luc-eyebrow luc-text-gold">Start a new thread</span><h2 class="luc-modal-title" id="new-project-title">New project</h2></div><button class="luc-modal-close" type="button" data-luc-dismiss="modal" aria-label="Close new project dialog">×</button></header>
+            <form class="luc-modal-body" id="new-project-form"><div class="luc-form-group"><label class="luc-label" for="project-name">Project name</label><input class="luc-input" id="project-name" name="project-name" type="text" placeholder="e.g. Solace / launch system" required></div><div class="luc-form-group"><label class="luc-label" for="project-type">Project type</label><select class="luc-select" id="project-type" name="project-type"><option>Brand world</option><option>Product experience</option><option>Campaign</option><option>Editorial platform</option></select></div><div class="luc-form-group"><label class="luc-label" for="project-note">A first note <span class="luc-text-muted">(optional)</span></label><textarea class="luc-textarea" id="project-note" name="project-note" rows="3" placeholder="What should this work make possible?"></textarea></div><footer class="luc-modal-footer" style="margin-inline:-1.5rem -1.5rem;margin-bottom:-1.5rem"><button class="luc-btn luc-btn-transparency" type="button" data-luc-dismiss="modal">Cancel</button><button class="luc-btn luc-btn-primary" type="submit">Create project <span aria-hidden="true">↗</span></button></footer></form>
+        </section>
+    </div>
+
+    <script src="../lucUI.js"></script>
+    <script>
+        (() => {
+            const sidebar = document.querySelector('#workspace-sidebar');
+            const menu = document.querySelector('#workspace-menu');
+            const scrim = document.querySelector('#workspace-scrim');
+            const closeNav = () => { sidebar?.classList.remove('is-open'); scrim?.classList.remove('is-visible'); menu?.setAttribute('aria-expanded', 'false'); };
+            menu?.addEventListener('click', () => { const open = sidebar?.classList.toggle('is-open'); scrim?.classList.toggle('is-visible', Boolean(open)); menu.setAttribute('aria-expanded', String(Boolean(open))); });
+            scrim?.addEventListener('click', closeNav);
+            sidebar?.querySelectorAll('a').forEach(link => link.addEventListener('click', closeNav));
+            document.querySelector('#workspace-notifications')?.addEventListener('click', event => { const button = event.currentTarget; const panel = document.querySelector('#workspace-notification-center'); const open = panel?.classList.toggle('active'); button.setAttribute('aria-expanded', String(Boolean(open))); });
+            document.querySelector('#workspace-mark-read')?.addEventListener('click', () => { document.querySelectorAll('.workspace-notification-center .unread').forEach(item => item.classList.remove('unread')); });
+            document.addEventListener('click', event => { const panel = document.querySelector('#workspace-notification-center'); const trigger = document.querySelector('#workspace-notifications'); if (panel?.classList.contains('active') && !panel.contains(event.target) && !trigger?.contains(event.target)) { panel.classList.remove('active'); trigger?.setAttribute('aria-expanded', 'false'); } });
+            document.querySelector('#new-project-form')?.addEventListener('submit', event => { event.preventDefault(); document.querySelector('#new-project-dialog [data-luc-dismiss="modal"]')?.click(); window.lucUI?.createToast('Project created', 'Your new project is ready for its first direction.', 4200, 'success'); event.currentTarget.reset(); });
+        })();
+    </script>
+</body>
+</html>

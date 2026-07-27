@@ -22,13 +22,14 @@ This guide will help you set up lucUI for public distribution via GitHub and npm
 ### Push to GitHub
 
 ```bash
-cd "/Users/luca/Projects/lucUI CSS Framework"
+cd "/Users/luca/Projects/lucUI"
 
-# Add all files
+# Build and add the release files
+npm run build
 git add .
 
-# Initial commit
-git commit -m "Initial release: lucUI CSS Framework v1.0.0"
+# Release commit
+git commit -m "Release lucUI 2.0 — Prism"
 
 # Add remote (replace YOUR_USERNAME)
 git remote add origin https://github.com/lucaf1-15/lucui.git
@@ -50,7 +51,7 @@ Enter your npm credentials when prompted.
 
 Ensure `package.json` has correct information:
 - name: `lucui-css-framework`
-- version: `1.0.0`
+- version: `2.0.0`
 - description: Clear and descriptive
 - repository: Your GitHub URL
 - license: `MIT`
@@ -58,13 +59,13 @@ Ensure `package.json` has correct information:
 ### Publish to npm
 
 ```bash
-cd "/Users/luca/Projects/lucUI CSS Framework"
+cd "/Users/luca/Projects/lucUI"
 npm publish
 ```
 
 If successful, you'll see output like:
 ```
-+ lucui-css-framework@1.0.0
++ lucui-css-framework@2.0.0
 ```
 
 ## Step 3: CDN Distribution
@@ -72,8 +73,8 @@ If successful, you'll see output like:
 Once published to npm, jsDelivr will automatically make it available via CDN:
 
 ```
-https://cdn.jsdelivr.net/npm/lucui-css-framework@1.0.0/lucUI.css
-https://cdn.jsdelivr.net/npm/lucui-css-framework@1.0.0/lucUI.min.css
+https://cdn.jsdelivr.net/npm/lucui-css-framework@2.0.0/lucUI.css
+https://cdn.jsdelivr.net/npm/lucui-css-framework@2.0.0/lucUI.min.css
 ```
 
 ## Step 4: GitHub Repository Configuration
@@ -91,7 +92,7 @@ Add topics: `css`, `framework`, `glass-morphism`, `design-system`, `ui`, `lucui`
 4. Folder: /root
 5. Save
 
-This will host the example.html at: `https://YOUR_USERNAME.github.io/lucui/example.html`
+This will host the showcase at: `https://YOUR_USERNAME.github.io/lucui/tutorial.html`
 
 ### Add Repository Description
 
@@ -114,8 +115,8 @@ Download releases from: https://github.com/YOUR_USERNAME/lucui/releases
 
 1. Go to your GitHub repository
 2. Click "Releases" → "Create a new release"
-3. Tag: `v1.0.0`
-4. Release title: `lucUI CSS Framework v1.0.0`
+3. Tag: `v2.0.0`
+4. Release title: `lucUI 2.0 — Prism`
 5. Description: Copy content from CHANGELOG.md
 6. Publish release
 
@@ -127,10 +128,18 @@ npm install lucui-css-framework
 ```
 
 ### Test CDN access
-Visit: https://cdn.jsdelivr.net/npm/lucui-css-framework@1.0.0/lucUI.css
+Visit: https://cdn.jsdelivr.net/npm/lucui-css-framework@2.0.0/lucUI.css
 
 ### Test GitHub Pages
-Visit: https://YOUR_USERNAME.github.io/lucui/example.html
+Visit: https://YOUR_USERNAME.github.io/lucui/tutorial.html
+
+### Starter and documentation files
+
+The published package includes:
+
+- `COMPONENTS.md` — source-checked component/API reference
+- `MIGRATION.md` — 1.x → 2.0 upgrade guide
+- `starters/studio-workspace.html` — realistic responsive product starter
 
 ## Ongoing Maintenance
 

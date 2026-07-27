@@ -1,6 +1,6 @@
 /* ============================================================
-   lucUI — Card Components v3.0
-   Enhanced with horizontal, media, and overlay variants
+   lucUI — Card Components v2.0
+   Dimensional glass surfaces and editorial content panels
    ============================================================ */
 
 /* Base Card Styles - Enhanced */
@@ -41,13 +41,8 @@
 .luc-card:hover {
     background: var(--glass-hover);
     border-color: rgba(174,157,93,0.30);
-    transform: translateY(-8px) scale(1.01);
+    transform: translateY(-3px);
     box-shadow: var(--shadow-xl), inset 0 1px 0 rgba(255,255,255,0.10);
-}
-
-.luc-card:active {
-    transform: translateY(-1px) scale(0.985);
-    filter: brightness(0.95);
 }
 
 /* Transparency Card (Enhanced) */

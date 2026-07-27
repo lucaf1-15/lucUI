@@ -57,7 +57,6 @@
 
 .luc-alert-title {
     font-size: var(--text-base);
-    font-weight: 600;
     color: var(--text-light);
     margin-bottom: var(--space-1);
 }
@@ -76,8 +75,8 @@
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255,255,255,0.12);
     border-radius: 50%;
-    width: 28px;
-    height: 28px;
+    width: 44px;
+    height: 44px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -89,6 +88,11 @@
 .luc-alert-close:hover {
     background: rgba(255,255,255,0.12);
     color: var(--text-light);
+}
+
+.luc-alert-close:focus-visible {
+    outline: 2px solid var(--luc-focus-ring, var(--designer-azure));
+    outline-offset: 3px;
 }
 
 /* Alert Variants */

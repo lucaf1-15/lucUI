@@ -1,8 +1,12 @@
 # lucUI CSS Framework
 
-**Premium glass morphism design system by luca.ecosystem**
+**The prism interface system by luca.ecosystem / luca.designss**
 
-lucUI is a modular, dependency-free CSS framework that brings the luca.ecosystem's signature "liquid glass" aesthetic to your projects. Built in collaboration between luca.designss and luca.softss, lucUI provides a complete design system with transparency components, brand colors, and premium UI elements.
+lucUI 2.0 is a modular, dependency-free CSS framework for interfaces that feel authored. It combines luca.ecosystem's liquid-glass surfaces with editorial typography, semantic design tokens, accessible interactions, and reactive prism lighting.
+
+Version 2.0 introduces the signature Prism system: `.luc-stage`, `.luc-prism`, `.luc-bento`, branded code windows, metrics, marquees, a command palette, and a launch showcase built entirely with lucUI.
+
+Start with the [component reference](COMPONENTS.md), follow the [1.x → 2.0 migration guide](MIGRATION.md), or open the realistic [studio workspace starter](starters/studio-workspace.html).
 
 ---
 
@@ -66,6 +70,18 @@ Download the latest release from GitHub and include the file:
 </div>
 ```
 
+### Prism Surface (2.0)
+
+```html
+<article class="luc-card luc-prism" data-luc-spotlight>
+    <span class="luc-kicker">New perspective</span>
+    <h2 class="luc-gradient-text">Build a feeling.</h2>
+    <p>Compose from the lucUI visual language.</p>
+</article>
+```
+
+Add `lucUI.js` for pointer-reactive light, accessible modals/tabs/dropdowns, themes, copy buttons, toasts, scroll reveals, and the command palette.
+
 ### Interactive Features
 
 ```html
@@ -83,6 +99,14 @@ Download the latest release from GitHub and include the file:
 ```bash
 npm run build
 ```
+
+Edit the modular files or `lucUI.source.css`; the build creates a standalone `lucUI.css` and a true minified `lucUI.min.css`.
+
+### Production-shaped starter
+
+The package includes `starters/studio-workspace.html`, a complete client-workspace composition using the navbar, sidebar, metrics, Prism surfaces, project cards, tabs, timeline, data table, notifications, modal form, toast, command palette, and responsive mobile navigation. It is a starting product surface, not just a component gallery.
+
+For the full API, see [COMPONENTS.md](COMPONENTS.md). For upgrading an existing lucUI project, see [MIGRATION.md](MIGRATION.md).
 
 ---
 
@@ -112,9 +136,9 @@ lucUI uses the official luca.ecosystem brand color palette:
 
 ### Brand Fonts
 
-- **Playfair Display** (Black) - Display headings
-- **Raleway** (Medium) - Body text
-- **Montserrat** (Light Italic) - Italic accents
+- **Playfair Display** (Black) — titles and headers
+- **Raleway** (Medium) — body and interface text
+- **Montserrat** (Light Italic) — accent text, kickers, captions, and asides
 
 ### Typography Classes
 

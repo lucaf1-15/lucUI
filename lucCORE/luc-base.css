@@ -4,10 +4,15 @@
 
 /* Body Background - Matching luca.ecosystem gradient */
 body {
-    background: radial-gradient(ellipse 120% 60% at 50% 0%, #243b55 0%, #1D2D44 45%, #111e2e 100%);
+    background-color: var(--luc-canvas);
+    background-image:
+        radial-gradient(900px circle at var(--luc-pointer-x) var(--luc-pointer-y), rgba(var(--designer-azure-rgb), 0.11), transparent 42%),
+        radial-gradient(ellipse 90% 55% at 50% -8%, rgba(var(--studio-gold-rgb), 0.13), transparent 58%),
+        linear-gradient(145deg, var(--luc-canvas-deep) 0%, var(--luca-navy) 56%, #0b1a2b 100%);
     background-attachment: fixed;
     min-height: 100vh;
     overflow-x: hidden;
+    color: var(--text-light);
 }
 
 body::before {
@@ -15,9 +20,15 @@ body::before {
     position: fixed;
     inset: 0;
     pointer-events: none;
-    background: radial-gradient(circle at 20% 20%, rgba(174,157,93,0.10), transparent 24%),
-                radial-gradient(circle at 80% 0%, rgba(0,187,255,0.10), transparent 22%);
-    animation: luc-aurora-shift 16s ease-in-out infinite alternate;
+    background:
+        linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px),
+        radial-gradient(circle at 18% 22%, rgba(var(--studio-gold-rgb), 0.10), transparent 22%),
+        radial-gradient(circle at 82% 4%, rgba(var(--designer-azure-rgb), 0.10), transparent 24%);
+    background-size: 72px 72px, 72px 72px, auto, auto;
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,0.9), transparent 82%);
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.9), transparent 82%);
+    animation: luc-aurora-shift 18s ease-in-out infinite alternate;
     z-index: -1;
 }
 
@@ -26,10 +37,14 @@ body::before {
     100% { transform: translate3d(3%, -2%, 0) scale(1.04); }
 }
 
+@media (prefers-reduced-motion: reduce) {
+    body::before { animation: none; }
+}
+
 /* Container */
 .luc-container {
-    width: 90%;
-    max-width: 1400px;
+    width: min(92%, var(--luc-content-width));
+    max-width: var(--luc-content-width);
     margin: 0 auto;
     padding: 0 var(--space-4);
 }
@@ -111,5 +126,12 @@ body::before {
     
     .luc-grid {
         gap: var(--space-3);
+    }
+}
+
+@media (max-width: 768px) {
+    body::before {
+        animation: none;
+        background-size: 96px 96px, 96px 96px, auto, auto;
     }
 }

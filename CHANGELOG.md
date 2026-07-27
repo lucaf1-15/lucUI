@@ -7,7 +7,25 @@ and this project adheres to Semantic Versioning.
 
 ---
 
-## [2.0.0] - 2026-07-02
+## [2.0.0] - 2026-07-29
+
+### Signature release — Prism
+- **Prism surface system** (`luc-signature.css`) — reactive pointer lighting, layered glass, editorial stages, responsive bento layouts, metric blocks, code windows, marquees, theme docks, reading progress, and a command palette
+- **Launch showcase** (`tutorial.html`) — rebuilt as an immersive lucUI 2.0 product experience with a living hero, theme lab, copyable starter surface, command navigation, manifesto modal, and real component interactions
+- **Semantic design tokens** — stable brand primitives plus canvas, surface, ink, accent, focus, RGB-channel, layout, radius, and shadow aliases for safer customization across themes
+- **Brand typography roles** — Playfair Display for titles, Raleway Medium for interface/body copy, and Montserrat Light Italic for kickers, captions, and accents
+
+### Distribution and performance
+- **True single-file bundles** — `lucUI.css` is now generated from all 50 modules instead of shipping as an import-only manifest
+- **Real minification** — `lucUI.min.css` is a standalone minified build rather than a chain of browser requests
+- **Source manifest** — `lucUI.source.css` is the authoring entry point; `npm run build` regenerates both distribution files
+
+### Accessibility and interaction
+- **Modal manager** — focus entry/trap/return, Escape and backdrop dismissal, body-scroll restoration, ARIA trigger state, and race-safe closing
+- **Tabs and dropdowns** — repaired dropdown state mismatch plus keyboard navigation and complete tab/tabpanel relationships
+- **Command palette and copy actions** — keyboard navigation, focus trapping, filtering, clipboard fallback, and accessible state updates
+- **Contrast and focus** — dark ink on bright brand fills, a universal focus token, keyboard-accessible toggles, and focus rings for core controls
+- **Reduced motion** — ambient and component motion now collapses to near-zero when requested
 
 ### Added — New Components
 - **Tooltips** (`luc-tooltips.css`) — CSS-only tooltips with top/bottom/left/right positioning, gold and azure color variants, and smooth fade+translate animation

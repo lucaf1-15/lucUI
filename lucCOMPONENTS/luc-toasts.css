@@ -59,10 +59,10 @@
     align-items: flex-start;
     gap: var(--space-3);
     padding: var(--space-4);
-    background: rgba(8,18,32,0.92);
+    background: var(--luc-surface-strong, rgba(8,18,32,0.92));
     backdrop-filter: blur(32px) saturate(200%) brightness(1.08);
     -webkit-backdrop-filter: blur(32px) saturate(200%) brightness(1.08);
-    border: 1px solid rgba(255,255,255,0.10);
+    border: 1px solid var(--glass-edge);
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-xl), inset 0 1px 0 rgba(255,255,255,0.08);
     pointer-events: all;
@@ -155,8 +155,6 @@
 
 .luc-toast-title {
     font-size: var(--text-sm);
-    font-weight: 600;
-    font-family: var(--font-body);
     color: var(--text-light);
     margin-bottom: 2px;
 }
@@ -171,11 +169,11 @@
 /* Toast Close Button — shares pattern with .luc-alert-close and .luc-modal-close */
 .luc-toast-close {
     flex-shrink: 0;
-    background: rgba(255,255,255,0.07);
-    border: 1px solid rgba(255,255,255,0.10);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-edge);
     border-radius: 50%;
-    width: 24px;
-    height: 24px;
+    width: 44px;
+    height: 44px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -187,8 +185,13 @@
 }
 
 .luc-toast-close:hover {
-    background: rgba(255,255,255,0.14);
+    background: var(--glass-hover);
     color: var(--text-light);
+}
+
+.luc-toast-close:focus-visible {
+    outline: 2px solid var(--luc-focus-ring, var(--designer-azure));
+    outline-offset: 3px;
 }
 
 /* Toast Variants */
@@ -268,5 +271,10 @@
     .luc-toast.removing {
         animation: none;
         opacity: 0;
+    }
+
+    .luc-toast-progress {
+        animation: none;
+        width: 100%;
     }
 }

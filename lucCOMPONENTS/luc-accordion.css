@@ -28,6 +28,22 @@
     box-shadow: var(--shadow-md), inset 0 1px 0 rgba(255,255,255,0.08);
 }
 
+/* Legacy div/button accordion API remains visually compatible. */
+.luc-accordion-item.active {
+    border-color: rgba(174,157,93,0.28);
+    box-shadow: var(--shadow-md), inset 0 1px 0 rgba(255,255,255,0.08);
+}
+
+.luc-accordion-item.active .luc-accordion-header,
+.luc-accordion-item.active .luc-accordion-trigger {
+    color: var(--studio-gold);
+}
+
+.luc-accordion-body[hidden],
+.luc-accordion-content[hidden] {
+    display: none;
+}
+
 /* Accordion Summary / Trigger */
 .luc-accordion-trigger {
     display: flex;

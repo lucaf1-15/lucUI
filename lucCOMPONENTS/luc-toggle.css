@@ -7,10 +7,24 @@
     align-items: center;
     cursor: pointer;
     user-select: none;
+    min-height: 44px;
 }
 
 .luc-toggle-input {
-    display: none;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.luc-toggle-input:focus-visible + .luc-toggle-track {
+    outline: 2px solid var(--designer-azure);
+    outline-offset: 4px;
 }
 
 .luc-toggle-track {

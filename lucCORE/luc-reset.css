@@ -52,9 +52,15 @@ table {
     border-spacing: 0;
 }
 
-/* Remove default focus outline, add custom focus styles */
+/* Consistent, accessible focus treatment */
 :focus-visible {
-    outline: none;
+    outline: 2px solid var(--luc-focus-ring, var(--designer-azure));
+    outline-offset: 4px;
+}
+
+::selection {
+    color: var(--luc-ink);
+    background: var(--luc-selection);
 }
 
 /* Remove default tap highlight on mobile */

@@ -26,7 +26,7 @@
     background: var(--glass-bg);
     border: 1px solid var(--glass-edge);
     border-radius: var(--radius-sm);
-    animation: luc-bounce 1.2s ease-in-out infinite;
+    animation: luc-loader-bounce 1.2s ease-in-out infinite;
 }
 
 .luc-loader-bar:nth-child(2) {
@@ -41,7 +41,7 @@
     100% { transform: rotate(360deg); }
 }
 
-@keyframes luc-bounce {
+@keyframes luc-loader-bounce {
     0%, 100% {
         transform: scaleY(0.3);
     }

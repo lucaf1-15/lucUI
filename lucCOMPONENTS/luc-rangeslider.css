@@ -18,6 +18,11 @@
     outline: none;
 }
 
+.luc-range-slider:focus-visible {
+    outline: 2px solid var(--luc-focus-ring, var(--designer-azure));
+    outline-offset: 4px;
+}
+
 .luc-range-slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
@@ -33,4 +38,21 @@
 
 .luc-range-slider::-webkit-slider-thumb:hover {
     transform: scale(1.2);
+}
+
+.luc-range-slider::-moz-range-track {
+    height: 6px;
+    border: 1px solid var(--glass-edge);
+    border-radius: var(--radius-full);
+    background: var(--glass-bg);
+}
+
+.luc-range-slider::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #fff;
+    border-radius: var(--radius-full);
+    background: var(--studio-gold);
+    cursor: pointer;
+    box-shadow: var(--shadow-sm);
 }

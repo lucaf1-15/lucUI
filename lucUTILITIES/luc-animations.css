@@ -1,5 +1,5 @@
 /* ============================================================
-   lucUI — Animation Utilities v3.0
+   lucUI — Animation Utilities v2.0
    Enhanced with scroll-triggered reveals and physics-based animations
    ============================================================ */
 
@@ -292,6 +292,8 @@
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
         animation-duration: 0.01ms !important;
-        transition-duration: 0.2s !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
     }
 }
