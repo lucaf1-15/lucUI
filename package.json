@@ -1,6 +1,6 @@
 {
   "name": "lucui-css-framework",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "The prism interface system: editorial typography, reactive glass, accessible components, and semantic CSS tokens by luca.ecosystem",
   "main": "lucUI.css",
   "style": "lucUI.min.css",

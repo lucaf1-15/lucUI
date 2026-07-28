@@ -122,7 +122,7 @@ try {
 
     const body = localImports.map(readStylesheet).filter(Boolean).join('\n');
     const remoteImports = [...externalImports].map(value => `@import url('${value}');`).join('\n');
-    const banner = '/* lucUI v2.0.0 | MIT License | luca.ecosystem / luca.designss */';
+    const banner = '/* lucUI v2.0.1 | MIT License | luca.ecosystem / luca.designss */';
     const bundle = `${banner}\n${remoteImports}${remoteImports ? '\n\n' : ''}${body}`;
     const minified = `${banner}\n${remoteImports}${remoteImports ? '\n' : ''}${minifyCss(body)}\n`;
 
